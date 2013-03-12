@@ -1,0 +1,110 @@
+//= require "bootstrap"
+//= require "grid"
+
+@font-face
+	:font-family "Futura"
+	:src url("FuturaStd-Light.otf")
+	:font-weight 100
+
+@font-face
+	:font-family "Futura"
+	:src url("FuturaStd-Book.otf")
+	:font-weight 300
+
+@font-face
+	:font-family "Futura"
+	:src url("FuturaStd-Heavy.otf")
+	:font-weight 500
+
+@font-face
+	:font-family "Futura"
+	:src url("FuturaStd-Bold.otf")
+	:font-weight 700
+
+@font-face
+	:font-family "Futura"
+	:src url("FuturaStd-Bold.otf")
+	:font-weight 900
+
+@font-face
+	:font-family "Gudea"
+	:src url("Gudea-Regular.ttf")
+
+
+$amarelo: #f7cc52
+$roxo: #532196
+$preto: #666
+
+body
+	:font-family "Gudea"
+	:line-height 1.4
+
+.modulo
+	:border solid 1px $amarelo
+	:height 156px
+	:margin-bottom 24px
+
+aside.modulo
+	:height 360px
+
+.inscreva-se
+	:border solid 1px $amarelo
+	:float right
+
+
+nav, h1, h2, h3, h4, h5, h6
+	:font-family "Futura"
+	:line-height 1.4
+	:font-weight 300
+	:margin 0
+
+h1
+	:font-size 24px
+	:font-weight 100
+	:margin 0
+
+h3
+	:text-transform uppercase
+	:font-size 16px
+	:font-weight 500
+	:color $roxo
+
+nav
+	:border-top 1px solid $amarelo
+	:border-bottom 1px solid $amarelo
+	:text-transform uppercase
+
+	ul.nav, ul.nav-pills
+		li
+			:margin 0	
+
+			a
+				:font-size 12px
+				:border-radius 0
+				:color $preto
+				:border-right 1px solid $preto
+				:margin 12px 0
+				:height 13px
+				:padding 0 24px
+
+				&:hover
+					:background-color transparent
+					:font-weight 700
+
+			&:first-child a
+				:padding-left 0px
+
+			&:last-child a
+				:padding-right 0px
+				:border-right 0
+
+header
+	:overflow hidden
+	:margin-bottom 12px
+
+.nav
+	:margin-bottom 0px
+
+.logo
+	:z-index 1
+	:position relative

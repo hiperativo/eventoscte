@@ -1,0 +1,120 @@
+body
+	min-width: 1056px
+
+.container_4
+	margin-left: auto
+	margin-right: auto
+	width: 1056px
+
+.grid_1, .grid_2, .grid_3, .grid_4 
+		
+	display:inline
+	float: left
+	position: relative
+	margin-left: 12px
+	margin-right: 12px
+
+.push_1, .pull_1,
+.push_2, .pull_2,
+.push_3, .pull_3,
+.push_4, .pull_4 
+	position:relative
+
+.alpha 
+	margin-left: 0
+
+.omega 
+	margin-right: 0
+
+.container_4 
+	
+	.modulo
+		$offset: 24px + 2px
+		padding: 12px
+
+		&.grid_1 
+			width: (234px - $offset)
+
+		&.grid_2 
+			width: (504px - $offset)
+
+		&.grid_3 
+			width: (768px - $offset)
+
+		&.grid_4 
+			width: (1032px - $offset)
+
+
+	.grid_1 
+		width: (240px)
+
+	.grid_2 
+		width: (504px)
+
+	.grid_3 
+		width: (768px)
+
+	.grid_4 
+		width: (1032px)
+
+
+	.prefix_1 
+		padding-left: 264px
+
+	.prefix_2 
+		padding-left: 528px
+
+	.prefix_3 
+		padding-left: 792px
+
+
+	.suffix_1 
+		padding-right: 264px
+
+	.suffix_2 
+		padding-right: 528px
+
+	.suffix_3 
+		padding-right: 792px
+
+
+	.push_1 
+		left:  264px
+
+	.push_2 
+		left: 528px
+
+	.push_3 
+		left: 792px
+
+
+	.pull_1 
+		left: -264px
+
+	.pull_2 
+		left: -528px
+
+	.pull_3 
+		left: -792px
+
+.clear 
+	clear: both
+	display: block
+	overflow: hidden
+	visibility: hidden
+	width: 0
+	height: 0
+
+.clearfix:before, .clearfix:after 
+	content: '\0020'
+	display: block
+	overflow: hidden
+	visibility: hidden
+	width: 0
+	height: 0
+
+.clearfix:after 
+	clear: both
+
+.clearfix 
+	zoom: 1
