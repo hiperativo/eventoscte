@@ -1,3 +1,8 @@
+@import "bourbon"
+
+$gw-column: 234px
+$gw-gutter: 24px
+
 body
 	min-width: 1056px
 
@@ -29,33 +34,33 @@ body
 .container_4 
 	
 	.modulo
-		$offset: 24px + 2px
-		padding: 12px
+		$offset: $gw-gutter + 2px
+		padding: $gw-gutter/2
 
 		&.grid_1 
-			width: (234px - $offset)
+			width: (grid-width(1) - $offset)
 
 		&.grid_2 
-			width: (504px - $offset)
+			width: (grid-width(2) - $offset)
 
 		&.grid_3 
-			width: (768px - $offset)
+			width: (grid-width(3) - $offset)
 
 		&.grid_4 
-			width: (1032px - $offset)
+			width: (grid-width(4) - $offset)
 
 
 	.grid_1 
-		width: (240px)
+		width: grid-width(1)
 
 	.grid_2 
-		width: (504px)
+		width: grid-width(2)
 
 	.grid_3 
-		width: (768px)
+		width: grid-width(3)
 
 	.grid_4 
-		width: (1032px)
+		width: grid-width(4)
 
 
 	.prefix_1 

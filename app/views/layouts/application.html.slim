@@ -13,11 +13,11 @@ html
 			
 				div style="margin-top: 24px; width: 792px; overflow: hidden"
 					.grid_2 
-						h1 
-							| Frase bonita sobre o evento que está acontecendo
-							br com dados e informações.
-
+						h1 Frase bonita sobre o evento que está acontecendo com dados e informações.
 						time datetime="20013-04-24T21:00-03:00"
+							markdown:
+								Dia __24/04__ | Inicio às __9h__ | Término às __18:30__
+
 					= image_tag "inscreva-se-aqui.png", size: "120x84", class:"inscreva-se"
 
 			nav style="position: absolute; width: 100%; top: 132px"
@@ -28,48 +28,49 @@ html
 
 		.container_4
 			.grid_4.alpha
-				.carousel.slide
+				section.carousel.slide
 					.carousel-inner
 						- 4.times do |x|
-							.item class="#{'active' if x==0}"
-								= image_tag "holder.js/1008x360"
+							.item class="#{'active' if x == 0}"
+								- @colors = if x % 2 > 0 then "f7cc52/532196" else "532196/f7cc52" end
+								= image_tag "//placehold.it/1008x360/#{@colors}"
 
-			.grid_3.alpha
+			section
+				.grid_3.alpha
+					article.modulo.grid_2.alpha
+						h3 Integrantes do Conselho
+						markdown:
+							Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
+							Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
+							Ut non suscipit metus. Cras non erat non eros pharetra ullamcorper.
+							
+							#{link_to "Leia mais"}
 
-				article.modulo.grid_2.alpha
-					h3 Integrantes do Conselho
+					article.modulo.grid_1.omega
+						h3 Imprensa
+						markdown:
+							Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
+							Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
+							
+							#{link_to "Leia mais"}
+
+					article.modulo.grid_1.alpha
+						h3 Box Vazio
+						p ainda não sabemos o que teremos por aqui.
+
+					article.modulo.grid_2.omega
+						h3 Entrevista: Roberto de Souza
+						markdown:
+							Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
+							Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
+
+						= yield
+
+				aside.modulo.grid_1.omega
+					h3 Calendário dos Eventos
 					markdown:
 						Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
 						Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
-						Ut non suscipit metus. Cras non erat non eros pharetra ullamcorper.
-						
-						#{link_to "Leia mais"}
-
-				article.modulo.grid_1.omega
-					h3 Imprensa
-					markdown:
-						Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
-						Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
-						
-						#{link_to "Leia mais"}
-
-				article.modulo.grid_1.alpha
-					h3 Box Vazio
-					p ainda não sabemos o que teremos por aqui.
-
-				article.modulo.grid_2.omega
-					h3 Entrevista: Roberto de Souza
-					markdown:
-						Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
-						Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
-
-					= yield
-
-			aside.modulo.grid_1.omega
-				h3 Calendário dos Eventos
-				markdown:
-					Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
-					Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
 
 
 
