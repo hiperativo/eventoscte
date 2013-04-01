@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order: MyString
+  title: MyString
+  speaker_id: MyString
+
+two:
+  order: MyString
+  title: MyString
+  speaker_id: MyString

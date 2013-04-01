@@ -32,22 +32,50 @@
 
 
 $amarelo: #f7cc52
+$bege: #ffffef
 $roxo: #532196
 $preto: #666
+$branco: #fff
 
 html
-	:padding-bottom 80px
+	// :padding-bottom 80px
 
 body
 	:font-family "Gudea"
 	:line-height 1.4
+	// :background-image url("http://griddle.it/1008-4-24")
+
+section.conteudo
+	:min-height 400px
+
+.modulo, .chamada-evento, .carousel
+	:border solid 1px $amarelo
+
+.chamada-evento
+	:width 490px
+	:height 180px
+	:position relative
 
 .modulo
-	:border solid 1px $amarelo
 	:height 156px
 
-.modulo, .carousel
-	:margin-bottom 24px
+.modulo, .caption
+	p
+		:margin-bottom 0
+
+.carousel
+	:margin-bottom 0px
+
+.carousel-caption, .chamada-evento .caption
+	:background-color transparentize($amarelo, 0.3)
+	:width 70%
+	:bottom 0px
+	:left 0px
+	:padding 12px
+	:position absolute
+
+.carousel-caption
+	:color $preto
 
 aside.modulo
 	:height 360px
@@ -56,9 +84,49 @@ aside.modulo
 	:border solid 1px $amarelo
 	:float right
 
+article
+	.modulo
+		:height auto
+
+.modulo.programacao
+	:height auto
+
+	p
+		:margin 0
+
+	ol
+		:list-style-type none
+
+	dl
+		:background-color $bege
+
+	h4
+		:background-color $roxo
+		:color $branco
+
+	.panel > h4
+		:padding 6px
+
+	.talk
+		:padding-top 12px
+		:padding 6px
+
+	dd, dt, dl
+		:padding 3px
+
+ol, li
+	:margin 0
+
+.dl-horizontal 
+	:margin 6px 0
+	dt
+		:width auto
+	dd
+		:margin-left 0px
 
 nav, h1, h2, h3, h4, h5, h6
 	:font-family "Futura"
+	:color $roxo
 	:line-height 1.4
 	:font-weight 300
 	:margin 0
@@ -71,22 +139,48 @@ h1
 	:line-height 1.3
 
 h3
-	:text-transform uppercase
 	:font-size 16px
 	:font-weight 500
 	:color $roxo
 
-nav
-	:border-top 1px solid $amarelo
-	:border-bottom 1px solid $amarelo
+h3, h4
 	:text-transform uppercase
 
+h4
+	:font-size 10px
+	:font-weight 300
+
+footer
+	:padding-top 12px
+	:border-top 1px solid $amarelo
+
+	nav
+		:background-color $amarelo
+
+		ul.nav, ul.nav-pills
+			li a
+				:border none
+				:font-size 12px
+
+nav
+	:text-transform uppercase
+
+.container_4
+	:overflow hidden
+
+
+header
+	nav
+		:border-top 1px solid $amarelo
+		:border-bottom 1px solid $amarelo
+
+nav
 	ul.nav, ul.nav-pills
 		li
 			:margin 0	
 
 			a
-				:font-size 12px
+				:font-size 15px
 				:border-radius 0
 				:color $preto
 				:border-right 1px solid $preto
@@ -105,8 +199,13 @@ nav
 				:padding-right 0px
 				:border-right 0
 
-header
+section
+	:display block
+
+header, section
 	:overflow hidden
+
+header
 	:margin-bottom 12px
 
 .nav

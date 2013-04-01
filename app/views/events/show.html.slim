@@ -1,0 +1,57 @@
+article.evento
+	.row
+		.grid_3
+			h2 
+				small evento:
+				= @event.title
+			p.lead= @event.lead
+			= image_tag @event.banner_url(:big), size: "744x192"
+			= markdown @event.description
+
+		aside.grid_1
+			.row
+				.modulo.grid_1
+					h3 Quando
+					markdown:
+						**#{@event.when.strftime "%d/%m/%Y (%A)"}**  
+						Local: #{@event.place}  
+						Endereço: #{@event.address}
+
+			.row
+				.modulo.grid_1
+					h3 Para quem
+					= markdown @event.target
+			
+			.row
+				.modulo.grid_1
+					h3 Contato
+					= markdown @event.contact_info
+
+	.row
+		- unless @event.panels.empty?
+			article
+				.programacao.modulo.grid_3
+					h3 Programação #{@event.when.strftime "%d/%m"}
+
+					= render partial: "stuff_that_happens", locals: { what: @event.stuff_before }
+
+					ol.panels
+						- @event.panels.order.each_with_index do |panel, n|
+
+							li.panel
+								h4 #{panel.short_time} Painel #{RomanNumerals.to_roman(n+1)} — #{panel.title}
+
+								ol.talks
+									- panel.talks.each_with_index do |talk, n|
+									
+										li.talk
+											h5 Palestra #{n+1} — #{talk.title}
+											= markdown "**#{talk.speaker.name}** — *#{talk.speaker.ocupation}*"
+										= render partial: "stuff_that_happens", locals: { what: panel.stuff_after }
+
+					= render partial: "stuff_that_happens", locals: { what: @event.stuff_after }
+
+			aside.modulo.grid_1.speaker-info
+				= image_tag Speaker.first.avatar_url(:thumb), size: "216x180"
+				h3= Speaker.first.name
+				= markdown Speaker.first.bio

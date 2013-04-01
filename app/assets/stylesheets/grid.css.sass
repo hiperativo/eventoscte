@@ -4,20 +4,19 @@ $gw-column: 234px
 $gw-gutter: 24px
 
 body
-	min-width: 1056px
+	min-width: 1008px
 
 .container_4
 	margin-left: auto
 	margin-right: auto
-	width: 1056px
+	width: 1008px
 
 .grid_1, .grid_2, .grid_3, .grid_4 
 		
 	display:inline
 	float: left
 	position: relative
-	margin-left: 12px
-	margin-right: 12px
+	margin-left: 24px
 
 .push_1, .pull_1,
 .push_2, .pull_2,
@@ -25,14 +24,19 @@ body
 .push_4, .pull_4 
 	position:relative
 
-.alpha 
-	margin-left: 0
-
-.omega 
-	margin-right: 0
-
 .container_4 
 	
+	.row
+		:margin-bottom 24px
+
+	.row, ul.thumbnails
+		:margin-left -24px
+
+	ul.thumbnails > li 
+		:margin-left 24px
+		:margin-bottom 24px
+
+
 	.modulo
 		$offset: $gw-gutter + 2px
 		padding: $gw-gutter/2

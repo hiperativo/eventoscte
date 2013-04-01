@@ -1,3 +1,8 @@
 Eventoscte::Application.routes.draw do
-  root :to => "pages#index"
+	mount RailsAdmin::Engine => '/admincte'
+
+	resources :events, path: "eventos"
+
+	devise_for :admin_users
+	root :to => "pages#index"
 end

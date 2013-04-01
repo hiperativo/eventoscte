@@ -1,0 +1,28 @@
+.row
+	.grid_4
+		h2 Sobre Eventos
+
+.row
+	.grid_3
+		p.lead
+			| Curabitur Mauris diam, tempor eget venenatis sit amet, malesuada at nibh. Maecenas nunc sapien, imperdiet id gravida id, varius ac nulla.
+
+		markdown:
+			Nam turpis augue, egestas eget auctor et, ullamcorper quis justo. Fusce aliquet erat vel elit lacinia pretium vehicula quam venenatis. Nullam sagittis sagittis lectus, ac porta ligula iaculis id. Integer eleifend lacus in nulla pharetra tincidunt. Donec iaculis tristique felis et commodo. Donec risus augue, pharetra id posuere quis, tincidunt nec velit. Nunc rhoncus imperdiet enim id pulvinar. Aliquam rhoncus, nisl pulvinar ornare sodales, turpis nunc consectetur nunc, sit amet iaculis odio nisl ut augue. Aliquam tempus neque vel justo tristique dictum convallis odio mollis. Morbi aliquet est in ante varius quis rutrum tellus venenatis. Nam pellentesque placerat urna vel commodo. Curabitur mauris diam, tempor eget venenatis sit amet, malesuada at nibh. Maecenas nunc sapien, imperdiet id gravida id, varius ac nulla. Maecenas rhoncus convallis erat, vitae adipiscing odio vulputate ac. Nam blandit quam sed metus sagittis sit amet faucibus nisi hendrerit.
+
+			Phasellus venenatis mi at dui tincidunt consectetur. Curabitur turpis purus, accumsan sit amet viverra quis, viverra ut lorem. Quisque vitae neque sapien, eget iaculis ligula. Integer tincidunt, turpis ut sagittis tempus, risus arcu viverra lectus, eget scelerisque sapien diam eu nulla. Aenean pretium aliquam sapien vitae viverra. Nullam neque libero, cursus quis malesuada nec, adipiscing in ligula. Pellentesque laoreet elit non mauris pretium iaculis. Nullam et tempor mauris. Cras viverra cursus libero ac viverra. Morbi sagittis tortor nec purus consequat quis feugiat augue posuere. Vestibulum eu sem nibh, eget egestas risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse egestas ornare tortor, ac pellentesque nibh placerat vitae. Maecenas et ante dui, sed cursus eros. Nunc orci odio, volutpat ac faucibus eu, porta eget sapien. Sed sodales enim eu ligula commodo tincidunt.
+
+	aside.modulo.grid_1
+
+.row
+	.grid_4
+		ul.thumbnails
+			- 4.times do |x|
+				- for evento in Event.all do
+					li.chamada-evento 
+						= link_to evento do
+							= image_tag evento.banner_url(:thumb), size: "492x180"
+						.caption
+							h4 Evento #{x+1}
+							h3= evento.title
+							p= evento.when.strftime "%d/%m"
