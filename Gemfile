@@ -12,7 +12,7 @@ gem 'fog'
 gem 'carrierwave'
 gem 'roman-numerals'
 
-gem 'rails_admin', git: "git@github.com:sferik/rails_admin.git"
+gem 'rails_admin', git: "git://github.com/sferik/rails_admin.git"
 
 gem 'slim-rails'
 gem 'sass-rails',   '~> 3.2.3'
