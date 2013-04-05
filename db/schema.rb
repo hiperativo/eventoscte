@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404234218) do
+ActiveRecord::Schema.define(:version => 20130405112154) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130404234218) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.string   "state_register"
+    t.integer  "event_id"
   end
 
   create_table "events", :force => true do |t|
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20130404234218) do
     t.string   "lead"
     t.string   "banner"
     t.text     "description"
-    t.datetime "when"
+    t.datetime "date"
     t.string   "place"
     t.string   "address"
     t.text     "target"
@@ -88,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20130404234218) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month",      :limit => 2
+    t.integer  "month"
     t.integer  "year",       :limit => 8
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false

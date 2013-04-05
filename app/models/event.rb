@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
-	attr_accessible :address, :banner, :banner_cache, :remove_banner, :contact_info, :description, :lead, :place, :target, :title, :when, :after, :before
+	attr_accessible :address, :banner, :banner_cache, :remove_banner, :contact_info, :description, :lead, :place, :target, :title, :date, :after, :before
 	has_many :panels
+	has_many :enrollments
+
 	mount_uploader :banner, EventCoverUploader
 
 	attr_accessor :stuff_before, :stuff_after

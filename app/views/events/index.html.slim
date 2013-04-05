@@ -17,12 +17,11 @@
 .row
 	.grid_4
 		ul.thumbnails
-			- 4.times do |x|
-				- for evento in Event.all do
-					li.chamada-evento 
-						= link_to evento do
-							= image_tag evento.banner_url(:thumb), size: "492x180"
-						.caption
-							h4 Evento #{x+1}
-							h3= evento.title
-							p= evento.when.strftime "%d/%m"
+			- @eventos.each_with_index do |evento, n|
+				li.chamada-evento 
+					= link_to evento do
+						= image_tag evento.banner_url(:thumb), size: "492x180"
+					.caption
+						h4 Evento #{n+1}
+						h3= evento.title
+						p= evento.date.strftime "%d/%m"
