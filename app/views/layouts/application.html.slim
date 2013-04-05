@@ -2,6 +2,7 @@ doctype html
 html
 	head
 		title Eventos CTE
+		meta name="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"
 		= javascript_include_tag "application"
 		= stylesheet_link_tag "application", media: "all"
 		= csrf_meta_tags
@@ -24,8 +25,13 @@ html
 			nav style="position: absolute; width: 100%; top: 132px"
 				.container_4
 					ul.nav.nav-pills style="margin-left: 212px"
-						- for page, item in {agenda_produtiva: "Agenda Produtiva", eventos: "Os eventos", inscreva_se: "Inscreva-se", local: "Local", imprensa: "Imprensa"} do
+						- for page, item in { "agenda-produtiva" => "Agenda Produtiva",
+												eventos: "Os eventos",  
+												"inscreva-se" => "Inscreva-se",  
+												local: "Local",  
+												imprensa: "Imprensa" } do
 							li= link_to item, "/#{page}"
+
 
 		section.conteudo.container_4
 			= yield

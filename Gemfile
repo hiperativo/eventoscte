@@ -11,6 +11,7 @@ gem 'rmagick'
 gem 'fog'
 gem 'carrierwave'
 gem 'roman-numerals'
+gem 'simple_form'
 
 gem 'rails_admin', git: "git://github.com/sferik/rails_admin.git"
 

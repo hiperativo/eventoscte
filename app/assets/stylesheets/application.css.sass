@@ -37,6 +37,39 @@ $roxo: #532196
 $preto: #666
 $branco: #fff
 
+.form-horizontal
+	.control-group
+		:clear both
+
+		.control-label
+			:width 120px
+			:text-align left
+
+		input
+			:width 324px
+
+		.controls
+			:margin-left 0
+			:float left
+
+		&.two-fields
+			input
+				:width 120px
+			.controls + .controls
+				:margin-left 12px
+				.control-label
+					:width 60px
+
+form
+	.radio
+		display: inline-block
+		margin-bottom: 0
+		vertical-align: middle
+
+	.radio + .radio, .checkbox + .checkbox
+		margin-left: 12px
+
+
 html
 	// :padding-bottom 80px
 
@@ -48,7 +81,28 @@ body
 section.conteudo
 	:min-height 400px
 
-.modulo, .chamada-evento, .carousel
+table
+	td, th
+		:text-align left
+		:padding 6px
+
+form.modulo
+	:height auto
+
+.price-table
+	th
+		:color $roxo
+
+	td
+		:font-style italic
+
+	.column-1
+		:width 150px
+		:font-weight bold
+		:font-style normal
+
+
+.modulo, .chamada-evento, .carousel, table
 	:border solid 1px $amarelo
 
 .chamada-evento

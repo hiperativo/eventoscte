@@ -1,0 +1,76 @@
+- @price_table = 	[["Categoria", "Até 16/11/12", "Até 30/11/12", "No local*"],  
+					["Profissionais", "R$650,00", "R$750,00", "R$850,00"],
+					["Clientes CTE (ativo)", "R$585,00", "R$675,00", "R$765,00"],
+					["Associado de entidades apoiadoras", "R$585,00", "R$675,00", "R$765,00"]]
+
+.row
+	table.price-table.grid_2
+		- @price_table.each_with_index do |row, x|
+			tr
+				- row.each_with_index do |cell, y|
+					- if x == 0
+						th class="column-#{y+1}"= cell
+					- else
+						td class="column-#{y+1}"= cell
+
+		td * se houver vaga
+		td
+		td
+		td
+
+	= simple_form_for @enrollment, html: {class: "modulo grid_2"} do |f|
+		.form-horizontal
+			h3 Formulário de inscrição para o evento
+			h2 style="margin-bottom: 12px"= Event.first.title
+
+			.control-group= f.input :full_name								,label: "Nome completo"
+			.control-group= f.input :display_name							,label: "Nome para crachá"
+			.control-group= f.input :email									,label: "E-mail"
+			.control-group= f.input :category								,label: "Categoria"
+
+			.control-group.two-fields
+				= f.input :profession										,label: "Profissão"
+				= f.input :occupation										,label: "Cargo"
+
+			.control-group.two-fields
+				= f.input :enterprise										,label: "Empresa"
+				= f.input :cnpj												,label: "CNPJ"
+
+			.control-group.two-fields
+				= f.input :state_register									,label: "Inscrição Estadual"
+				= f.input :cep 									 			,label: "CEP"
+
+			.control-group= f.input :address								,label: "Endereço"
+
+			.control-group.two-fields
+				= f.input :complement										,label: "Complemento"
+				= f.input :number 											,label: "Nº"
+
+			.control-group= f.input :neighbourhood							,label: "Bairro"
+			.control-group= f.input :city									,label: "Cidade"
+			.control-group= f.input :state									,label: "Estado"
+			.control-group= f.input :phone									,label: "Telefone"
+
+		.control-group= f.input :receipt_person											,label: "Emissão de recibo em nome de", 
+			collection: ["Empresa", "Participante / CPF"], as: :radio_buttons
+		
+		.form-horizontal
+			.control-group= f.input :cpf, label: "Informe seu CPF"
+
+		.control-group= f.input :active_cte_client							,label: "Cliente CTE (ativo)?",  
+			collection: ["Sim", "Não"], as: :radio_buttons
+
+		.control-group= f.input :how_did_you_knew_us						,label: "Como tomou conhecimento do evento?",  
+			collection: ["Boletim CTE", "Site CTE", "Jornal/Revista", "Outros"], as: :radio_buttons
+
+		.control-group= f.input :want_to_receive_newsletter					,label: "Deseja receber os informativos do CTE?",  
+			collection: ["Sim", "Não"], as: :radio_buttons
+
+		.form-horizontal
+			.control-group= f.input :entity									,label: "Indicar a entidade (se associado)"
+
+
+
+
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401122726) do
+ActiveRecord::Schema.define(:version => 20130404234218) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -30,6 +30,33 @@ ActiveRecord::Schema.define(:version => 20130401122726) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "enrollments", :force => true do |t|
+    t.string   "full_name"
+    t.string   "display_name"
+    t.string   "email"
+    t.string   "category"
+    t.string   "profession"
+    t.string   "occupation"
+    t.string   "enterprise"
+    t.string   "cnpj"
+    t.string   "cep"
+    t.string   "address"
+    t.string   "complement"
+    t.string   "number"
+    t.string   "neighbourhood"
+    t.string   "city"
+    t.string   "state"
+    t.string   "phone"
+    t.string   "receipt_person"
+    t.boolean  "active_cte_client"
+    t.string   "how_did_you_knew_us"
+    t.boolean  "want_to_receive_newsletter"
+    t.string   "entity"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.string   "state_register"
+  end
 
   create_table "events", :force => true do |t|
     t.string   "title"
