@@ -21,6 +21,10 @@
 
 		= simple_form_for @enrollment, html: {class: "modulo grid_2"} do |f|
 			.form-horizontal
+				- unless @enrollment.errors.empty?
+					.alert.alert-error
+						p Por favor, corrija os erros abaixo.
+						
 				h3 Formulário de inscrição para o evento
 				h2 style="margin-bottom: 12px"= @enrollment.event.title
 
@@ -70,7 +74,8 @@
 			.form-horizontal
 				.control-group= f.input :entity									,label: "Indicar a entidade (se associado)"
 
-			= f.submit, input_html: { class: "btn" }
+			= f.input :event_id, as: :hidden
+			= f.button :submit, value: "Fazer Inscrição", input_html: { class: "btn" }
 - else
 	| No momento, ainda não há eventos disponíveis para inscrição.
 

@@ -37,6 +37,8 @@ $roxo: #532196
 $preto: #666
 $branco: #fff
 
+$vermelho: #a00
+
 .form-horizontal
 	.control-group
 		:clear both
@@ -61,6 +63,14 @@ $branco: #fff
 					:width 60px
 
 form
+	.error input
+		:background-color $vermelho
+
+	span.error
+		:text-align right
+		:color $vermelho
+		:display block
+
 	.radio
 		display: inline-block
 		margin-bottom: 0
