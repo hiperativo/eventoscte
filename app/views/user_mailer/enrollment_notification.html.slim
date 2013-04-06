@@ -1,0 +1,23 @@
+- # encoding: UTF-8
+
+markdown:
+	Nome: #{@enrollment.full_name}  
+	Data: #{@enrollment.created_at.strftime("%d/%m/%Y - %H:%M:%S")}  
+	Crachá: #{@enrollment.display_name}  
+	Profissão: #{@enrollment.profession}  
+	Cargo: #{@enrollment.occupation}  
+	Empresa: #{@enrollment.enterprise}  
+	CNPJ: #{@enrollment.cnpj}  
+	Inscrição Estadual: #{@enrollment.state_register}  
+	Endereço: #{@enrollment.address}
+	Bairro: #{@enrollment.neighbourhood}  
+	Cidade: #{@enrollment.city}  
+	CEP: #{@enrollment.cep}  
+	Estado: #{@enrollment.state}  
+	Telefone: #{@enrollment.phone}  
+	Recibo ou nota fiscal: #{@enrollment.receipt_or_nf }  
+	Emissão: #{@enrollment.receipt_person }  
+	CPF: #{@enrollment.cpf }  
+	Cliente Ativo: #{@enrollment.category }  
+	Deseja receber os informativos: #{@enrollment.want_to_receive_newsletter }  
+	Como tomou conhecimento do evento?:  #{@enrollment.how_did_you_knew_us }  

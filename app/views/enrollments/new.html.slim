@@ -1,7 +1,7 @@
-- @price_table = 	[["Categoria", "Até 16/11/12", "Até 30/11/12", "No local*"],  
-					["Profissionais", "R$650,00", "R$750,00", "R$850,00"],
-					["Clientes CTE (ativo)", "R$585,00", "R$675,00", "R$765,00"],
-					["Associado de entidades apoiadoras", "R$585,00", "R$675,00", "R$765,00"]]
+- @price_table = 	[["Categoria", 				"Até 25/04/13", "Até 25/04/13", "No local (se houver vaga)"],  
+					["Profissionais", 						"R$700,00", "R$800,00", "R$900,00"],
+					["Clientes CTE (ativo)", 				"R$630,00", "R$720,00", "R$810,00"],
+					["Associado de entidades apoiadoras", 	"R$630,00", "R$720,00", "R$810,00"]]
 
 - unless @enrollment.event.nil?
 	.row
@@ -24,14 +24,15 @@
 				- unless @enrollment.errors.empty?
 					.alert.alert-error
 						p Por favor, corrija os erros abaixo.
-						
+
 				h3 Formulário de inscrição para o evento
 				h2 style="margin-bottom: 12px"= @enrollment.event.title
 
 				.control-group= f.input :full_name								,label: "Nome completo"
 				.control-group= f.input :display_name							,label: "Nome para crachá"
 				.control-group= f.input :email									,label: "E-mail"
-				.control-group= f.input :category								,label: "Categoria"
+				.control-group= f.input :category								,label: "Categoria",  
+					collection: {"Profissional" => "cheio","Cliente CTE (ativo)" => "especial", "Associado de entidade apoiadora" => "especial"}, include_blank: false
 
 				.control-group.two-fields
 					= f.input :profession										,label: "Profissão"
@@ -43,7 +44,7 @@
 
 				.control-group.two-fields
 					= f.input :state_register									,label: "Inscrição Estadual"
-					= f.input :cep 									 			,label: "CEP"
+					= f.input :cep									 			,label: "CEP"
 
 				.control-group= f.input :address								,label: "Endereço"
 
@@ -53,26 +54,27 @@
 
 				.control-group= f.input :neighbourhood							,label: "Bairro"
 				.control-group= f.input :city									,label: "Cidade"
-				.control-group= f.input :state									,label: "Estado"
+				.control-group= f.input :state									,label: "Estado", 
+					collection: ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", 
+								"MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", 
+								"RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
 				.control-group= f.input :phone									,label: "Telefone"
 
-			.control-group= f.input :receipt_person											,label: "Emissão de recibo em nome de", 
+			.control-group= f.input :receipt_or_nf 								,label: "Deseja recibo ou nota fiscal?", 
+				collection: ["Recibo", "Nota Fiscal"], as: :radio_buttons
+
+			.control-group= f.input :receipt_person								,label: "Emissão em nome de", 
 				collection: ["Empresa", "Participante / CPF"], as: :radio_buttons
 			
 			.form-horizontal
 				.control-group= f.input :cpf, label: "Informe seu CPF"
 
-			.control-group= f.input :active_cte_client							,label: "Cliente CTE (ativo)?",  
-				collection: ["Sim", "Não"], as: :radio_buttons
 
 			.control-group= f.input :how_did_you_knew_us						,label: "Como tomou conhecimento do evento?",  
 				collection: ["Boletim CTE", "Site CTE", "Jornal/Revista", "Outros"], as: :radio_buttons
 
 			.control-group= f.input :want_to_receive_newsletter					,label: "Deseja receber os informativos do CTE?",  
 				collection: ["Sim", "Não"], as: :radio_buttons
-
-			.form-horizontal
-				.control-group= f.input :entity									,label: "Indicar a entidade (se associado)"
 
 			= f.input :event_id, as: :hidden
 			= f.button :submit, value: "Fazer Inscrição", input_html: { class: "btn" }

@@ -14,6 +14,7 @@ gem 'roman-numerals'
 gem 'simple_form'
 
 gem 'rails_admin', git: "git://github.com/sferik/rails_admin.git"
+gem 'itau_shopline', git: "git://github.com/pedrozath/Itau-Shopline.git"
 
 gem 'slim-rails'
 gem 'sass-rails',   '~> 3.2.3'

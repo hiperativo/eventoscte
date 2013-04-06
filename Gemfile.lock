@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/pedrozath/Itau-Shopline.git
+  revision: 6d8141fe4651e1d4e0d2bd0b51cf91cc45fe8613
+  specs:
+    itau_shopline (0.0.3)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: 8533e5abccf819e49b3e50a1dccd945ef3768175
   specs:
@@ -204,6 +210,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   fog
+  itau_shopline!
   jquery-rails
   maruku
   pg
