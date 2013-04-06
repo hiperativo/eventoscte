@@ -42,8 +42,17 @@ $vermelho: #a00
 .modulo
 	.grid_1
 		:width 205px
-		:font-size 12px
+		:font-size 11px
 
+	.grid_1 + .grid_1
+		:margin-left 12px
+
+	.row
+		:margin-bottom 6px
+
+
+iframe.grid_4
+	:width 1006px !important
 
 .form-horizontal
 	.control-group
@@ -118,7 +127,7 @@ form.modulo
 		:font-style normal
 
 
-.modulo, .chamada-evento, .carousel, table
+.modulo, .chamada-evento, .carousel, table, iframe
 	:border solid 1px $amarelo
 
 .chamada-evento
