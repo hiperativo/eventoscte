@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/pedrozath/Itau-Shopline.git
-  revision: 6d8141fe4651e1d4e0d2bd0b51cf91cc45fe8613
+  revision: 8d448c8a579fc68130a37b574bdb6ac5f3dc424c
   specs:
-    itau_shopline (0.0.3)
+    itau_shopline (0.0.4)
 
 GIT
   remote: git://github.com/sferik/rails_admin.git

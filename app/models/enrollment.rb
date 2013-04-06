@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Enrollment < ActiveRecord::Base
 	attr_accessible :active_cte_client, :address, :category, :cep, :city, 
 	:cnpj, :complement, :display_name, :email, :enterprise, :entity, :full_name, 

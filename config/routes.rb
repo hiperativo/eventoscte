@@ -9,5 +9,7 @@ Eventoscte::Application.routes.draw do
 	resources :enrollments, path: "inscricoes", path_names:{new: "inscrever-se"}
 
 	devise_for :admin_users
+
+	get "/:action" => "pages"
 	root :to => "pages#index"
 end
