@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406193129) do
+ActiveRecord::Schema.define(:version => 20130406215640) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -30,14 +30,6 @@ ActiveRecord::Schema.define(:version => 20130406193129) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
-
-  create_table "agenda_projects", :force => true do |t|
-    t.string   "title"
-    t.string   "synopsis"
-    t.string   "contents"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "enrollments", :force => true do |t|
     t.string   "full_name"
@@ -93,6 +85,14 @@ ActiveRecord::Schema.define(:version => 20130406193129) do
     t.text     "after"
   end
 
+  create_table "projects", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "synopsis"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
     t.string   "username"
@@ -105,15 +105,6 @@ ActiveRecord::Schema.define(:version => 20130406193129) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
-
-  create_table "releases", :force => true do |t|
-    t.string   "title"
-    t.string   "lead"
-    t.string   "image"
-    t.string   "contents"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "sliders", :force => true do |t|
     t.string   "title"

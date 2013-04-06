@@ -16,9 +16,19 @@ article
 
 				Os eventos CTE 2013 estarão focados na construção desta agenda produtiva setorial. 
 
-			article.modulo
-				h2 Propostas e projetos de atuação da cadeia produtiva
+			- unless @projects.empty?	
+				article.modulo
+					h2 Propostas e projetos de atuação da cadeia produtiva
 
-				p.lead Aqui serão postadas as principais propostas e projetos formulados durante os eventos CTE 2013 para atuação conjunta da cadeia produtiva, a fim de que o setor possa avançar tanto em nível estratégico como técnico e produtivo.
-
-		aside.modulo.grid_1
+					p.lead Aqui serão postadas as principais propostas e projetos formulados durante os eventos CTE 2013 para atuação conjunta da cadeia produtiva, a fim de que o setor possa avançar tanto em nível estratégico como técnico e produtivo.
+				
+					- for project in @projects do
+						markdown:
+							### #{project.title}
+							#{project.content}
+		- unless @projects.empty?	
+			aside.modulo.grid_1
+					- for project in @projects do
+						markdown:
+							### #{project.title}
+							#{project.synopsis}
