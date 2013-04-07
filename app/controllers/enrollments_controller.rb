@@ -36,7 +36,7 @@ class EnrollmentsController < ApplicationController
 
 			@enrollment.save
 			
-			@itau_crypto = ItauShopline.new.gera_dados({ pedido:@enrollment.id + 800,  
+			@itau_crypto = ItauShopline.new.gera_dados({ pedido: @enrollment.id + 800,  
 														valor: @preco,
 														nome_do_sacado: @enrollment.full_name,
 														codigo_da_inscricao: @enrollment.receipt_person,
@@ -48,6 +48,8 @@ class EnrollmentsController < ApplicationController
 														estado_do_sacado: @enrollment.state,
 														data_de_vencimento: (Time.now + 5.days) } )
 
+
+			@enrollment.update_attribute(:itau_crypto, @itau_crypto)
 			# UserMailer.enrollment_notification(@enrollment).deliver
 
 		else

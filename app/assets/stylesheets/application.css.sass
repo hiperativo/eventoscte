@@ -79,7 +79,7 @@ iframe.grid_4
 			:width 120px
 			:text-align left
 
-		input
+		input, select
 			:width 324px
 
 		.controls
@@ -87,7 +87,7 @@ iframe.grid_4
 			:float left
 
 		&.two-fields
-			input
+			input, select
 				:width 120px
 			.controls + .controls
 				:margin-left 12px
@@ -96,12 +96,16 @@ iframe.grid_4
 
 form
 	.error input
-		:background-color $vermelho
+		:background-color lighten($vermelho, 60%)
 
 	span.error
 		:text-align right
 		:color $vermelho
 		:display block
+		:font-size 9px
+		:text-transform uppercase
+		:text-align left
+		:font-family sans-serif
 
 	.radio
 		display: inline-block

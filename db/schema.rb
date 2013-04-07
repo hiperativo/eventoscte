@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407061908) do
+ActiveRecord::Schema.define(:version => 20130407205112) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130407061908) do
     t.integer  "event_id"
     t.string   "receipt_or_nf"
     t.string   "cpf"
+    t.text     "itau_crypto"
   end
 
   create_table "events", :force => true do |t|
@@ -71,11 +72,11 @@ ActiveRecord::Schema.define(:version => 20130407061908) do
     t.string   "address"
     t.text     "target"
     t.string   "contact_info"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.text     "before"
     t.text     "after"
-    t.boolean  "disabled"
+    t.boolean  "disabled",     :default => false
   end
 
   create_table "panels", :force => true do |t|

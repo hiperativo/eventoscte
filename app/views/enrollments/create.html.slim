@@ -1,7 +1,7 @@
 - # encoding: UTF-8
-= @itau_crypto
+= @enrollment.itau_crypto
 p= (Time.now + 5.days).strftime('%d%m%Y')
-dl
+dl.dl-horizontal
 	dt Preço
 	dd= @preco
 
@@ -9,7 +9,4 @@ dl
 	dd= @enrollment.id
 
 = debug @enrollment
-= debug @precos
-
-
 = link_to "Clique aqui para efetuar o pagamento", "https://shopline.itau.com.br/shopline/shopline.aspx?DC=#{@itau_crypto}", class: "btn btn-primary"
