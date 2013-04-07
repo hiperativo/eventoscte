@@ -39,20 +39,20 @@ article.evento
 						- @event.panels.order.each_with_index do |panel, n|
 
 							li.panel
-								h4 #{panel.short_time} Painel #{RomanNumerals.to_roman(n+1)} — #{panel.title}
+								h4 Painel #{RomanNumerals.to_roman(n+1)} — #{panel.title}
 
 								ol.talks
 									- panel.talks.each_with_index do |talk, n|
 									
 										li.talk
 											h5 Palestra #{n+1} — #{talk.title}
-											= markdown "**#{talk.speaker.name}** — *#{talk.speaker.ocupation}*"
+											= markdown "**#{talk.speaker.name}** — *#{talk.speaker.ocupation}*" unless talk.speaker.nil?
 											= markdown talk.additional_info
 										= render partial: "stuff_that_happens", locals: { what: panel.stuff_after }
 
 					= render partial: "stuff_that_happens", locals: { what: @event.stuff_after }
 
-			aside.modulo.grid_1.speaker-info
-				= image_tag Speaker.first.avatar_url(:thumb), size: "216x180"
-				h3= Speaker.first.name
-				= markdown Speaker.first.bio
+			/ aside.modulo.grid_1.speaker-info
+			/ 	= image_tag Speaker.first.avatar_url(:thumb), size: "216x180"
+			/ 	h3= Speaker.first.name
+			/ 	= markdown Speaker.first.bio

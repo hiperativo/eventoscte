@@ -7,9 +7,9 @@ class Enrollment < ActiveRecord::Base
 	:receipt_person, :state, :want_to_receive_newsletter, :event_id, :state_register, :cpf, :receipt_or_nf
 
 	belongs_to :event
-
+	
+	# usar_como_cnpj :cnpj
 	validates :full_name, presence: { message: "Preencha seu nome completo"}
-
-	attr_accessor :cpf
+	validates :cpf, presence: { message: "Preencha seu nome completo"}
 
 end

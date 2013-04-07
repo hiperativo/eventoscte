@@ -32,7 +32,7 @@
 				.control-group= f.input :display_name							,label: "Nome para crachá"
 				.control-group= f.input :email									,label: "E-mail"
 				.control-group= f.input :category								,label: "Categoria",  
-					collection: ["Profissional", "Cliente CTE (ativo)", "Associado de entidade apoiadora"], include_blank: false
+					collection: ["Profissional", "Cliente CTE", "Associado de entidade apoiadora"], include_blank: false
 
 				.control-group.two-fields
 					= f.input :profession										,label: "Profissão"
@@ -64,7 +64,7 @@
 				collection: ["Recibo", "Nota Fiscal"], as: :radio_buttons
 
 			.control-group= f.input :receipt_person								,label: "Emissão em nome de", 
-				collection: ["Empresa", "Participante / CPF"], as: :radio_buttons
+				collection: {"Empresa"=>:cnpj, "Participante / CPF" => :cpf}, as: :radio_buttons
 			
 			.form-horizontal
 				.control-group= f.input :cpf, label: "Informe seu CPF"

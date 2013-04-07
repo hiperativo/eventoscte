@@ -7,14 +7,18 @@ class EnrollmentsController < ApplicationController
 		unless @event.nil? then @enrollment.event_id = @event.id end
 	end
 
+	def index
+		redirect_to action: "new"
+	end
+
 	def create
 		@enrollment = Enrollment.new params[:enrollment]
 
 		if @enrollment.valid? 
 			@i = ItauShopline.new	
 
-			precos = {"cheio" => 700.0, "especial" => 630.00}
-			@preco = precos[@enrollment.category]	
+			@precos = {"Profissional" => 700.0, "Cliente CTE (ativo)" => 630.0, "Associado de entidade apoiadora" => 630.0}
+			@preco = @precos[@enrollment.category]	
 
 			if @enrollment.receipt_or_nf == "Nota Fiscal"
 				if @enrollment.receipt_person == "Empresa" and @preco > 666.0
@@ -31,8 +35,20 @@ class EnrollmentsController < ApplicationController
 			end
 
 			@enrollment.save
-			@itau_crypto = ItauShopline.new.gera_dados(@enrollment.id + 500 , @preco, @enrollment.full_name, @enrollment.city, @enrollment.state, nil, '')
-			UserMailer.enrollment_notification(@enrollment).deliver
+			
+			@itau_crypto = ItauShopline.new.gera_dados({ pedido:@enrollment.id + 800,  
+														valor: @preco,
+														nome_do_sacado: @enrollment.full_name,
+														codigo_da_inscricao: @enrollment.receipt_person,
+														numero_da_inscricao: @enrollment[@enrollment.receipt_person],
+														endereco_do_sacado: @enrollment.address,
+														bairro_do_sacado: @enrollment.neighbourhood,
+														cep_do_sacado: @enrollment.cep,
+														cidade_do_sacado: @enrollment.city,
+														estado_do_sacado: @enrollment.state,
+														data_de_vencimento: (Time.now + 5.days) } )
+
+			# UserMailer.enrollment_notification(@enrollment).deliver
 
 		else
 			render action: "new"
