@@ -73,6 +73,8 @@
 
 				.control-group= f.input :phone									,label: "Telefone"
 
+			.control-group= f.input :payment_type								,label: "Forma de pagamento", 
+				collection: ["Boleto bancário", "Crédito em conta (somente para clientes itaú"]
 
 			.control-group= f.input :how_did_you_knew_us						,label: "Como tomou conhecimento do evento?",  
 				collection: ["Boletim CTE", "Site CTE", "Jornal/Revista", "Outros"], as: :radio_buttons
@@ -81,6 +83,7 @@
 
 			.control-group= f.input :want_to_receive_newsletter					,label: "Deseja receber os informativos do CTE?",  
 				collection: ["Sim", "Não"], as: :radio_buttons
+
 
 			= f.input :event_id, as: :hidden
 			= f.button :submit, value: "Fazer Inscrição", input_html: { class: "btn" }

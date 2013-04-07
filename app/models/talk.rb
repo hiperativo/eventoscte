@@ -4,7 +4,9 @@ class Talk < ActiveRecord::Base
 	belongs_to :panel
 	
 	def short_time
-		"#{self.starts_at.strftime("%k")}h#{self.starts_at.strftime("%M") if self.starts_at.strftime("%M").to_i > 0}"
+		unless self.starts_at.nil?
+			"#{self.starts_at.strftime("%k")}h#{self.starts_at.strftime("%M") if self.starts_at.strftime("%M").to_i > 0}"
+		end
 	end
 
 end
