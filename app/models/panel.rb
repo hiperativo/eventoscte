@@ -19,8 +19,4 @@ class Panel < ActiveRecord::Base
 		end
 	end
 
-	def short_time
-		"#{self.starts_at.strftime("%k")}h#{self.starts_at.strftime("%M") if self.starts_at.strftime("%M").to_i > 0}"
-	end
-
 end

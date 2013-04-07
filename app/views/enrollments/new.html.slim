@@ -20,14 +20,13 @@
 			td
 
 		= simple_form_for @enrollment, html: {class: "modulo grid_2"} do |f|
-			= debug @enrollment
 			.form-horizontal
-				- unless @enrollment.errors.empty?
-					.alert.alert-error
-						p Por favor, corrija os erros abaixo.
 
 				h3 Formulário de inscrição para o evento
 				h2 style="margin-bottom: 12px"= @enrollment.event.title
+				- unless @enrollment.errors.empty?
+					.alert.alert-error
+						p Por favor, corrija os erros abaixo.
 
 				.control-group= f.input :full_name								,label: "Nome completo"
 				.control-group= f.input :display_name							,label: "Nome para crachá"

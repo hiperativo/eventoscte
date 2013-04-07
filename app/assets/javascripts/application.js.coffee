@@ -27,7 +27,7 @@ ready = ->
 			campos_condicionais.parent().hide()
 			campo_selecionado = $(".enrollment_how_did_you_knew_us :checked").val()
 
-			if campo_selecionado is "Outros" or campos_condicionais.val() is ""
+			if campo_selecionado is "Outros" or $("#enrollment_how_did_you_knew_us_outros").val() isnt ""
 				$("#enrollment_how_did_you_knew_us_outros").attr "checked", "checked"
 				campos_condicionais.parent().slideDown()
 

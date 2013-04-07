@@ -4,26 +4,6 @@ GIT
   specs:
     itau_shopline (0.1.0)
 
-GIT
-  remote: git://github.com/sferik/rails_admin.git
-  revision: 97246a14a5fde5d6828fe7e746e9dbd0e156d06b
-  specs:
-    rails_admin (0.4.6)
-      bootstrap-sass (~> 2.2)
-      builder (~> 3.0)
-      coffee-rails (~> 3.1)
-      font-awesome-sass-rails (~> 3.0, >= 3.0.0.1)
-      haml (~> 4.0)
-      jquery-rails (~> 2.1)
-      jquery-ui-rails (~> 3.0)
-      kaminari (~> 0.14)
-      nested_form (~> 0.3)
-      rack-pjax (~> 0.6)
-      rails (~> 3.1)
-      remotipart (~> 1.0)
-      safe_yaml (~> 0.6)
-      sass-rails (~> 3.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,36 +41,6 @@ GEM
     bourbon (3.1.1)
       sass (>= 3.2.0)
       thor
-    brI18n (3.3.0)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-    brazilian-rails (3.3.0)
-      brI18n (= 3.3.0)
-      brcep (= 3.3.0)
-      brcpfcnpj (= 3.3.0)
-      brdata (= 3.3.0)
-      brdinheiro (= 3.3.0)
-      brhelper (= 3.3.0)
-      brnumeros (= 3.3.0)
-      brstring (= 3.3.0)
-    brcep (3.3.0)
-    brcpfcnpj (3.3.0)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
-    brdata (3.3.0)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
-    brdinheiro (3.3.0)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      brnumeros (= 3.3.0)
-    brhelper (3.3.0)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
-    brnumeros (3.3.0)
-    brstring (3.3.0)
-      activesupport (>= 3.0.0)
     builder (3.0.4)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
@@ -177,6 +127,21 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails_admin (0.4.6)
+      bootstrap-sass (~> 2.2)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      font-awesome-sass-rails (~> 3.0, >= 3.0.0.1)
+      haml (~> 4.0)
+      jquery-rails (~> 2.1)
+      jquery-ui-rails (~> 3.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.6)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      safe_yaml (~> 0.6)
+      sass-rails (~> 3.1)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -224,7 +189,7 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.0.0)
+    turbolinks (1.1.1)
       coffee-rails
     tzinfo (0.3.37)
     uglifier (2.0.1)
@@ -238,7 +203,6 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon
-  brazilian-rails
   carrierwave
   coffee-rails (~> 3.2.1)
   devise
@@ -249,7 +213,7 @@ DEPENDENCIES
   pg
   psych
   rails (= 3.2.13)
-  rails_admin!
+  rails_admin
   rmagick
   roman-numerals
   sass-rails (~> 3.2.3)

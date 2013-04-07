@@ -72,6 +72,8 @@ iframe.grid_4
 	:width 1006px !important
 
 .form-horizontal
+	span.error
+		:text-align right
 	.control-group
 		:clear both
 
@@ -95,8 +97,9 @@ iframe.grid_4
 					:width 60px
 
 form
-	.error input
-		:background-color lighten($vermelho, 60%)
+	.error 
+		input, select
+			:background-color lighten($vermelho, 60%)
 
 	span.error
 		:text-align right

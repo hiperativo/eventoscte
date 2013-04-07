@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407205112) do
+ActiveRecord::Schema.define(:version => 20130407211053) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(:version => 20130407205112) do
   create_table "panels", :force => true do |t|
     t.integer  "event_id"
     t.string   "title"
-    t.time     "starts_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.text     "after"
+    t.integer  "order"
   end
 
   create_table "projects", :force => true do |t|
@@ -128,13 +128,13 @@ ActiveRecord::Schema.define(:version => 20130407205112) do
   end
 
   create_table "talks", :force => true do |t|
-    t.string   "order"
     t.string   "title"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "panel_id"
     t.integer  "speaker_id"
     t.text     "additional_info"
+    t.time     "starts_at"
   end
 
 end
