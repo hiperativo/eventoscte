@@ -1,27 +1,33 @@
 .row
-	.grid_4
-		h2 Sobre Eventos
-
-.row
 	.grid_3
-		p.lead
-			| Curabitur Mauris diam, tempor eget venenatis sit amet, malesuada at nibh. Maecenas nunc sapien, imperdiet id gravida id, varius ac nulla.
+		h2 Sobre os eventos 2013
+		p.lead CTE inova e traz a ideia da agenda produtiva setorial para seus eventos 
 
 		markdown:
-			Nam turpis augue, egestas eget auctor et, ullamcorper quis justo. Fusce aliquet erat vel elit lacinia pretium vehicula quam venenatis. Nullam sagittis sagittis lectus, ac porta ligula iaculis id. Integer eleifend lacus in nulla pharetra tincidunt. Donec iaculis tristique felis et commodo. Donec risus augue, pharetra id posuere quis, tincidunt nec velit. Nunc rhoncus imperdiet enim id pulvinar. Aliquam rhoncus, nisl pulvinar ornare sodales, turpis nunc consectetur nunc, sit amet iaculis odio nisl ut augue. Aliquam tempus neque vel justo tristique dictum convallis odio mollis. Morbi aliquet est in ante varius quis rutrum tellus venenatis. Nam pellentesque placerat urna vel commodo. Curabitur mauris diam, tempor eget venenatis sit amet, malesuada at nibh. Maecenas nunc sapien, imperdiet id gravida id, varius ac nulla. Maecenas rhoncus convallis erat, vitae adipiscing odio vulputate ac. Nam blandit quam sed metus sagittis sit amet faucibus nisi hendrerit.
+			Há sete anos, o CTE realiza Encontros trimestrais para promover o relacionamento entre empresas e profissionais da cadeia produtiva da construção e discutir as principais questões que norteiam o momento do mercado e do setor.
 
-			Phasellus venenatis mi at dui tincidunt consectetur. Curabitur turpis purus, accumsan sit amet viverra quis, viverra ut lorem. Quisque vitae neque sapien, eget iaculis ligula. Integer tincidunt, turpis ut sagittis tempus, risus arcu viverra lectus, eget scelerisque sapien diam eu nulla. Aenean pretium aliquam sapien vitae viverra. Nullam neque libero, cursus quis malesuada nec, adipiscing in ligula. Pellentesque laoreet elit non mauris pretium iaculis. Nullam et tempor mauris. Cras viverra cursus libero ac viverra. Morbi sagittis tortor nec purus consequat quis feugiat augue posuere. Vestibulum eu sem nibh, eget egestas risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse egestas ornare tortor, ac pellentesque nibh placerat vitae. Maecenas et ante dui, sed cursus eros. Nunc orci odio, volutpat ac faucibus eu, porta eget sapien. Sed sodales enim eu ligula commodo tincidunt.
+			Para o ano de 2013, o CTE inova e traz um forte diferencial para seus eventos: estruturar uma agenda produtiva e setorial da construção, focada em Gestão, Sustentabilidade, Inovação e Produtividade. Os eventos terão como objetivo refletir sobre os principais desafios do setor e identificar caminhos para o aumento da competitividade setorial, definindo projetos estruturantes e ações setoriais com ênfase na inovação e no aumento da produtividade da construção.
+
+			Serão realizados quatro eventos temáticos em 2013, com a participação de todos os elos da cadeia produtiva da construção. 
+
+			Para que o setor possa ganhar em produtividade e construir uma agenda positiva para o futuro, serão abordados oito temas durante este ano: Planejamento e Gestão, Capacitação Profissional, Sustentabilidade, Desenvolvimento Imobiliário, Inovação, BIM, Normalização, Desempenho e Qualidade, Industrialização. 
 
 	aside.modulo.grid_1
+		markdown:
+			### Palestrantes e debatedores
+			Todos os Eventos trarão palestrantes e debatedores do mais alto nível técnico, profissional e empresarial, referências na construção e de todos os segmentos da cadeia produtiva. 
 
-.row
-	.grid_4
-		ul.thumbnails
-			- @eventos.each_with_index do |evento, n|
-				li.chamada-evento 
-					= link_to evento do
-						= image_tag evento.banner_url(:thumb), size: "492x180"
-					.caption
-						h4 Evento #{n+1}
-						h3= evento.title
-						p= evento.date.strftime "%d/%m"
+			A cada Evento, serão debatidas propostas e formulados projetos para atuação conjunta da cadeia produtiva, para que o setor possa avançar tanto em nível estratégico como técnico e produtivo.
+
+- unless @eventos.empty?
+	.row
+		.grid_4
+			ul.thumbnails
+				- @eventos.each_with_index do |evento, n|
+					li.chamada-evento 
+						= link_to evento do
+							= image_tag evento.banner_url(:thumb), size: "490x180"
+							.caption
+								h4 Evento #{n+1}
+								h3= evento.title
+								p= evento.date.strftime "%d/%m"

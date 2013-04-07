@@ -12,6 +12,7 @@ gem 'fog'
 gem 'carrierwave'
 gem 'roman-numerals'
 gem 'simple_form'
+gem 'turbolinks'
 
 gem 'rails_admin', git: "git://github.com/sferik/rails_admin.git"
 gem 'itau_shopline', git: "git://github.com/pedrozath/Itau-Shopline.git"

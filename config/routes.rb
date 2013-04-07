@@ -2,10 +2,10 @@ Eventoscte::Application.routes.draw do
 	mount RailsAdmin::Engine => '/admincte'
 	devise_for :admin_users
 	
-	get "inscreva-se" => redirect("/inscricoes/inscreva-se")
+	get "inscreva-se" => redirect("/inscricoes/nova")
 
 	resources :events, path: "eventos"
-	resources :enrollments, path: "inscricoes", path_names:{new: "inscrever-se"}
+	resources :enrollments, path: "inscricoes", path_names:{new: "nova"}
 	resources :releases, path: "imprensa"
 	resources :projects, path: "agenda-produtiva"
 

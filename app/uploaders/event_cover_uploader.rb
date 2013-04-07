@@ -11,7 +11,7 @@ class EventCoverUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-     resize_to_fill 492, 180
+     resize_to_fill 490, 180
   end
 
   version :big do
