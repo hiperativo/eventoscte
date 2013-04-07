@@ -30,4 +30,5 @@
 							.caption
 								h4 Evento #{n+1}
 								h3= evento.title
-								p= evento.date.strftime "%d/%m"
+								p
+									strong= evento.date.strftime "%d/%m"
