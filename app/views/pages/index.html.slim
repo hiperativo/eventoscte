@@ -13,36 +13,39 @@
 .row
 	.grid_3
 		.row
-			article.modulo.grid_2
-				h3 Integrantes do Conselho
+			= link_to "/agenda-produtiva", class: "modulo grid_2" do
 				markdown:
-					Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
-					Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
-					Ut non suscipit metus. Cras non erat non eros pharetra ullamcorper.
-					
-					#{link_to "Leia mais"}
+					### Agenda Produtiva
+					O setor da construção cresceu em ritmo intenso nos últimos anos e enfrentou grandes desafios. Para avançar tanto em nível estratégico como técnico e produtivo, e garantir um futuro sustentado, é necessário criar uma **agenda produtiva setorial** com todos os elos da cadeia produtiva, focada em gestão, inovação, sustentabilidade e produtividade. 
 
-			article.modulo.grid_1
-				h3 Imprensa
+					**Saiba mais sobre a agenda produtiva setorial.**					
+
+			= link_to "/imprensa", class: "modulo grid_1" do
 				markdown:
-					Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
-					Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
+					### Imprensa
+					Notícias relacionadas aos eventos, entrevistas e materiais de divulgação podem ser acessados diretamente no site.
 					
-					#{link_to "Leia mais"}
+					Clique aqui
 
 		.row
-			article.modulo.grid_1
-				h3 Box Vazio
-				p ainda não sabemos o que teremos por aqui.
+			= link_to "/eventos/1", class: "modulo grid_1" do
+				markdown:
+					### Confira a programação do evento 
+					Saiba dos temas, dos palestrantes e debatedores do evento do dia 14/05, Caminhos para o Planejamento, Gestão e Capacitação Profissional.
+
+					Veja aqui
 
 			article.modulo.grid_2
-				h3 Entrevista: Roberto de Souza
 				markdown:
-					Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
-					Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
+					### ENTREVISTA: Roberto de Souza
+					Presidente do CTE comenta sobre o novo foco dos eventos em 2013 e sobre a importância de uma Agenda Produtiva Setorial. 
+
+					Leia mais
 
 	aside.modulo.grid_1.omega
-		h3 Calendário dos Eventos
 		markdown:
-			Nullam orci risus, dictum ac sollicitudin eget, luctus quis leo. 
-			Proin ac ante et eros viverra iaculis. Integer vel mauris vel turpis blandit sagittis sit amet et turpis.
+			### Agenda Setorial – Desafios e caminhos para:
+			* __14/05__ Planejamento, Gestão e Capacitação Profissional 
+			* __26/06__ Sustentabilidade e Desenvolvimento Imobiliário
+			* __11/09__ Inovação e BIM 
+			* __13/11__ Normalização, Desempenho, Qualidade e Industrialização

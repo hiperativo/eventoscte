@@ -1,3 +1,5 @@
+-# encoding: UTF-8
+
 doctype html
 html
 	head
@@ -15,12 +17,13 @@ html
 
 				div style="margin-top: 24px; width: 792px; overflow: hidden"
 					.grid_2 
-						h1 Frase bonita sobre o evento que está acontecendo com dados e informações.
+						h1 Desafios e caminhos para o Planejamento, Gestão e Capacitação Profissional na Construção
 						time datetime="20013-04-24T21:00-03:00"
 							markdown:
-								Dia __24/04__ | Inicio às __9h__ | Término às __18:30__
+								Dia __14/05__ | Em __São Paulo__ | Das __8h__ às __18h__
 
-					= image_tag "inscreva-se-aqui.png", size: "120x84", class:"inscreva-se"
+					= link_to "/inscreva-se" do
+						= image_tag "inscreva-se-aqui.png", size: "120x84", class:"inscreva-se"
 
 			nav style="position: absolute; width: 100%; top: 132px"
 				.container_4
