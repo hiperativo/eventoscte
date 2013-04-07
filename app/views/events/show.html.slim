@@ -47,6 +47,7 @@ article.evento
 										li.talk
 											h5 Palestra #{n+1} — #{talk.title}
 											= markdown "**#{talk.speaker.name}** — *#{talk.speaker.ocupation}*"
+											= markdown talk.additional_info
 										= render partial: "stuff_that_happens", locals: { what: panel.stuff_after }
 
 					= render partial: "stuff_that_happens", locals: { what: @event.stuff_after }
