@@ -13,6 +13,10 @@ class EnrollmentsController < ApplicationController
 		redirect_to action: "new"
 	end
 
+	# def update
+	# 	redirect_to params.merge!(action: "create")
+	# end
+
 	def create
 		@enrollment = Enrollment.new params[:enrollment]
 
@@ -56,8 +60,9 @@ class EnrollmentsController < ApplicationController
 														data_de_vencimento: (Time.now + 5.days) } )
 
 			@enrollment.update_attribute(:itau_crypto, @itau_crypto)
-			UserMailer.enrollment_notification(@enrollment).deliver
 
+			UserMailer.enrollment_notification(@enrollment).deliver
+			UserMailer.user_enrollment_notification(@enrollment).deliver
 		else
 			render action: "new"
 		end
