@@ -1,7 +1,8 @@
-PATH
-  remote: ~/sites/gems
+GIT
+  remote: git://github.com/pedrozath/Itau-Shopline.git
+  revision: bcaebf11f1a76d2b4cac7398c1cb51b5f148a0a8
   specs:
-    itau_shopline (0.1.0)
+    itau_shopline (0.1.1)
 
 GEM
   remote: https://rubygems.org/

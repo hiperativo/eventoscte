@@ -36,11 +36,11 @@
 					Veja aqui
 
 			article.modulo.grid_2.interview
+				- @interview = Interview.first
+				h3= @interview.title
 				.row
-					- @interview = Interview.first
-					= image_tag @interview.image_url(:banner), size:"204x130"
-					h3= @interview.title
-					div.texto
+					= image_tag @interview.image_url(:banner), size:"204x130", class: "grid_1"
+					.grid_1.texto
 						= markdown @interview.synopsis
 						Leia mais
 
