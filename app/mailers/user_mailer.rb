@@ -16,7 +16,6 @@ class UserMailer < ActionMailer::Base
 		@enrollment = enrollment
 		mail :to => @enrollment.email,  
 		:bcc => 'julia@nomedarosa.com.br',	
-		:cc => 'pedrozath@gmail.com',	
 		:subject => "Pré-inscrição no evento #{@enrollment.event.title}", 
 		:reply_to => "inscricao_eventos@cte.com.br"
 
