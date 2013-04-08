@@ -9,7 +9,7 @@ ready = ->
 		interval: 2000
 
 	$(".logo-carousel").carousel
-		interval: 500
+		interval: 1000
 
 	mostrar_campos_condicionais = ->
 		$(".enrollment_receipt_person").change ->

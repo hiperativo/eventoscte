@@ -4,9 +4,15 @@
 			.carousel-inner
 				- @sliders.each_with_index do |slider, x|
 					.item class="#{'active' if x==0}"
-						= image_tag slider.image_url(:big), size: "1008x300"
+						- unless slider.link.blank?
+							= link_to image_tag(slider.image_url(:big), size: "1008x300"), slider.link
+						- else
+							= image_tag slider.image_url(:big), size: "1008x300"
 						.carousel-caption
-							h2= slider.title
+							- unless slider.link.blank?
+								h2= link_to slider.title, slider.link, style:"color: #000"
+							- else
+								h2= slider.title
 							p= slider.description
 .clear
 
@@ -37,12 +43,12 @@
 
 			article.modulo.grid_2.interview
 				- @interview = Interview.first
-				h3= @interview.title
+				h3= link_to @interview.title, @interview
 				.row
-					= image_tag @interview.image_url(:banner), size:"204x130", class: "grid_1"
+					= link_to image_tag(@interview.image_url(:banner), size:"204x130", class: "grid_1"), @interview
 					.grid_1.texto
 						= markdown @interview.synopsis
-						Leia mais
+						= link_to "Leia mais", @interview
 
 	aside.modulo.grid_1.omega.calendario
 		markdown:

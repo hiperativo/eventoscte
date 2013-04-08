@@ -52,7 +52,7 @@ html
 					
 					.grid_1
 						h4 Apoio
-						.logo.carousel
+						.logo-carousel
 							- unless Supporter.all.empty?
 								.carousel-inner
 									- Supporter.order("name ASC").each_with_index do |item, x|
@@ -64,9 +64,13 @@ html
 					.row
 						.grid_4
 							ul.nav.nav-pills
-								- for item in ["Home", "Os eventos", "O conselho", "Inscreva-se", "Local", "Imprensa"]
-									li= link_to(item)
+								- for page, item in { "agenda-produtiva" => "Agenda Produtiva",
+														eventos: "Os eventos",  
+														"inscreva-se" => "Inscreva-se",  
+														local: "Local",  
+														imprensa: "Imprensa" } do
+									li= link_to item, "/#{page}", style:"color: #000"
 
-								p 
+								li style="color: #000; margin: 9px"
 									strong Contato:
 									| (11) 2149-0394
