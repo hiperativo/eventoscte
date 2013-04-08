@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408014011) do
+ActiveRecord::Schema.define(:version => 20130408191201) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130408014011) do
     t.text     "itau_crypto"
     t.string   "payment_type"
     t.string   "price"
+    t.string   "full_price"
   end
 
   create_table "events", :force => true do |t|

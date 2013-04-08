@@ -31,12 +31,15 @@ class EnrollmentsController < ApplicationController
 
 					if formas_de_digitar_sao_paulo_errado.include? @enrollment.city.downcase.delete(" ").parameterize
 						@preco -= @preco*(@IR+@ISS)
+						@enrollment.full_price = @precos[@enrollment.category]	
 					else
 						@preco -= @preco*@ISS
+						@enrollment.full_price = @precos[@enrollment.category]	
 					end
 				end
 			end
 
+			@enrollment.full_price = number_to_currency(@enrollment.full_price, unit: "R$", separator: ",", delimiter: ".") unless @enrollment.full_price.blank?
 			@enrollment.price = number_to_currency @preco, unit: "R$", separator: ",", delimiter: "."
 			@enrollment.save
 			

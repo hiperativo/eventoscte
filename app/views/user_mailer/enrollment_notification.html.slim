@@ -20,11 +20,15 @@
 	"Categoria" => 							@enrollment.category,  
 	"Deseja receber os informativos" => 	sim_ou_nao(@enrollment.want_to_receive_newsletter),  
 	"Como tomou conhecimento do evento?" => @enrollment.how_did_you_knew_us,
-	"Valor" => 								@enrollment.price}
+	"Valor sem desconto" => 				@enrollment.full_price, 
+	"Valor Final" => 						@enrollment.price}
 
 - for name, value in @info do
 	b= name+": "
-	= value
+	- unless value.blank?
+		= value
+	- else
+		| Não informado
 	br
 
 = link_to "Link para efetuar pagamento online", "https://shopline.itau.com.br/shopline/shopline.aspx?DC=#{@enrollment.itau_crypto}", target: "BLANK"
