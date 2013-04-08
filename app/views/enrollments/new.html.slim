@@ -1,29 +1,78 @@
-- @price_table = 	[["Categoria", 				"Até 25/04/13", "Até 25/04/13", "No local (se houver vaga)"],  
+- @price_table = 	[["Categoria", 				"Até 25/04/13", "Até 06/05/13", "No local (se houver vaga)"],  
 					["Profissionais", 						"R$700,00", "R$800,00", "R$900,00"],
 					["Clientes CTE (ativo)", 				"R$630,00", "R$720,00", "R$810,00"],
 					["Associado de entidades apoiadoras", 	"R$630,00", "R$720,00", "R$810,00"]]
 
 - unless @enrollment.event.nil?
 	.row
-		table.price-table.grid_2
-			- @price_table.each_with_index do |row, x|
-				tr
-					- row.each_with_index do |cell, y|
-						- if x == 0
-							th class="column-#{y+1}"= cell
-						- else
-							td class="column-#{y+1}"= cell
+		.grid_2
+			.row
+				table.price-table.grid_2
+					- @price_table.each_with_index do |row, x|
+						tr
+							- row.each_with_index do |cell, y|
+								- if x == 0
+									th class="column-#{y+1}"= cell
+								- else
+									td class="column-#{y+1}"= cell
 
-			td * se houver vaga
-			td
-			td
-			td
+					td * se houver vaga
+					td
+					td
+					td
+			.row
+				.grid_2.instrucoes-de-inscricao.modulo style="height: auto"
+					markdown:
+						## Como se inscrever
+						
+					p.lead Leia atentamente as instruções abaixo, preencha o formulário ao lado e efetue o pagamento.
+
+					markdown:
+						### 1. PAGAMENTO
+						O pagamento da inscrição deverá ser efetuado por meio de boleto bancário (todos os bancos) ou crédito em conta (apenas se for cliente Itaú). Preencha o formulário ao lado selecionando a respectiva categoria (Profissionais, Clientes ou Associado de Entidades) para processar sua inscrição e gerar o boleto. No caso de dúvidas, entre em contato conosco:
+						Tel/ Fax: (11) 2149-0394
+						Email: inscricao_eventos@cte.com.br
+						
+						### 2. CONFIRMAÇÃO DE INSCRIÇÃO
+						A confirmação da inscrição será enviada por e-mail após o recebimento do formulário e do comprovante de pagamento.
+						 
+						### 3. DATA LIMITE PARA INSCRIÇÕES VIA SITE – 06/5/13
+						 
+						### 4. POLÍTICA DE DESCONTO
+						Parceiros: 10% desconto. Enquadram-se nessa categoria associados das instituições apoiadoras do evento. O desconto será concedido/confirmado somente àqueles que enviarem a cópia do comprovante de associado junto com a ficha de inscrição e o respectivo comprovante de pagamento.
+						Empresas: Empresas que inscreverem mais de dois colaboradores terão 10% de desconto no valor total a pagar.
+						Obs: Os descontos NÃO são cumulativos.
+						 
+						### 5. INSCRIÇÕES NO DIA/LOCAL DO EVENTO – somente se houver vaga disponível.
+						- As formas de pagamento aceitas no local serão cheque ou dinheiro.
+						- Pagamento em nome da empresa para obtenção de recibo só será aceito mediante apresentação de autorização por escrito.
+						 
+						### 6. SUBSTITUIÇÕES OU CANCELAMENTOS
+						**6.1.** Em caso de substituição do participante, comunicar em até um dia antes da data do evento.
+						
+						**6.2.** Os pedidos de cancelamento solicitados por e-mail ou fax até 06.5.13 terão ressarcimento de 80% do valor da inscrição. Após esta data, serão aceitas somente substituições, mediante comunicado formal da empresa por e-mail ou fax. O não comparecimento do participante ao evento não implicará no cancelamento automático da inscrição ou reembolso do valor pago previamente. Não haverá reembolso no caso do participante não comparecer no dia do evento.
+						 
+						** 6.3.** O CTE não se responsabiliza por solicitação de inscrições não recebidas por motivos de ordem técnica, falha de comunicação, congestionamento nas linhas de comunicação, falta de energia elétrica, bem como outros fatores de ordem técnica que impossibilitem a transmissão do fax.
+						 
+						**6.4.** Em caso de cancelamento do evento, serão devolvidos os valores pagos.
+
+						**6.5.** Os palestrantes e temas das palestras deste evento foram confirmados até o momento da publicação da programação, entretanto, por circunstâncias que fogem ao controle da empresa organizadora, é possível que haja alguma substituição, alteração ou cancelamento de palestrantes e/ou tópicos. Caso seja necessário, o CTE reserva-se o direito de alterar ou modificar os palestrantes e/ou temas anunciados. Qualquer substituição ou alteração será informada no nosso site assim que possível.
+
+						### 7. ESTACIONAMENTO
+						Não incluso no valor da inscrição.
+						 
+						INFORMAÇÕES
+						Tel/ FAX: (11) 2149-0394
+						Email: inscricao_eventos@cte.com.br
+					 
+						*Horário de atendimento da secretaria do evento: de segunda a sexta-feira, das 10h às 17h.
 
 		= simple_form_for @enrollment, html: {class: "modulo grid_2"} do |f|
 			.form-horizontal
 
-				h3 Formulário de inscrição para o evento
-				h2 style="margin-bottom: 12px"= @enrollment.event.title
+				h3
+					small Formulário de inscrição para o evento
+				h2 style="margin-bottom: 12px; font-size: 20px"= @enrollment.event.title
 				- unless @enrollment.errors.empty?
 					.alert.alert-error
 						p Por favor, corrija os erros abaixo.
@@ -31,13 +80,13 @@
 				.control-group= f.input :full_name								,label: "Nome completo"
 				.control-group= f.input :display_name							,label: "Nome para crachá"
 				.control-group= f.input :email									,label: "E-mail"
-				.control-group= f.input :enterprise										,label: "Empresa"
+				.control-group= f.input :enterprise								,label: "Empresa"
 				.control-group.two-fields
 					= f.input :profession										,label: "Profissão"
 					= f.input :occupation										,label: "Cargo"
 				
 				.control-group= f.input :category								,label: "Categoria",  
-					collection: ["Profissional", "Cliente CTE", "Associado de entidade apoiadora"], include_blank: false
+					collection: ["Profissional", "Cliente CTE (ativo)", "Associado de entidade apoiadora"], include_blank: false
 
 			.control-group= f.input :receipt_or_nf 								,label: "Deseja recibo ou nota fiscal?", 
 				collection: {"Recibo" => :recibo, "Nota Fiscal" => :nota_fiscal}, as: :radio_buttons
@@ -74,7 +123,7 @@
 				.control-group= f.input :phone									,label: "Telefone"
 
 			.control-group= f.input :payment_type								,label: "Forma de pagamento", 
-				collection: ["Boleto bancário", "Crédito em conta (somente para clientes itaú"]
+				collection: ["Boleto bancário", "Crédito em conta (somente para clientes itaú"], as: :radio_buttons
 
 			.control-group= f.input :how_did_you_knew_us						,label: "Como tomou conhecimento do evento?",  
 				collection: ["Boletim CTE", "Site CTE", "Jornal/Revista", "Outros"], as: :radio_buttons
@@ -89,9 +138,6 @@
 			= f.button :submit, value: "Fazer Inscrição", input_html: { class: "btn" }
 - else
 	| No momento, ainda não há eventos disponíveis para inscrição.
-
-
-
 
 
 

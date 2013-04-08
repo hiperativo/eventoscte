@@ -1,11 +1,17 @@
 class Event < ActiveRecord::Base
-	attr_accessible :address, :banner, :banner_cache, :remove_banner, :contact_info, :description, :lead, :place, :target, :title, :date, :after, :before
+	attr_accessible :address, :banner, :banner_cache, :remove_banner, :contact_info, :description, :lead, :place, :target, :title, :date, :after, :before, :slug
 	has_many :panels
 	has_many :enrollments
 
 	mount_uploader :banner, EventCoverUploader
 
 	attr_accessor :stuff_before, :stuff_after
+
+	before_save :create_slug
+
+	def create_slug
+		self.slug = self.title.parameterize
+	end
 
 	def stuff_before
 		self.split_stuff_that_happens :before
@@ -17,7 +23,7 @@ class Event < ActiveRecord::Base
 
 	def split_stuff_that_happens what
 		self[what].split("\n").map do |item|
-			{ time: item.split(" ")[0], what: item.split(" ")[1] }
+			{ time: item.split(" - ")[0], what: item.split(" - ")[1] }
 		end
 	end
 

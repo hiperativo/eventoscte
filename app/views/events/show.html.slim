@@ -2,7 +2,7 @@ article.evento
 	.row
 		.grid_3
 			h2 
-				small evento:
+				small evento
 				= @event.title
 			p.lead= @event.lead
 			= image_tag @event.banner_url(:big), size: "744x192"
@@ -36,7 +36,7 @@ article.evento
 					= render partial: "stuff_that_happens", locals: { what: @event.stuff_before }
 
 					ol.panels
-						- @event.panels.order.each_with_index do |panel, n|
+						- @event.panels.order("ordem").each_with_index do |panel, n|
 
 							li.panel
 								h4 Painel #{RomanNumerals.to_roman(n+1)} — #{panel.title}
@@ -48,7 +48,7 @@ article.evento
 											h5 #{talk.short_time} Palestra #{n+1} — #{talk.title}
 											= markdown "**#{talk.speaker.name}** — *#{talk.speaker.ocupation}*" unless talk.speaker.nil?
 											= markdown talk.additional_info
-										= render partial: "stuff_that_happens", locals: { what: panel.stuff_after }
+											= render partial: "stuff_that_happens", locals: { what: talk.stuff_after } unless talk.after.nil?
 
 					= render partial: "stuff_that_happens", locals: { what: @event.stuff_after }
 

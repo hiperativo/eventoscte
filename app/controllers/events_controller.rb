@@ -3,6 +3,10 @@ class EventsController < ApplicationController
 		@eventos = Event.where(disabled: false).order("date ASC")
 	end
 	def show
-		@event = Event.find(params[:id])
+		if params[:slug]
+			@event = Event.find_by_slug params[:slug]
+		else
+			@event = Event.find(params[:id])
+		end
 	end
 end

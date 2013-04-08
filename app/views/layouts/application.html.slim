@@ -9,6 +9,10 @@ html
 		= stylesheet_link_tag "application", media: "all"
 		= csrf_meta_tags
 
+		erb:
+			<script type="text/javascript" src="//use.typekit.net/hfh1dot.js"></script>
+		 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 	body class="#{params[:controller]} #{params[:action]}"
 		header
 			.container_4 style="overflow: hidden"
@@ -44,11 +48,16 @@ html
 				.row
 					.grid_3
 						h4 Patrocínio
-						= image_tag "patrocinadores.jpg", size: "750x104"
+						= image_tag "patrocinadores.jpg", size: "750x80"
 					
 					.grid_1
 						h4 Apoio
-						= image_tag "apoiadores.jpg"
+						.logo.carousel
+							- unless Supporter.all.empty?
+								.carousel-inner
+									- Supporter.order("name ASC").each_with_index do |item, x|
+										.item class="#{'active' if x==0}"
+											= image_tag item.image_url :thumb
 				
 			nav
 				.container_4
@@ -57,3 +66,7 @@ html
 							ul.nav.nav-pills
 								- for item in ["Home", "Os eventos", "O conselho", "Inscreva-se", "Local", "Imprensa"]
 									li= link_to(item)
+
+								p 
+									strong Contato:
+									| (11) 2149-0394

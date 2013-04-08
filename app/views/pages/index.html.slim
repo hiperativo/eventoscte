@@ -35,14 +35,16 @@
 
 					Veja aqui
 
-			article.modulo.grid_2
-				markdown:
-					### ENTREVISTA: Roberto de Souza
-					Presidente do CTE comenta sobre o novo foco dos eventos em 2013 e sobre a importância de uma Agenda Produtiva Setorial. 
+			article.modulo.grid_2.interview
+				.row
+					- @interview = Interview.first
+					= image_tag @interview.image_url(:banner), size:"204x130"
+					h3= @interview.title
+					div.texto
+						= markdown @interview.synopsis
+						Leia mais
 
-					Leia mais
-
-	aside.modulo.grid_1.omega
+	aside.modulo.grid_1.omega.calendario
 		markdown:
 			### Agenda Setorial – Desafios e caminhos para:
 			* __14/05__ Planejamento, Gestão e Capacitação Profissional 

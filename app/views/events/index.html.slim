@@ -25,7 +25,7 @@
 			ul.thumbnails
 				- @eventos.each_with_index do |evento, n|
 					li.chamada-evento 
-						= link_to evento do
+						= link_to "/evento/#{evento.slug}" do
 							= image_tag evento.banner_url(:thumb), size: "490x180"
 							.caption
 								h4 Evento #{n+1}

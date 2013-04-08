@@ -1,34 +1,34 @@
 //= require "bootstrap"
 //= require "grid"
 
-@font-face
-	:font-family "Futura"
-	:src url("FuturaStd-Light.otf")
-	:font-weight 100
+// @font-face
+// 	:font-family $tipo_titulo
+// 	:src url("FuturaStd-Light.otf")
+// 	:font-weight 100
 
-@font-face
-	:font-family "Futura"
-	:src url("FuturaStd-Book.otf")
-	:font-weight 300
+// @font-face
+// 	:font-family $tipo_titulo
+// 	:src url("FuturaStd-Book.otf")
+// 	:font-weight 300
 
-@font-face
-	:font-family "Futura"
-	:src url("FuturaStd-Heavy.otf")
-	:font-weight 500
+// @font-face
+// 	:font-family $tipo_titulo
+// 	:src url("FuturaStd-Medium.otf")
+// 	:font-weight 500
 
-@font-face
-	:font-family "Futura"
-	:src url("FuturaStd-Bold.otf")
-	:font-weight 700
+// @font-face
+// 	:font-family $tipo_titulo
+// 	:src url("FuturaStd-Bold.otf")
+// 	:font-weight 700
 
-@font-face
-	:font-family "Futura"
-	:src url("FuturaStd-Bold.otf")
-	:font-weight 900
+// @font-face
+// 	:font-family $tipo_titulo
+// 	:src url("FuturaStd-Heavy.otf")
+// 	:font-weight 900
 
-@font-face
-	:font-family "Gudea"
-	:src url("Gudea-Regular.ttf")
+// @font-face
+// 	:font-family $tipo_corpo
+// 	:src url("Gudea-Regular.ttf")
 
 
 $amarelo: #f7cc52
@@ -39,10 +39,21 @@ $branco: #fff
 
 $vermelho: #a00
 
+$tipo_titulo: "futura-pt"
+$tipo_corpo: "freight-sans-pro"
+
 a
 	:color $preto
 	&:hover
 		:color $preto
+
+small
+	:display block
+	:text-transform uppercase
+	:font-size 18px !important
+
+strong
+	:font-weight 600
 
 a.modulo
 	&:hover
@@ -60,6 +71,13 @@ a.modulo
 	.row
 		:margin-bottom 6px
 
+	&.interview
+		img, div
+			:float left
+
+		div
+			:margin-left 12px
+			:width 217px
 
 p.lead
 	:margin 12px 0
@@ -67,6 +85,7 @@ p.lead
 	:font-weight normal
 	:font-style italic
 	:font-size 18px
+	:line-height 1.15
 
 iframe.grid_4
 	:width 1006px !important
@@ -123,8 +142,9 @@ html
 	// :padding-bottom 80px
 
 body
-	:font-family "Gudea"
+	:font-family $tipo_corpo
 	:line-height 1.4
+	:font-size 15px
 	// :background-image url("http://griddle.it/1008-4-24")
 
 section.conteudo
@@ -161,10 +181,21 @@ form.modulo
 	:position relative
 
 	a:hover 
-
 		.caption, h2, h3, h4
 			:background-color $roxo
 			:color $branco !important
+
+.calendario
+	ol
+		:list-style-type none
+		li
+
+.instrucoes-de-inscricao
+	ol
+		:list-style-type decimal
+
+	h3
+		:margin-top 12px
 
 .modulo
 	:height 156px
@@ -176,6 +207,13 @@ form.modulo
 .carousel
 	:margin-bottom 0px
 
+	.carousel-caption
+		h2, p
+			:color #222 !important
+
+.carousel.logo
+	:border none
+
 .carousel-caption, .chamada-evento .caption
 	:background-color transparentize($amarelo, 0.3)
 	:width 70%
@@ -183,6 +221,12 @@ form.modulo
 	:left 0px
 	:padding 12px
 	:position absolute
+
+.carousel-caption
+	:width 468px
+
+	h2
+		:font-family $tipo_corpo
 
 .carousel-caption
 	:color $preto
@@ -236,11 +280,15 @@ ol, li
 		:margin-left 0px
 
 nav, h1, h2, h3, h4, h5, h6
-	:font-family "Futura"
+	:font-family $tipo_titulo
 	:color $roxo
-	:line-height 1.4
 	:font-weight 300
 	:margin 0
+	:line-height 1.1
+
+nav
+	p
+
 
 h1
 	:font-size 20px
@@ -250,6 +298,7 @@ h1
 	:line-height 1.3
 
 h2
+	:font-weight 500
 	:margin 0
 
 h3

@@ -5,7 +5,7 @@ class Enrollment < ActiveRecord::Base
 	:cnpj, :complement, :display_name, :email, :enterprise, :entity, :full_name, 
 	:how_did_you_knew_us, :neighbourhood, :number, :occupation, :phone, :profession, 
 	:receipt_person, :state, :want_to_receive_newsletter, :event_id, :state_register, 
-	:cpf, :receipt_or_nf, :how_exactly_did_you_knew_us, :itau_crypto, :payment_type
+	:cpf, :receipt_or_nf, :how_exactly_did_you_knew_us, :itau_crypto, :payment_type, :price
 
 	attr_accessor :how_exactly_did_you_knew_us
 
@@ -40,13 +40,13 @@ class Enrollment < ActiveRecord::Base
 		f.validates :state
 		f.validates :address
 		f.validates :number
-		f.validates :how_did_you_knew_us
+		# f.validates :how_did_you_knew_us
 		f.validates :enterprise
 		f.validates :profession
 		f.validates :occupation
 		f.validates :neighbourhood
 		f.validates :category
-		f.validates :state_register, presence: true, if: "receipt_person == 'cnpj'"
+		# f.validates :state_register, presence: true, if: "receipt_person == 'cnpj'"
 		f.validates :cnpj, length: {is: 14, message: "Deve ter 14 dígitos"} , if: "receipt_person == 'cnpj'"
 		f.validates :cpf, length: {is: 11, message: "Deve ter 11 dígitos"}, if: "receipt_person == 'cpf'"
 	end

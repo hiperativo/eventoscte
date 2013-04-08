@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/pedrozath/Itau-Shopline.git
-  revision: f7f1bc0c8f778005fd59c77a4c3427880c6f8814
+PATH
+  remote: ~/sites/gems
   specs:
     itau_shopline (0.1.0)
 

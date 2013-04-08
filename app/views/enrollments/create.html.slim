@@ -1,12 +1,9 @@
 - # encoding: UTF-8
-= @enrollment.itau_crypto
-p= (Time.now + 5.days).strftime('%d%m%Y')
-dl.dl-horizontal
-	dt Preço
-	dd= @preco
+h2 Inscrição enviada
+p 
+	strong Preço: 
+	= @enrollment.price
 
-	dt ID
-	dd= @enrollment.id
+p Clique no botão abaixo para efetuar pagamento no sistema do Itaú.
 
-= debug @enrollment
-= link_to "Clique aqui para efetuar o pagamento", "https://shopline.itau.com.br/shopline/shopline.aspx?DC=#{@itau_crypto}", class: "btn btn-primary"
+= link_to "Efetuar Pagamento", "https://shopline.itau.com.br/shopline/shopline.aspx?DC=#{@itau_crypto}", class: "btn btn-primary", target: "BLANK"

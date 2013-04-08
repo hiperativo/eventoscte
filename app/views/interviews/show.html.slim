@@ -1,0 +1,14 @@
+
+article
+	.row
+		.grid_4 
+			h2
+				small Entrevista
+				= @interview.title
+			p.lead= @interview.lead
+	.row
+		.grid_1
+			= image_tag @interview.image_url(:interna), size:"240x240"
+		.grid_2
+
+			= markdown @interview.contents

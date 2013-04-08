@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407220656) do
+ActiveRecord::Schema.define(:version => 20130408014011) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20130407220656) do
     t.string   "cpf"
     t.text     "itau_crypto"
     t.string   "payment_type"
+    t.string   "price"
   end
 
   create_table "events", :force => true do |t|
@@ -78,6 +79,17 @@ ActiveRecord::Schema.define(:version => 20130407220656) do
     t.text     "before"
     t.text     "after"
     t.boolean  "disabled",     :default => false
+    t.string   "slug"
+  end
+
+  create_table "interviews", :force => true do |t|
+    t.string   "title"
+    t.string   "lead"
+    t.string   "synopsis"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "contents"
   end
 
   create_table "panels", :force => true do |t|
@@ -85,8 +97,7 @@ ActiveRecord::Schema.define(:version => 20130407220656) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.text     "after"
-    t.integer  "order"
+    t.integer  "ordem"
   end
 
   create_table "projects", :force => true do |t|
@@ -128,6 +139,13 @@ ActiveRecord::Schema.define(:version => 20130407220656) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "supporters", :force => true do |t|
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+  end
+
   create_table "talks", :force => true do |t|
     t.string   "title"
     t.datetime "created_at",      :null => false
@@ -136,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20130407220656) do
     t.integer  "speaker_id"
     t.text     "additional_info"
     t.time     "starts_at"
+    t.text     "after"
   end
 
 end
