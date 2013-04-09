@@ -1,13 +1,22 @@
 - # encoding: UTF-8
 h2 Inscrição enviada
 p 
-	strong Valor total:
-	= @enrollment.price
-	br
+	- if @enrollment.full_price.blank?
 
-	- unless @enrollment.full_price.blank?
-		strong Valor com desconto IR/ISS:
+		strong Valor total:
+		= @enrollment.price
+		br
+
+	- else
+
+		strong Valor total:
 		= @enrollment.full_price
+		br
+
+		strong Valor com desconto IR/ISS:
+		= @enrollment.price
+
+
 
 p 
 	| Clique no botão abaixo para efetuar pagamento no sistema do Itaú.

@@ -8,7 +8,7 @@ article
 			p.lead= @interview.lead
 	.row
 		.grid_1
-			= image_tag @interview.image_url(:interna), size:"240x240"
+			= image_tag @interview.image_url(:interna), size:"240"
 		.grid_2
 
 			= markdown @interview.contents

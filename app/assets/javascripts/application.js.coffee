@@ -6,7 +6,7 @@
 
 ready = ->
 	$(".carousel").carousel
-		interval: 2000
+		interval: 7000
 
 	$(".logo-carousel").carousel
 		interval: 1000

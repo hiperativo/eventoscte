@@ -20,6 +20,10 @@ gem 'itau_shopline', git: "git://github.com/pedrozath/Itau-Shopline.git"
 
 # gem 'brazilian-rails'
 
+group :test do
+	gem 'rspec'
+end
+
 gem 'slim-rails'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'

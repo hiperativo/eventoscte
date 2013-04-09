@@ -1,45 +1,45 @@
-.grid_4.alpha.omega
-	.row
-		section.carousel.slide
-			.carousel-inner
-				- @sliders.each_with_index do |slider, x|
-					.item class="#{'active' if x==0}"
-						- unless slider.link.blank?
-							= link_to image_tag(slider.image_url(:big), size: "1008x300"), slider.link
-						- else
-							= image_tag slider.image_url(:big), size: "1008x300"
-						.carousel-caption
-							- unless slider.link.blank?
-								h2= link_to slider.title, slider.link, style:"color: #000"
-							- else
-								h2= slider.title
-							p= slider.description
-.clear
-
 .row
+	#slider-home.section.carousel.slide.grid_4 style="width: 1006px"
+		.carousel-inner
+			- @sliders.each_with_index do |slider, x|
+				.item class="#{'active' if x==0}"
+					- unless slider.link.blank?
+						= link_to image_tag(slider.image_url(:big), size: "1008x300"), slider.link
+					- else
+						= image_tag slider.image_url(:big), size: "1008x300"
+					.carousel-caption
+						- unless slider.link.blank?
+							h2= link_to slider.title, slider.link, style:"color: #000"
+						- else
+							h2= slider.title
+						p= slider.description
+		a.carousel-control.left href="#slider-home" data-slide="prev" &lsaquo;
+		a.carousel-control.right href="#slider-home" data-slide="next"	&rsaquo;
+
+.row.vitrine
 	.grid_3
 		.row
-			= link_to "/agenda-produtiva", class: "modulo grid_2" do
+			.modulo.grid_2
+				h3= link_to "Agenda Produtiva da Construção", "/agenda-produtiva"
 				markdown:
-					### Agenda Produtiva da Construção
 					O setor da construção cresceu em ritmo intenso nos últimos anos e enfrentou grandes desafios. Para avançar tanto em nível estratégico como técnico e produtivo, e garantir um futuro sustentado, é necessário criar uma **agenda produtiva setorial** com todos os elos da cadeia produtiva, focada em gestão, inovação, sustentabilidade e produtividade. 
 
-					**Saiba mais sobre a agenda produtiva setorial.**					
+				= link_to "Saiba mais sobre a agenda produtiva setorial", "/agenda-produtiva", class: "saiba-mais"
 
-			= link_to "/imprensa", class: "modulo grid_1" do
+			.modulo.grid_1
+				h3= link_to "Imprensa", "/imprensa"
 				markdown:
-					### Imprensa
 					Notícias relacionadas aos eventos, entrevistas e materiais de divulgação podem ser acessados diretamente no site.
 					
-					Clique aqui
+				= link_to "Veja mais", "/imprensa", class: "saiba-mais"
 
 		.row
-			= link_to "/eventos/1", class: "modulo grid_1" do
+			.modulo.grid_1
+				h3= link_to "Confira a programação do evento", "/evento/#{Event.first.slug}"
 				markdown:
-					### Confira a programação do evento 
 					Saiba dos temas e palestrantes do evento do dia 14/05, Caminhos para o Planejamento, Gestão e Capacitação Profissional.
 
-					Veja aqui
+				= link_to "Veja aqui", "/evento/#{Event.first.slug}", class: "saiba-mais"
 
 			article.modulo.grid_2.interview
 				- @interview = Interview.first
@@ -48,11 +48,12 @@
 					= link_to image_tag(@interview.image_url(:banner), size:"204x130", class: "grid_1"), @interview
 					.grid_1.texto
 						= markdown @interview.synopsis
-						= link_to "Leia mais", @interview
+					
+				= link_to "Leia mais", @interview, class: "saiba-mais"
 
 	aside.modulo.grid_1.omega.calendario
+		h3= link_to "Agenda Produtiva – Desafios e caminhos para:", "/agenda-produtiva"
 		markdown:
-			### Agenda Produtiva – Desafios e caminhos para:
 			* __14/05__ Planejamento, Gestão e Capacitação Profissional 
 			* __26/06__ Sustentabilidade e Desenvolvimento Imobiliário
 			* __11/09__ Inovação e BIM 
