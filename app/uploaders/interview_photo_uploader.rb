@@ -15,7 +15,7 @@ class InterviewPhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :banner do
-     resize_to_fill 204, 156
+     resize_to_fill 204, 130
   end
 
 end

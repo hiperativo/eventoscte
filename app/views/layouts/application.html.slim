@@ -4,7 +4,6 @@ doctype html
 html
 	head
 		title Eventos CTE
-		meta name="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"
 		= javascript_include_tag "application"
 		= stylesheet_link_tag "application", media: "all"
 		= csrf_meta_tags
@@ -20,9 +19,9 @@ html
 					= image_tag "logo-cte.png", style:"float: left; margin-right: 12px", size: "180x180", class: "logo"
 
 				div style="margin-top: 24px; width: 792px; overflow: hidden"
-					.grid_2 
-						h1 Desafios e caminhos para o Planejamento, Gestão e Capacitação Profissional na Construção
-						time datetime="20013-04-24T21:00-03:00"
+					.grid_2 style="width: 508px"
+						h1= link_to "Caminhos para o Planejamento, Gestão e Capacitação Profissional na Construção", "/evento/#{Event.first.slug}"
+						time
 							markdown:
 								Dia __14/05__ | Em __São Paulo__ | Das __8h__ às __18h__
 

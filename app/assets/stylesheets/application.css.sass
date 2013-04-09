@@ -44,15 +44,27 @@ $tipo_corpo: "freight-sans-pro"
 
 a
 	:color $preto
-	&:hover
-		:color $preto
 
-small
-	:display block
-	:text-transform uppercase
-	:font-size 18px !important
+h2
+	small
+		:display block
+		:text-transform uppercase
+		:font-size 18px
+
+		&.chapeu-2
+			:margin-top 12px
+			:font-weight 300
+			:font-size 24px
+			:color $roxo
 
 strong
+	:font-weight 600
+
+.saiba-mais
+	:position absolute
+	:bottom 6px
+	:right 6px
+	:color $roxo
 	:font-weight 600
 
 a.modulo
@@ -218,6 +230,15 @@ form.modulo
 		p
 			:font-size 18px
 
+	a.carousel-control
+		:font-family $tipo_titulo
+		:font-weight 300
+		:line-height 25px
+		:border-color $amarelo
+		:color $amarelo
+		:background-color transparent
+		:margin-top 0
+
 .carousel.logo
 	:border none
 
@@ -298,17 +319,17 @@ nav
 
 
 h1
-	:font-size 20px
-	:font-weight 100
+	:font-size 26px
+	:font-weight 400
 	:margin 0
 	:margin-bottom 12px
-	:line-height 1.3
+	:line-height 1.1
 
 h2
 	:font-weight 500
 	:margin 0
 
-h3
+h3, h3 a, h3 a:hover
 	:font-size 16px
 	:font-weight 500
 	:color $roxo
