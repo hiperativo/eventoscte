@@ -38,7 +38,7 @@ class UserMailer < ActionMailer::Base
 		@info = info enrollment
 		mail :to => ENV['EMAIL_RECEIVER'],  
 		:bcc => 'julia@nomedarosa.com.br',	
-		:subject => "Novo pedido de inscrição de #{@enrollment.event.title}", 
+		:subject => "Inscrição — #{@enrollment.event.title}", 
 		:reply_to => @enrollment.email
 	end
 
