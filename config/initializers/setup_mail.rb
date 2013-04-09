@@ -1,5 +1,5 @@
 ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.raise_delivery_errors = false
 ActionMailer::Base.smtp_settings = {
 	:address              => ENV['EMAIL_SMTP'],
 	:port                 => 587,
