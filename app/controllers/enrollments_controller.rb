@@ -43,9 +43,11 @@ class EnrollmentsController < ApplicationController
 				end
 			end
 
+
 			@enrollment.full_price = number_to_currency(@enrollment.full_price, unit: "R$", separator: ",", delimiter: ".") unless @enrollment.full_price.blank?
 			@enrollment.price = number_to_currency @preco, unit: "R$", separator: ",", delimiter: "."
 			@enrollment.save
+			@values = {price: @preco, full_price: @enrollment.full_price}
 			
 			@itau_crypto = ItauShopline.new.gera_dados({ pedido: @enrollment.id + 800,  
 														valor: @preco,

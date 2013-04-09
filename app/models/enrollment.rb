@@ -7,7 +7,11 @@ class Enrollment < ActiveRecord::Base
 	:receipt_person, :state, :want_to_receive_newsletter, :event_id, :state_register, 
 	:cpf, :receipt_or_nf, :how_exactly_did_you_knew_us, :itau_crypto, :payment_type, :price, :full_price
 
-	attr_accessor :how_exactly_did_you_knew_us
+	attr_accessor :how_exactly_did_you_knew_us, :has_discount
+
+	def has_discount
+		!self.full_price.blank?
+	end
 
 	before_validation :formatar_cep, :formatar_cpf, :formatar_cnpj, :definir_como_conheceu_cte
 
