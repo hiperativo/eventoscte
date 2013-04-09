@@ -1,28 +1,5 @@
 - # encoding: UTF-8
 
--	@info = {"Nome" => 						@enrollment.full_name,  
-	"Data" => 								@enrollment.created_at.strftime("%d/%m/%Y - %H:%M:%S"),  
-	"Crachá" => 							@enrollment.display_name,  
-	"Profissão" => 							@enrollment.profession,  
-	"Cargo" => 								@enrollment.occupation,  
-	"Empresa" => 							@enrollment.enterprise,  
-	"CNPJ" => 								@enrollment.cnpj,  
-	"Inscrição Estadual" => 				@enrollment.state_register,  
-	"Endereço" => 							@enrollment.address,
-	"Bairro" => 							@enrollment.neighbourhood,  
-	"Cidade" => 							@enrollment.city,  
-	"CEP" => 								@enrollment.cep,  
-	"Estado" => 							@enrollment.state,  
-	"Telefone" => 							@enrollment.phone,  
-	"Recibo ou nota fiscal" => 				@enrollment.receipt_or_nf,  
-	"Emissão" => 							@enrollment.receipt_person,  
-	"CPF" => 								@enrollment.cpf,  
-	"Categoria" => 							@enrollment.category,  
-	"Deseja receber os informativos" => 	sim_ou_nao(@enrollment.want_to_receive_newsletter),  
-	"Como tomou conhecimento do evento?" => @enrollment.how_did_you_knew_us,
-	"Valor sem desconto" => 				@enrollment.full_price, 
-	"Valor Final" => 						@enrollment.price}
-
 - for name, value in @info do
 	b= name+": "
 	- unless value.blank?
@@ -30,5 +7,8 @@
 	- else
 		| Não informado
 	br
+
+= render "enrollments/valores"
+	
 
 = link_to "Link para efetuar pagamento online", "https://shopline.itau.com.br/shopline/shopline.aspx?DC=#{@enrollment.itau_crypto}", target: "BLANK"
