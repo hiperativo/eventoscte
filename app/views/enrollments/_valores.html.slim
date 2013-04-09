@@ -1,13 +1,13 @@
 p 
 	- if @enrollment.has_discount
-		strong Valor total:
+		strong Valor da inscrição:
 		= @values[:full_price]
 		br
 
-		strong Valor com desconto IR/ISS:
+		strong Valor para pagamento (com desconto IR/ISS):
 		= @enrollment[:price]
 
 	- else
-		strong Valor total:
+		strong Valor da inscrição:
 		= @values[:price]
 		br
