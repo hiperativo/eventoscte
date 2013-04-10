@@ -37,7 +37,7 @@ class EnrollmentsController < ApplicationController
 						@preco -= @preco*(@IR+@ISS)
 						@enrollment.full_price = @precos[@enrollment.category]	
 					else
-						@preco -= @preco*@ISS
+						@preco -= @preco*@IR
 						@enrollment.full_price = @precos[@enrollment.category]	
 					end
 				end
