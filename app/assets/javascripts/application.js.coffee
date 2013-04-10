@@ -3,7 +3,7 @@
 #= require holder
 #= require bootstrap
 #= require turbolinks
-
+# require head
 ready = ->
 	$(".carousel").carousel
 		interval: 7000
