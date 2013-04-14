@@ -19,17 +19,18 @@ html
 				= link_to "/" do
 					= image_tag "logo-cte.png", style:"float: left; margin-right: 12px", size: "180x180", class: "logo"
 
-				div style="margin-top: 24px; width: 792px; overflow: hidden"
-					.grid_2 style="width: 508px"
-						h1
-							small Agenda produtiva da construção
-							= link_to "Caminhos para o Planejamento, Gestão e Capacitação Profissional na Construção", "/evento/#{Event.first.slug}"
-						time
-							markdown:
-								Dia __14/05__ | Em __São Paulo__ | Das __8h__ às __18h__
+				- unless Event.all.empty?
+					div style="margin-top: 24px; width: 792px; overflow: hidden"
+						.grid_2 style="width: 508px"
+							h1
+								small Agenda produtiva da construção
+								= link_to "Caminhos para o Planejamento, Gestão e Capacitação Profissional na Construção", "/evento/#{Event.first.slug}"
+							time
+								markdown:
+									Dia __14/05__ | Em __São Paulo__ | Das __8h__ às __18h__
 
-					= link_to "/inscreva-se" do
-						= image_tag "inscreva-se-aqui.png", size: "120x84", class:"inscreva-se"
+						= link_to "/inscreva-se" do
+							= image_tag "inscreva-se-aqui.png", size: "120x84", class:"inscreva-se"
 
 			nav style="position: absolute; width: 100%; top: 132px"
 				.container_4

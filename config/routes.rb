@@ -1,11 +1,12 @@
 Eventoscte::Application.routes.draw do
-  get "interviews/show"
-
+	get "error/:action" => "error_pages"
+	
 	mount RailsAdmin::Engine => '/admincte'
 	devise_for :admin_users
 	get "inscreva-se" => redirect("/inscricoes/nova")
 	get "/evento/:slug" => "events#show"
-
+	get "/patrocinadores" => "pages#sponsors"
+	
 	resources :events, 		path: "eventos"
 	resources :enrollments, path: "inscricoes", path_names:{new: "nova"}
 	resources :releases, 	path: "imprensa"

@@ -35,19 +35,21 @@
 
 		.row
 			.modulo.grid_1
-				h3= link_to "Confira a programação do evento", "/evento/#{Event.first.slug}"
-				markdown:
-					Saiba dos temas e palestrantes do evento do dia 14/05, Caminhos para o Planejamento, Gestão e Capacitação Profissional.
+				- unless Event.all.empty?
+					h3= link_to "Confira a programação do evento", "/evento/#{Event.first.slug}"
+					markdown:
+						Saiba dos temas e palestrantes do evento do dia 14/05, Caminhos para o Planejamento, Gestão e Capacitação Profissional.
 
-				= link_to "Veja aqui", "/evento/#{Event.first.slug}", class: "saiba-mais"
+					= link_to "Veja aqui", "/evento/#{Event.first.slug}", class: "saiba-mais"
 
 			article.modulo.grid_2.interview
-				- @interview = Interview.first
-				h3= link_to @interview.title, @interview
-				.row
-					= link_to image_tag(@interview.image_url(:banner), size:"204x130", class: "grid_1"), @interview
-					.grid_1.texto
-						= markdown @interview.synopsis
+				- unless Interview.all.empty?
+					- @interview = Interview.first
+					h3= link_to @interview.title, @interview
+					.row
+						= link_to image_tag(@interview.image_url(:banner), size:"204x130", class: "grid_1"), @interview
+						.grid_1.texto
+							= markdown @interview.synopsis
 					
 				= link_to "Leia mais", @interview, class: "saiba-mais"
 

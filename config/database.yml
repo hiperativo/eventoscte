@@ -2,3 +2,8 @@ development:
   adapter: postgresql
   database: eventoscte
   host: localhost
+
+test:
+  adapter: postgresql
+  database: eventoscte2
+  host: localhost
