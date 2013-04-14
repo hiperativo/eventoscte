@@ -18,13 +18,11 @@ gem 'rails_admin' #, git: "git://github.com/sferik/rails_admin.git"
 gem 'itau_shopline', git: "git://github.com/pedrozath/Itau-Shopline.git"
 # gem 'itau_shopline', path: "~/sites/gems"
 
-group :assets do
-	gem 'slim-rails'
-	gem 'sass-rails',   '~> 3.2.3'
-	gem 'coffee-rails', '~> 3.2.1'
-	gem 'maruku'
-	gem 'bourbon'	
-end
+gem 'slim-rails'
+gem 'sass-rails',   '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
+gem 'maruku'
+gem 'bourbon'	
 
 group :development, :test do
 	gem 'rspec-rails'
