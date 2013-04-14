@@ -43,7 +43,9 @@ $tipo_titulo: "futura-pt"
 $tipo_corpo: "freight-sans-pro"
 
 a
-	:color $preto
+	:color $roxo
+	:font-weight 600
+
 
 h1, h2
 	small
@@ -195,8 +197,12 @@ form.modulo
 		:font-style normal
 
 
-.modulo, .chamada-evento, .carousel, table, iframe
+.modulo, .chamada-evento, .carousel, table, iframe, .alert
 	:border solid 1px $amarelo
+
+.alert
+	:border-radius 0
+	:color $preto
 
 .chamada-evento
 	:width 490px
@@ -319,6 +325,14 @@ nav, h1, h2, h3, h4, h5, h6
 	:font-weight 300
 	:margin 0
 	:line-height 1.1
+
+	a
+		:font-family $tipo_titulo
+		:color $roxo
+		:font-weight 300
+		:margin 0
+		:line-height 1.1
+
 
 nav
 	p

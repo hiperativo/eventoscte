@@ -67,74 +67,81 @@
 					 
 						*Horário de atendimento da secretaria do evento: de segunda a sexta-feira, das 10h às 17h.
 
-		= simple_form_for @enrollment, html: {class: "modulo grid_2"} do |f|
-			.form-horizontal
-				h3
-					small Formulário de inscrição para o evento
-				h2 style="margin-bottom: 12px; font-size: 20px"= @enrollment.event.title
-				- unless @enrollment.errors.empty?
-					.alert.alert-error
-						p Por favor, corrija os erros abaixo.
+		.grid_2 style="height: auto"
+			.alert.alert-warning style="margin-bottom: 24px; height: auto"
+				markdown: 
+					Se sua empresa for inscrever mais de 2 colaboradores neste evento, efetue as inscrições diretamente com a Secretaria de Eventos CTE pelo fone **(11)2149-0394** ou pelo email
+					[inscricao_eventos@cte.com.br](mailto://inscricao_eventos@cte.com.br).  
+					Neste caso, sua empresa terá 10% de desconto no valor total.
 
-				.control-group= f.input :full_name								,label: "Nome completo"
-				.control-group= f.input :display_name							,label: "Nome para crachá"
-				.control-group= f.input :email									,label: "E-mail"
-				.control-group= f.input :enterprise								,label: "Empresa"
-				.control-group.two-fields
-					= f.input :profession										,label: "Profissão"
-					= f.input :occupation										,label: "Cargo"
+			= simple_form_for @enrollment, html:{class: "modulo"} do |f|
+				.form-horizontal
+					h3
+						small Formulário de inscrição para o evento
+					h2 style="margin-bottom: 12px; font-size: 20px"= @enrollment.event.title
+					- unless @enrollment.errors.empty?
+						.alert.alert-error
+							p Por favor, corrija os erros abaixo.
+
+					.control-group= f.input :full_name								,label: "Nome completo"
+					.control-group= f.input :display_name							,label: "Nome para crachá"
+					.control-group= f.input :email									,label: "E-mail"
+					.control-group= f.input :enterprise								,label: "Empresa"
+					.control-group.two-fields
+						= f.input :profession										,label: "Profissão"
+						= f.input :occupation										,label: "Cargo"
+					
+					.control-group= f.input :category								,label: "Categoria",  
+						collection: ["Profissional", "Cliente CTE (ativo)", "Associado de entidade apoiadora"], include_blank: false
+
+				.control-group= f.input :receipt_or_nf 								,label: "Deseja recibo ou nota fiscal?", 
+					collection: {"Recibo" => :recibo, "Nota Fiscal" => :nota_fiscal}, as: :radio_buttons
+
+				.control-group= f.input :receipt_person								,label: "Emissão em nome de", 
+					collection: {"Empresa"=>:cnpj, "Participante / CPF" => :cpf}, as: :radio_buttons
+
+				.form-horizontal
+
+					.control-group= f.input :cpf, label: "Informe seu CPF"
+					
+					.control-group= f.input :cnpj, label: "Informe seu CNPJ"
+					.control-group= f.input :state_register							,label: "Inscrição Estadual"
+
+					.control-group.two-fields
+						= f.input :cep									 			,label: "CEP"
+
+					.control-group.two-fields
+						= f.input :city												,label: "Cidade"
+						= f.input :state											,label: "Estado", 
+						collection: ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", 
+									"MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", 
+									"RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
+									
+					.control-group.two-fields
+						= f.input :address											,label: "Endereço"
+						= f.input :number 											,label: "Nº"
+
+					.control-group.two-fields
+						= f.input :complement										,label: "Complemento"
+						= f.input :neighbourhood									,label: "Bairro"
 				
-				.control-group= f.input :category								,label: "Categoria",  
-					collection: ["Profissional", "Cliente CTE (ativo)", "Associado de entidade apoiadora"], include_blank: false
 
-			.control-group= f.input :receipt_or_nf 								,label: "Deseja recibo ou nota fiscal?", 
-				collection: {"Recibo" => :recibo, "Nota Fiscal" => :nota_fiscal}, as: :radio_buttons
+					.control-group= f.input :phone									,label: "Telefone"
 
-			.control-group= f.input :receipt_person								,label: "Emissão em nome de", 
-				collection: {"Empresa"=>:cnpj, "Participante / CPF" => :cpf}, as: :radio_buttons
+				.control-group= f.input :payment_type								,label: "Forma de pagamento", 
+					collection: ["Boleto bancário", "Crédito em conta (somente para clientes itaú"], as: :radio_buttons
 
-			.form-horizontal
+				.control-group= f.input :how_did_you_knew_us						,label: "Como tomou conhecimento do evento?",  
+					collection: ["Boletim CTE", "Site CTE", "Jornal/Revista", "Outros"], as: :radio_buttons
 
-				.control-group= f.input :cpf, label: "Informe seu CPF"
-				
-				.control-group= f.input :cnpj, label: "Informe seu CNPJ"
-				.control-group= f.input :state_register							,label: "Inscrição Estadual"
+				.control-group= f.input :how_exactly_did_you_knew_us				,label: "Por favor, nos descreva melhor:"
 
-				.control-group.two-fields
-					= f.input :cep									 			,label: "CEP"
-
-				.control-group.two-fields
-					= f.input :city												,label: "Cidade"
-					= f.input :state											,label: "Estado", 
-					collection: ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", 
-								"MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", 
-								"RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
-								
-				.control-group.two-fields
-					= f.input :address											,label: "Endereço"
-					= f.input :number 											,label: "Nº"
-
-				.control-group.two-fields
-					= f.input :complement										,label: "Complemento"
-					= f.input :neighbourhood									,label: "Bairro"
-			
-
-				.control-group= f.input :phone									,label: "Telefone"
-
-			.control-group= f.input :payment_type								,label: "Forma de pagamento", 
-				collection: ["Boleto bancário", "Crédito em conta (somente para clientes itaú"], as: :radio_buttons
-
-			.control-group= f.input :how_did_you_knew_us						,label: "Como tomou conhecimento do evento?",  
-				collection: ["Boletim CTE", "Site CTE", "Jornal/Revista", "Outros"], as: :radio_buttons
-
-			.control-group= f.input :how_exactly_did_you_knew_us				,label: "Por favor, nos descreva melhor:"
-
-			.control-group= f.input :want_to_receive_newsletter					,label: "Deseja receber os informativos do CTE?",  
-				collection: ["Sim", "Não"], as: :radio_buttons
+				.control-group= f.input :want_to_receive_newsletter					,label: "Deseja receber os informativos do CTE?",  
+					collection: ["Sim", "Não"], as: :radio_buttons
 
 
-			= f.input :event_id, as: :hidden
-			= f.button :submit, value: "Fazer Inscrição", input_html: { class: "btn" }
+				= f.input :event_id, as: :hidden
+				= f.button :submit, value: "Fazer Inscrição", input_html: { class: "btn" }
 - else
 	| No momento, ainda não há eventos disponíveis para inscrição.
 

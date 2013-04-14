@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
+ruby "2.0.0"
+
 gem 'rails', '3.2.13'
-gem 'psych'
 
 gem 'pg'
 gem 'thin'
@@ -18,10 +19,16 @@ gem 'rails_admin' #, git: "git://github.com/sferik/rails_admin.git"
 gem 'itau_shopline', git: "git://github.com/pedrozath/Itau-Shopline.git"
 # gem 'itau_shopline', path: "~/sites/gems"
 
-# gem 'brazilian-rails'
+group :development, :test do
+	gem 'rspec-rails'
+	gem 'factory_girl'
+	gem 'rb-fsevent'
+end
 
 group :test do
-	gem 'rspec'
+	gem 'capybara', git: "https://github.com/jnicklas/capybara.git"
+	gem 'guard-rspec'
+	gem 'zeus'
 end
 
 gem 'slim-rails'
