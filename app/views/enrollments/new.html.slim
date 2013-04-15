@@ -93,6 +93,8 @@
 					
 					.control-group= f.input :category								,label: "Categoria",  
 						collection: ["Profissional", "Cliente CTE (ativo)", "Associado de entidade apoiadora"], include_blank: false
+					
+					.control-group= f.input :entity									,label: "Qual entidade?"
 
 				.control-group= f.input :receipt_or_nf 								,label: "Deseja recibo ou nota fiscal?", 
 					collection: {"Recibo" => :recibo, "Nota Fiscal" => :nota_fiscal}, as: :radio_buttons

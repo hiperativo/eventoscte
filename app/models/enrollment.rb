@@ -9,6 +9,33 @@ class Enrollment < ActiveRecord::Base
 
 	attr_accessor :how_exactly_did_you_knew_us, :has_discount
 
+	with_options presence: { message: "Este campo é obrigatório" } do |f|
+		f.validates :full_name
+		f.validates :display_name
+		f.validates :receipt_person
+		f.validates :receipt_or_nf
+		f.validates :city
+		f.validates :state
+		f.validates :address
+		f.validates :number
+		# f.validates :how_did_you_knew_us
+		f.validates :enterprise
+		f.validates :profession
+		f.validates :occupation
+		f.validates :neighbourhood
+		f.validates :category
+		# f.validates :state_register, presence: true, if: "receipt_person == 'cnpj'"
+		f.validates :cnpj, length: {is: 14, message: "Deve ter 14 dígitos"} , if: "receipt_person == 'cnpj'"
+		f.validates :cpf, length: {is: 11, message: "Deve ter 11 dígitos"}, if: "receipt_person == 'cpf'"
+		
+		f.validates :entity, if: "category == 'Associado de entidade apoiadora'"
+	end
+
+	validates :email, format: {with: /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/, message: "Email inválido"}
+	validates :cep, length: { is: 8, message: "Deve ter 8 dígitos"}
+
+	belongs_to :event
+
 	def has_discount
 		!self.full_price.blank?
 	end
@@ -78,32 +105,6 @@ class Enrollment < ActiveRecord::Base
 
 
 
-	with_options presence: { message: "Este campo é obrigatório" } do |f|
-		f.validates :full_name
-		f.validates :display_name
-		f.validates :receipt_person
-		f.validates :receipt_or_nf
-		f.validates :city
-		f.validates :state
-		f.validates :address
-		f.validates :number
-		# f.validates :how_did_you_knew_us
-		f.validates :enterprise
-		f.validates :profession
-		f.validates :occupation
-		f.validates :neighbourhood
-		f.validates :category
-		# f.validates :state_register, presence: true, if: "receipt_person == 'cnpj'"
-		f.validates :cnpj, length: {is: 14, message: "Deve ter 14 dígitos"} , if: "receipt_person == 'cnpj'"
-		f.validates :cpf, length: {is: 11, message: "Deve ter 11 dígitos"}, if: "receipt_person == 'cpf'"
-	end
-
-	validates :email, format: {with: /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/, message: "Email inválido"}
-	validates :cep, length: { is: 8, message: "Deve ter 8 dígitos"}
-
-
-
-	belongs_to :event
 	
 	# def cpf_ou_cnpj?
 		# self.usar_como_cnpj :cnpj
