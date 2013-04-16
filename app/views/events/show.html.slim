@@ -14,7 +14,7 @@ article.evento
 				.modulo.grid_1
 					h3 Quando
 					markdown:
-						**#{@event.date.strftime "%d/%m/%Y (%A)"}**  
+						**#{l @event.date, format: "%d/%m/%Y (%A)"}**  
 						Local: #{@event.place}  
 						Endereço: #{@event.address}
 
