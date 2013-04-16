@@ -7,6 +7,7 @@ class UserMailer < ActionMailer::Base
 
 	def info enrollment
 		{"Nome" => 								enrollment.full_name,  
+		"E-mail" => 							enrollment.email,  
 		"Data" => 								enrollment.created_at.strftime("%d/%m/%Y - %H:%M:%S"),  
 		"Crachá" => 							enrollment.display_name,  
 		"Profissão" => 							enrollment.profession,  
@@ -19,10 +20,10 @@ class UserMailer < ActionMailer::Base
 		"Cidade" => 							enrollment.city,  
 		"CEP" => 								enrollment.cep,  
 		"Estado" => 							enrollment.state,  
-		"Telefone" => 							enrollment.phone,  
+		"Telefone" => 							enrollment.phone, 
 		"Recibo ou nota fiscal" => 				enrollment.receipt_or_nf,  
 		"Emissão" => 							enrollment.receipt_person,  
-		"CPF" => 								enrollment.cpf,  
+		"CPF" => 								enrollment.cpf, 
 		"Categoria" => 							enrollment.category,  
 		"Entidade" => 							enrollment.entity,  
 		"Deseja receber os informativos" => 	enrollment.want_to_receive_newsletter == true ? "Sim" : "Não",  

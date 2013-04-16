@@ -11,6 +11,7 @@ class Enrollment < ActiveRecord::Base
 
 	with_options presence: { message: "Este campo é obrigatório" } do |f|
 		f.validates :full_name
+		f.validates :email
 		f.validates :display_name
 		f.validates :receipt_person
 		f.validates :receipt_or_nf
