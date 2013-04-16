@@ -13,15 +13,11 @@ class EnrollmentsController < ApplicationController
 		redirect_to action: "new"
 	end
 
-	# def update
-	# 	redirect_to params.merge!(action: "create")
-	# end
-
 	def create
 		@enrollment = Enrollment.new params[:enrollment]
 
 		if @enrollment.valid? 
-			@i = ItauShopline.new	
+			@i = ItauShopline.new
 
 			@precos = {"Profissional" => 700.0, "Cliente CTE (ativo)" => 630.0, "Associado de entidade apoiadora" => 630.0}
 			@preco = @precos[@enrollment.category]	
@@ -35,10 +31,12 @@ class EnrollmentsController < ApplicationController
 
 					if formas_de_digitar_sao_paulo_errado.include? @enrollment.city.downcase.delete(" ").parameterize
 						@preco -= @preco*(@IR+@ISS)
-						@enrollment.full_price = @precos[@enrollment.category]	
+						@enrollment.full_price = @precos[@enrollment.category]
+
 					else
 						@preco -= @preco*@IR
-						@enrollment.full_price = @precos[@enrollment.category]	
+						@enrollment.full_price = @precos[@enrollment.category]
+						
 					end
 				end
 			end
@@ -58,7 +56,7 @@ class EnrollmentsController < ApplicationController
 														cep_do_sacado: @enrollment.cep,
 														cidade_do_sacado: @enrollment.city,
 														estado_do_sacado: @enrollment.state,
-														data_de_vencimento: (Time.now + 5.days) } )
+														data_de_vencimento: (Time.now + 5.days) })
 
 			@enrollment.update_attribute(:itau_crypto, @itau_crypto)
 

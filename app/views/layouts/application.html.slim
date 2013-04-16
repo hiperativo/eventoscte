@@ -47,20 +47,21 @@ html
 			= yield
 
 		footer
-			.container_4
-				.row
-					.grid_3
-						h4 Patrocínio
-						= image_tag "patrocinadores.png", size: "750x150"
-					
-					.grid_1
-						h4 Apoio
-						.logo-carousel
-							- unless Supporter.all.empty?
-								.carousel-inner
-									- Supporter.order("name ASC").each_with_index do |item, x|
-										.item class="#{'active' if x==0}"
-											= image_tag item.image_url :thumb
+			- unless params[:action] == "sponsors"
+				.container_4.patrocinadores
+					.row
+						.grid_3
+							h4 Patrocínio
+							= link_to image_tag("patrocinadores.png", size: "750x150"), "/patrocinadores"
+						
+						.grid_1
+							h4 Apoio
+							.logo-carousel
+								- unless Supporter.all.empty?
+									.carousel-inner
+										- Supporter.order("name ASC").each_with_index do |item, x|
+											.item class="#{'active' if x==0}"
+												= link_to image_tag(item.image_url :thumb), "/patrocinadores"
 				
 			nav
 				.container_4

@@ -1,0 +1,10 @@
+.row
+	.grid_4.modulo style="height: auto"
+		h3 Patrocínio
+		= image_tag "patrocinadores.png", size: "750x150"
+
+.row
+	.grid_4.modulo style="height: auto"
+		h3 Apoio
+		- for supporter in Supporter.all
+			= image_tag supporter.image_url(:thumb), width: "122"

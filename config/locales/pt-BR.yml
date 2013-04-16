@@ -1,4 +1,35 @@
+# encoding: UTF-8
 pt-BR:
+  activerecord:
+    models:
+      admin_user: Administrador
+      enrollment: 
+        one: Inscrição
+        other: Inscrições
+      event: 
+        one: Evento
+        other: Eventos
+      interview: 
+        one: Entrevista
+        other: Entrevistas
+      panel: 
+        one: Painel
+        other: Painéis
+      project: 
+        one: Projeto da Ag.Prod.
+        other: Projetos da Ag.Prod.
+      slider: 
+        one: Slider
+        other: Sliders
+      speaker: 
+        one: Palestrante
+        other: Palestrantes
+      supporter: 
+        one: Apoiador
+        other: Apoiadores
+      talk: 
+        one: Palestra
+        other: Palestras
   date:
     abbr_day_names:
     - Dom
