@@ -17,33 +17,32 @@ ready = ->
 			when "normal" then do remove_all_states
 			else do set_state
 
-	# mostrar_palestrante = (target) ->
-	# 	request = null
-	# 	busy_countdown = null
-	# 	target.hover ->
-	# 		target = $(this)
-	# 		console.log "/palestrante/#{target.attr "href"}"
-	# 		busy_countdown = setTimeout -> 
-	# 			change_state "busy"
-	# 		, 400
+	mostrar_palestrante = (target) ->
+		request = null
+		busy_countdown = null
+		target.hover (e)->
+			target = $(this)
+			busy_countdown = setTimeout -> 
+				change_state "busy"
+			, 400
 
-	# 		request = $.get "/palestrante/#{target.attr "href"}", (data)->
-	# 			clearTimeout busy_countdown
-	# 			change_state "normal"
-	# 			$("body").append(data)
-	# 			console.log target
-	# 			$(".speaker-info").css 
-	# 				left: target.offset()["left"]
-	# 				top: target.offset()["top"]
+			request = $.get "/palestrante/#{target.attr "href"}", (data)->
+				clearTimeout busy_countdown
+				change_state "normal"
+				$("body").append(data)
+				left_pos = $(".programacao").offset()["left"]+$(".programacao").outerWidth()
+				$(".speaker-info").css 
+					left: left_pos + "px"
+					top: $("body").scrollTop()+20+"px"
 
-	# 			# console.log target.offset()["left"], target.offset()["top"]
+				# console.log target.offset()["left"], target.offset()["top"]
 
-	# 	, ->
-	# 		clearTimeout busy_countdown
-	# 		change_state "normal"
-	# 		if request? then request.abort()
-	# 		$(".speaker-info").remove()
-	# 	false
+		, ->
+			clearTimeout busy_countdown
+			change_state "normal"
+			if request? then request.abort()
+			$(".speaker-info").remove()
+		false
 
 	mostrar_palestrante $(".talk a")
 
