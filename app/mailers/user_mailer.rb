@@ -16,6 +16,7 @@ class UserMailer < ActionMailer::Base
 		"CNPJ" => 								enrollment.cnpj,  
 		"Inscrição Estadual" => 				enrollment.state_register,  
 		"Endereço" => 							enrollment.address,
+		"Número" => 							enrollment.number,
 		"Bairro" => 							enrollment.neighbourhood,  
 		"Cidade" => 							enrollment.city,  
 		"CEP" => 								enrollment.cep,  

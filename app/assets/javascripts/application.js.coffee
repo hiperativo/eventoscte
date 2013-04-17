@@ -21,21 +21,22 @@ ready = ->
 	# 	request = null
 	# 	busy_countdown = null
 	# 	target.hover ->
-	# 		element = $(this)
+	# 		target = $(this)
 	# 		console.log "/palestrante/#{target.attr "href"}"
 	# 		busy_countdown = setTimeout -> 
 	# 			change_state "busy"
 	# 		, 400
 
-	# 		request = $.get "/palestrante/#{target.attr "href"}", (data, element)->
+	# 		request = $.get "/palestrante/#{target.attr "href"}", (data)->
 	# 			clearTimeout busy_countdown
 	# 			change_state "normal"
 	# 			$("body").append(data)
+	# 			console.log target
 	# 			$(".speaker-info").css 
 	# 				left: target.offset()["left"]
 	# 				top: target.offset()["top"]
 
-	# 			console.log target.offset()["left"], target.offset()["top"]
+	# 			# console.log target.offset()["left"], target.offset()["top"]
 
 	# 	, ->
 	# 		clearTimeout busy_countdown
