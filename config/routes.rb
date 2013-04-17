@@ -1,4 +1,6 @@
 Eventoscte::Application.routes.draw do
+  get "speaker/show"
+
 	get "error/:action" => "error_pages"
 	
 	mount RailsAdmin::Engine => '/admincte'
@@ -6,13 +8,14 @@ Eventoscte::Application.routes.draw do
 	get "inscreva-se" => redirect("/inscricoes/nova")
 	get "/evento/:slug" => "events#show"
 	get "/patrocinadores" => "pages#sponsors"
-	
+	get "/palestrante/:speaker" => "speakers#show"
+
 	resources :events, 		path: "eventos"
 	resources :enrollments, path: "inscricoes", path_names:{new: "nova"}
 	resources :releases, 	path: "imprensa"
 	resources :projects, 	path: "agenda-produtiva"
 	resources :interviews, 	path: "entrevistas"
-	
+
 	get "/:action" => "pages"
 	root :to => "pages#index"
 end

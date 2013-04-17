@@ -30,6 +30,7 @@
 // 	:font-family $tipo_corpo
 // 	:src url("Gudea-Regular.ttf")
 
+@import "bourbon"
 
 $amarelo: #f7cc52
 $bege: #ffffef
@@ -41,6 +42,15 @@ $vermelho: #a00
 
 $tipo_titulo: "futura-pt"
 $tipo_corpo: "freight-sans-pro"
+
+html
+	:opacity 1.0
+	@include transition(all 150ms ease-in-out)
+
+	&[data-state="busy"]
+		:opacity 0.3
+		:cursor wait
+
 
 a
 	:color $roxo
@@ -283,6 +293,15 @@ article
 	.modulo
 		:height auto
 
+.detalhes-do-evento
+	:position relative
+
+.speaker-info
+	:position fixed
+	:top 24px
+	:right 24px
+
+
 .modulo.programacao
 	:height auto
 
@@ -305,6 +324,9 @@ article
 	.talk
 		:padding-top 12px
 		:padding 6px
+
+		a
+			:cursor help
 
 	dd, dt, dl
 		:padding 3px

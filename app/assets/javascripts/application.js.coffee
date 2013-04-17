@@ -5,11 +5,44 @@
 #= require turbolinks
 # require head
 ready = ->
+	
 	$(".carousel").carousel
 		interval: 7000
 
 	$(".logo-carousel").carousel
 		interval: 1000
+
+	change_state = (state) ->
+		remove_all_states = -> $("html").removeAttr "data-state"
+		set_state = -> $("html").attr "data-state", state 
+
+		switch state
+			when "normal" then do remove_all_states
+			else do set_state
+
+			
+
+	# mostrar_palestrante = (target) ->
+	# 	request = null
+	# 	busy_countdown = null
+	# 	target.hover ->
+	# 		console.log "/palestrante/#{target.attr "href"}"
+	# 		busy_countdown = setTimeout -> 
+	# 			change_state "busy"
+	# 		, 400
+
+	# 		request = $.get "/palestrante/#{target.attr "href"}", (data)->
+	# 			clearTimeout busy_countdown
+	# 			change_state "normal"
+	# 			$(".detalhes-do-evento").append data
+	# 	, ->
+	# 		clearTimeout busy_countdown
+	# 		change_state "normal"
+	# 		if request? then request.abort()
+	# 		$(".speaker-info").remove()
+	# 	false
+
+	# mostrar_palestrante $(".talk a")
 
 	mostrar_campos_condicionais = ->
 		$(".enrollment_category").change ->
