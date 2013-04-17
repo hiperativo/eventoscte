@@ -36,11 +36,11 @@
 		.row
 			.modulo.grid_1
 				- unless Event.all.empty?
-					h3= link_to "Confira a programação do evento", "/evento/#{Event.first.slug}"
+					h3= link_to "Confira a programação do evento", "/evento/caminhos-para-o-planejamento-gestao-e-qualificacao-profissional"
 					markdown:
 						Saiba dos temas e palestrantes do evento do dia 14/05, Caminhos para o Planejamento, Gestão e Capacitação Profissional.
 
-					= link_to "Veja aqui", "/evento/#{Event.first.slug}", class: "saiba-mais"
+					= link_to "Veja aqui", "/evento/caminhos-para-o-planejamento-gestao-e-qualificacao-profissional", class: "saiba-mais"
 
 			article.modulo.grid_2.interview
 				- unless Interview.all.empty?

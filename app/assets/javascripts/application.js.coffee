@@ -6,11 +6,8 @@
 # require head
 ready = ->
 	
-	$(".carousel").carousel
-		interval: 7000
-
-	$(".logo-carousel").carousel
-		interval: 1000
+	$(".carousel").carousel interval: 7000
+	$(".logo-carousel").carousel interval: 1000
 
 	change_state = (state) ->
 		remove_all_states = -> $("html").removeAttr "data-state"
@@ -20,21 +17,26 @@ ready = ->
 			when "normal" then do remove_all_states
 			else do set_state
 
-			
-
 	# mostrar_palestrante = (target) ->
 	# 	request = null
 	# 	busy_countdown = null
 	# 	target.hover ->
+	# 		element = $(this)
 	# 		console.log "/palestrante/#{target.attr "href"}"
 	# 		busy_countdown = setTimeout -> 
 	# 			change_state "busy"
 	# 		, 400
 
-	# 		request = $.get "/palestrante/#{target.attr "href"}", (data)->
+	# 		request = $.get "/palestrante/#{target.attr "href"}", (data, element)->
 	# 			clearTimeout busy_countdown
 	# 			change_state "normal"
-	# 			$(".detalhes-do-evento").append data
+	# 			$("body").append(data)
+	# 			$(".speaker-info").css 
+	# 				left: target.offset()["left"]
+	# 				top: target.offset()["top"]
+
+	# 			console.log target.offset()["left"], target.offset()["top"]
+
 	# 	, ->
 	# 		clearTimeout busy_countdown
 	# 		change_state "normal"
@@ -42,7 +44,7 @@ ready = ->
 	# 		$(".speaker-info").remove()
 	# 	false
 
-	# mostrar_palestrante $(".talk a")
+	mostrar_palestrante $(".talk a")
 
 	mostrar_campos_condicionais = ->
 		$(".enrollment_category").change ->

@@ -47,7 +47,7 @@ article.evento
 									
 										li.talk
 											h5 #{talk.short_time} Palestra #{n+1} — #{talk.title}
-											= markdown "[**#{talk.speaker.name}** — *#{talk.speaker.ocupation}*](##{talk.speaker.id})" unless talk.speaker.nil?
+											= markdown "[**#{talk.speaker.name}** — *#{talk.speaker.ocupation}*](#{talk.speaker.id})" unless talk.speaker.nil?
 											= markdown talk.additional_info
 											= render partial: "stuff_that_happens", locals: { what: talk.stuff_after } unless talk.after.nil?
 
