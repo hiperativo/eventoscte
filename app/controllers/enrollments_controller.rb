@@ -41,7 +41,7 @@ class EnrollmentsController < ApplicationController
 				end
 			end
 
-			@enrollment.full_price = number_to_currency unless @enrollment.full_price.blank?
+			@enrollment.full_price = number_to_currency(@enrollment.full_price) unless @enrollment.full_price.blank?
 			@enrollment.price = number_to_currency @preco, unit: "R$", separator: ",", delimiter: "."
 			@enrollment.save
 			@values = {price: @preco, full_price: @enrollment.full_price}
