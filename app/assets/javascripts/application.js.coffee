@@ -18,15 +18,17 @@ ready = ->
 			else do set_state
 
 	mostrar_palestrante = (target) ->
+		target.click -> false
+
 		request = null
 		busy_countdown = null
-		target.hover (e)->
+		target.hover ->
 			target = $(this)
 			busy_countdown = setTimeout -> 
 				change_state "busy"
 			, 400
 
-			request = $.get "/palestrante/#{target.attr "href"}", (data)->
+			request = $.get "/palestrante/#{target.attr "href"}", (data) ->
 				clearTimeout busy_countdown
 				change_state "normal"
 				$("body").append(data)
@@ -35,14 +37,11 @@ ready = ->
 					left: left_pos + "px"
 					top: $("body").scrollTop()+20+"px"
 
-				# console.log target.offset()["left"], target.offset()["top"]
-
 		, ->
 			clearTimeout busy_countdown
 			change_state "normal"
 			if request? then request.abort()
 			$(".speaker-info").remove()
-		false
 
 	mostrar_palestrante $(".talk a")
 
@@ -71,11 +70,6 @@ ready = ->
 			campos_condicionais = $(".enrollment_how_exactly_did_you_knew_us")
 			campos_condicionais.parent().hide()
 			campo_selecionado = $(".enrollment_how_did_you_knew_us :checked").val()
-
-			# console.log $("#enrollment_how_exactly_did_you_knew_us").val()
-			# if $("#enrollment_how_did_you_knew_us_outros").val() is "Outros" or $("#enrollment_how_exactly_did_you_knew_us").val() == ""
-			# 	$("#enrollment_how_did_you_knew_us_outros").attr "checked", "checked"
-			# 	campos_condicionais.parent().slideDown()
 
 		$(".enrollment_receipt_person").change()
 		$(".enrollment_how_did_you_knew_us").change()
