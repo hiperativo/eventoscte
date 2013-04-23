@@ -76,7 +76,11 @@ ready = ->
 		$(".enrollment_category").change()
 
 
-	$(window).load -> do mostrar_campos_condicionais
+	$(window).load -> 
+		do mostrar_campos_condicionais
+		# for item in $("nav.menu-principal li")
+		# 	$(item).width $(item).width()
+
 	do $(window).load
 
 $(document).ready(ready)

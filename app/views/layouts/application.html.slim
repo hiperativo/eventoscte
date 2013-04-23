@@ -32,7 +32,7 @@ html
 						= link_to "/inscreva-se" do
 							= image_tag "inscreva-se-aqui.png", size: "120x84", class:"inscreva-se"
 
-			nav style="position: absolute; width: 100%; top: 132px"
+			nav.menu-principal style="position: absolute; width: 100%; top: 132px"
 				.container_4
 					ul.nav.nav-pills style="margin-left: 212px"
 						- for page, item in { "agenda-produtiva" => "Agenda Produtiva",
@@ -63,7 +63,7 @@ html
 											.item class="#{'active' if x==0}"
 												= link_to image_tag(item.image_url :thumb), "/patrocinadores"
 				
-			nav
+			nav.menu-inferior
 				.container_4
 					.row
 						.grid_4
@@ -77,4 +77,9 @@ html
 
 								li style="color: #000; margin: 9px"
 									strong Contato:
+								li style="color: #000; margin: 9px"
 									| (11) 2149-0394
+								li style="color: #000; margin: 9px"
+									= link_to "eventos@cte.com.br", "mailto://eventos@cte.com.br", class: "mail-link"
+									
+
