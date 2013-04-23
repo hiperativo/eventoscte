@@ -5,7 +5,7 @@ development:
 
 test:
   adapter: postgresql
-  database: eventoscte2
+  database: eventoscte_teste
   host: localhost
 
 production:

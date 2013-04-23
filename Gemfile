@@ -31,7 +31,7 @@ group :development, :test do
 end
 
 group :test do
-	gem 'capybara', git: "https://github.com/jnicklas/capybara.git"
+	gem 'capybara'
 	gem 'guard-rspec'
 	gem 'zeus'
 end

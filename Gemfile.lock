@@ -4,17 +4,6 @@ GIT
   specs:
     itau_shopline (0.1.1)
 
-GIT
-  remote: https://github.com/jnicklas/capybara.git
-  revision: 085581e28ecd23cd9444de46f6a4098228a0faea
-  specs:
-    capybara (2.1.0)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -53,6 +42,12 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    capybara (2.1.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -257,7 +252,7 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon
-  capybara!
+  capybara
   carrierwave
   coffee-rails (~> 3.2.1)
   devise

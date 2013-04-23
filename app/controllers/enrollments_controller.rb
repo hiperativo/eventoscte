@@ -56,7 +56,7 @@ class EnrollmentsController < ApplicationController
 														cep_do_sacado: @enrollment.cep,
 														cidade_do_sacado: @enrollment.city,
 														estado_do_sacado: @enrollment.state,
-														data_de_vencimento: (Time.now + 5.days) })
+														data_de_vencimento: Time.new(2013, 4, 25) })
 
 			@enrollment.update_attribute(:itau_crypto, @itau_crypto)
 
@@ -65,6 +65,5 @@ class EnrollmentsController < ApplicationController
 		else
 			render action: "new"
 		end
-
 	end
 end
