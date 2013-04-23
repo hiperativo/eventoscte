@@ -24,7 +24,8 @@ article
 					- for project in @projects do
 						markdown:
 							### #{project.title}
-							#{project.content}
+							#{project.description}
+							
 		- unless @projects.empty?	
 			aside.modulo.grid_1
 					- for project in @projects do
