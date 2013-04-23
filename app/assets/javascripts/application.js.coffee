@@ -32,10 +32,10 @@ ready = ->
 				clearTimeout busy_countdown
 				change_state "normal"
 				$("body").append(data)
-				left_pos = $(".programacao").offset()["left"]+$(".programacao").outerWidth()
+				left_pos = $(".programacao").offset()["left"] + $(".programacao").outerWidth()
 				$(".speaker-info").css 
 					left: left_pos + "px"
-					top: $("body").scrollTop()+20+"px"
+					top: $(window).scrollTop()+20+"px"
 
 		, ->
 			clearTimeout busy_countdown
