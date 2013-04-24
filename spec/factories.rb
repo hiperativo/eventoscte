@@ -24,11 +24,15 @@ FactoryGirl.define do
 		event_id 						1
 		state_register 					"sp"
 		cpf 							"34666014870"
-		receipt_or_nf 					:nf
+		receipt_or_nf 					"nota_fiscal"
 		how_exactly_did_you_knew_us 	"blabla"
 		itau_crypto 					nil
 		payment_type 					"bank"
 		price 							700
 		full_price 						nil
+
+		factory :professional_enrollment do
+			category "Cliente CTE (ativo)"
+		end
 	end
 end
