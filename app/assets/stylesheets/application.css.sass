@@ -79,11 +79,8 @@ h2
 strong
 	:font-weight 600
 
-img:hover
-	:background-color $amarelo_claro
-
 .inscreva-se:hover
-	:background-color $amarelo
+	:background-color $amarelo_claro
 
 .saiba-mais
 	:position absolute
@@ -323,9 +320,17 @@ article
 	dl
 		:background-color $bege
 
+	h4, h5
+		:font-family $tipo_corpo
+		:text-transform none
+
 	h4
 		:background-color $roxo
 		:color $branco
+		:font-size 16px
+
+	h5 
+		:font-size 16px
 
 	.panel > h4
 		:padding 6px
@@ -334,8 +339,14 @@ article
 		:padding-top 12px
 		:padding 6px
 
+		> *
+			:margin-top 6px
+			:margin-bottom 6px
+
 		a
-			:cursor help
+			// :cursor help
+			:font-weight 200
+			:color #000
 
 	dd, dt, dl
 		:padding 3px

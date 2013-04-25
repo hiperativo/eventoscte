@@ -8,7 +8,8 @@ Eventoscte::Application.routes.draw do
 	get "inscreva-se" => redirect("/inscricoes/nova")
 	get "/evento/:slug" => "events#show"
 	get "/patrocinadores" => "pages#sponsors"
-	get "/palestrante/:speaker" => "speakers#show"
+	get "/palestrante/:speaker_id" => "speakers#show", speaker_id: /\d*/
+	get "/palestrante/:speaker_name" => "speakers#show"
 
 	resources :events, 		path: "eventos"
 	resources :enrollments, path: "inscricoes", path_names:{new: "nova"}
