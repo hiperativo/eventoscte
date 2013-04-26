@@ -1,0 +1,15 @@
+- @price_table = 	[["Categoria", 							"Até 06/05/13", "No local*"],  
+					["Profissionais", 						"R$ 700,00", "R$ 900,00"],
+					["Clientes CTE (ativo)", 				"R$ 630,00", "R$ 810,00"],
+					["Associado de entidades apoiadoras", 	"R$ 630,00", "R$ 810,00"]]
+table.price-table.grid_2
+	- @price_table.each_with_index do |row, x|
+		tr
+			- row.each_with_index do |cell, y|
+				- if x == 0
+					th class="column-#{y+1}"= cell
+				- else
+					td class="column-#{y+1}"= cell
+	td * se houver vaga
+	td
+	td
