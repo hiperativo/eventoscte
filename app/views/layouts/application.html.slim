@@ -59,7 +59,7 @@ html
 							.logo-carousel
 								- unless Supporter.all.empty?
 									.carousel-inner
-										- @supporters.each_with_index do |item, x|
+										- Supporter.all.each_with_index do |item, x|
 											.item class="#{'active' if x==0}"
 												= link_to image_tag(item.image_url :thumb), "/patrocinadores"
 				
