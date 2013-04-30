@@ -6,5 +6,5 @@
 .row
 	.grid_4.modulo style="height: auto"
 		h3 Apoio
-		- for supporter in Supporter.all
+		- for supporter in @supporters
 			= image_tag supporter.image_url(:thumb), width: "122"
