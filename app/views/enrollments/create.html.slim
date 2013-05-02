@@ -3,6 +3,8 @@ h2 Inscrição enviada
 = render partial: "valores"
 
 p 
-	| Clique no botão abaixo para efetuar pagamento no sistema do Itaú.
+	| Seus dados foram enviados.
+p 
+	| Clique no botão abaixo para acessar o sistema do Itaú Shopline e gerar o boleto para pagamento ou efetuar a transferência online.
 
-= link_to "Efetuar Pagamento", "https://shopline.itau.com.br/shopline/shopline.aspx?DC=#{@itau_crypto}", class: "btn btn-primary", target: "BLANK"
+= link_to "Acessar Itaú Shopline", "https://shopline.itau.com.br/shopline/shopline.aspx?DC=#{@itau_crypto}", class: "btn btn-primary", target: "BLANK"
