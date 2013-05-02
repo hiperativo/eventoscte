@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408191201) do
+ActiveRecord::Schema.define(:version => 20130429205352) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20130408191201) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.text     "contents"
+    t.integer  "event_id"
   end
 
   create_table "panels", :force => true do |t|
@@ -99,6 +100,13 @@ ActiveRecord::Schema.define(:version => 20130408191201) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "ordem"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "event_id"
   end
 
   create_table "projects", :force => true do |t|
@@ -156,6 +164,13 @@ ActiveRecord::Schema.define(:version => 20130408191201) do
     t.text     "additional_info"
     t.time     "starts_at"
     t.text     "after"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "youtube_code"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "event_id"
   end
 
 end

@@ -1,0 +1,15 @@
+.row
+	.grid_4
+		= image_tag @photo.image_url :big, size:"1008x456"
+
+.row
+	.grid_4.photo-list
+		= link_to event_photo_path(@event, @previous_photo) do
+			= image_tag("gallery_prev.png", style: "margin-right: 12px") if @has_pagination
+		
+		- @photos.each_with_index do |photo, x|
+			= link_to event_photo_path(@event, photo) do
+				= image_tag photo.image_url(:thumb), size:"108x96", style:"margin: 0 12px", class: ("active" if photo == @photo)
+		
+		= link_to event_photo_path(@event, @next_photo) do
+			= image_tag("gallery_next.png", style: "margin-left: 12px") if @has_pagination

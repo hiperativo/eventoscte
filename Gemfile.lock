@@ -261,6 +261,7 @@ DEPENDENCIES
   guard-rspec
   itau_shopline!
   jquery-rails
+  kaminari
   maruku
   pg
   rails (= 3.2.13)

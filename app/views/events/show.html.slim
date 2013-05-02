@@ -10,23 +10,42 @@ article.evento
 			= markdown @event.description
 
 		aside.grid_1
-			.row
-				.modulo.grid_1
-					h3 Quando
-					markdown:
-						**#{l @event.date, format: "%d/%m/%Y (%A)"}**  
-						Local: #{@event.place}  
-						Endereço: #{@event.address}
+			- if @event.has_passed
+				- if @event.photos.any?
+					.row
+						.modulo.grid_1
+							h3 Galeria de Fotos
+							= link_to event_photos_path(@event) do
+								= image_tag @event.photos.first.image_url(:medium), size: "208x132"
+				
+				- if @event.videos.any?
+					.row
+						.modulo.grid_1
+							h3 Galeria de Vídeos
+				
+				- if @event.interviews.any?
+					.row
+						.modulo.grid_1
+							h3 Entrevistas
 
-			.row
-				.modulo.grid_1
-					h3 Para quem
-					= markdown @event.target
-			
-			.row
-				.modulo.grid_1
-					h3 Contato
-					= markdown @event.contact_info
+			- else
+				.row
+					.modulo.grid_1
+						h3 Quando
+						markdown:
+							**#{l @event.date, format: "%d/%m/%Y (%A)"}**  
+							Local: #{@event.place}  
+							Endereço: #{@event.address}
+
+				.row
+					.modulo.grid_1
+						h3 Para quem
+						= markdown @event.target
+				
+				.row
+					.modulo.grid_1
+						h3 Contato
+						= markdown @event.contact_info
 
 	.row
 		- unless @event.panels.empty?

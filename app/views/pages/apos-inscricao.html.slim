@@ -1,0 +1,11 @@
+- # encoding: UTF-8
+h2 Inscrição enviada
+- @enrollment = Enrollment.first
+- @values = { full_price: 700, price: 670 }
+
+= render partial: "enrollments/valores"
+
+p 
+	| Clique no botão abaixo para efetuar pagamento no sistema do Itaú.
+
+= link_to "Efetuar Pagamento", "https://shopline.itau.com.br/shopline/shopline.aspx?DC=#{@itau_crypto}", class: "btn btn-primary", target: "BLANK"

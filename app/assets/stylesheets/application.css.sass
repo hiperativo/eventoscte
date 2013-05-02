@@ -52,11 +52,15 @@ html
 		:opacity 0.3
 		:cursor wait
 
+body
+	:font-family $tipo_corpo
+	:line-height 1.4
+	:font-size 15px
+	// :background-image url("http://griddle.it/1008-4-24")
 
 a
 	:color $roxo
 	:font-weight 600
-
 
 h1, h2
 	small
@@ -64,7 +68,6 @@ h1, h2
 		:text-transform uppercase
 		:font-size 16px
 		:font-weight 400
-
 
 h2
 	small
@@ -177,14 +180,6 @@ form
 		margin-left: 12px
 
 
-html
-	// :padding-bottom 80px
-
-body
-	:font-family $tipo_corpo
-	:line-height 1.4
-	:font-size 15px
-	// :background-image url("http://griddle.it/1008-4-24")
 
 section.conteudo
 	:min-height 400px
@@ -375,11 +370,6 @@ nav, h1, h2, h3, h4, h5, h6
 		:margin 0
 		:line-height 1.1
 
-
-nav
-	p
-
-
 h1
 	:font-size 26px
 	:font-weight 400
@@ -461,6 +451,10 @@ header
 	nav
 		:border-top 1px solid $amarelo
 		:border-bottom 1px solid $amarelo
+
+.photos
+	img.active 
+		:border 6px solid $amarelo
 
 nav
 	ul.nav, ul.nav-pills

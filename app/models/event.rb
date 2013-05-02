@@ -2,12 +2,23 @@ class Event < ActiveRecord::Base
 	attr_accessible :address, :banner, :banner_cache, :remove_banner, :contact_info, :description, :lead, :place, :target, :title, :date, :after, :before, :slug
 	has_many :panels
 	has_many :enrollments
+	has_many :videos
+	has_many :photos
+	has_many :interviews
+
+	default_scope order("date ASC")
 
 	mount_uploader :banner, EventCoverUploader
 
-	attr_accessor :stuff_before, :stuff_after
+	attr_accessor :stuff_before, :stuff_after, :has_passed
 
 	before_save :create_slug
+
+
+	def has_passed
+		# self.date > Time.now
+		self.date < Time.new(2013, 6)
+	end
 
 	def create_slug
 		self.slug = self.title.parameterize
@@ -27,4 +38,7 @@ class Event < ActiveRecord::Base
 		end
 	end
 
+	def to_param
+		"#{self.id}-#{self.title}".parameterize()
+	end
 end

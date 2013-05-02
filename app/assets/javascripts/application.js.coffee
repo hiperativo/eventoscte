@@ -9,6 +9,18 @@ ready = ->
 	$(".carousel").carousel interval: 7000
 	$(".logo-carousel").carousel interval: 1000
 
+
+	gallery_navigation = -> 
+		$(".photo-list a").click -> 
+			link = $(this).attr("href")
+			$.get link, (data) -> 
+				$(".conteudo").html(data)
+				gallery_navigation()
+			false
+
+	gallery_navigation()
+
+
 	change_state = (state) ->
 		remove_all_states = -> $("html").removeAttr "data-state"
 		set_state = -> $("html").attr "data-state", state 
