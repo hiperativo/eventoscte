@@ -5,21 +5,41 @@
 #= require turbolinks
 # require head
 ready = ->
-	
 	$(".carousel").carousel interval: 7000
 	$(".logo-carousel").carousel interval: 1000
 
-
+	# navegação básica
 	gallery_navigation = -> 
-		$(".photo-list a").click -> 
+		$(".media-gallery a").click ->
 			link = $(this).attr("href")
 			$.get link, (data) -> 
-				$(".conteudo").html(data)
-				gallery_navigation()
+				change_content(data, link)
+				window.history.pushState {"html": data, "pageTitle": "Galeria de fotos"}, "", link
 			false
 
-	gallery_navigation()
+	# troca de conteúdo
+	change_content = (data, link) ->
+		$(".main-media").animate {opacity: 0}, 100, "swing", ->
+			$(".conteudo").html(data)
+			if $(".main-media").is("img")
+				$(".main-media").css(opacity: 0).load -> $(this).animate({opacity: 1}, 100)
+			gallery_navigation()
+		
+	# interações no teclado
+	$("html").keyup (e) ->
+		photo_to_go = switch e.which
+			when 37 then $(".media-gallery .active").prev()
+			when 39 then $(".media-gallery .active").next()
+			else null 
+		unless photo_to_go is null
+			photo_to_go.click() 
+		false
 
+	# funções de back e next do navegador
+	$(window).on "popstate", (e) ->
+		e = e.originalEvent
+		change_content(e.state.html) unless e.state is null
+	gallery_navigation() if $(".media-gallery").size() > 0
 
 	change_state = (state) ->
 		remove_all_states = -> $("html").removeAttr "data-state"

@@ -139,6 +139,7 @@ pt-BR:
       char_length_up_to: "comprimento até"
       char_length_of: "comprimento de"
       save: "Gravar"
+      new_model: "Criar novo"
       save_and_add_another: "Gravar e criar outro"
       save_and_edit: "Gravar e editar"
       all_of_the_following_related_items_will_be_deleted: "? Os seguintes item serão apagados ou deixados orfãos:"

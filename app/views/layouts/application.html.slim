@@ -4,6 +4,8 @@ doctype html
 html
 	head
 		title Eventos CTE
+		= javascript_include_tag "rails_admin/rails_admin" if admin?
+		= javascript_include_tag "swfobject"
 		= javascript_include_tag "application"
 		= stylesheet_link_tag "application", media: "all"
 		= csrf_meta_tags
@@ -13,6 +15,9 @@ html
 		 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 	body class="#{params[:controller]} #{params[:action]}"
+		- if admin?
+			.alert.alert-info style="position: absolute; top: 0; z-index: 5" Você está logado como admin.
+
 		= javascript_include_tag "analytics.js"
 		header
 			.container_4 style="overflow: hidden"

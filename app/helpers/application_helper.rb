@@ -9,4 +9,9 @@ module ApplicationHelper
 		boolean ? "Sim" : "Não"
 	end
 
+	def admin?
+		current_admin_user
+		false
+	end
+
 end

@@ -1,0 +1,31 @@
+.row
+	.grid_4
+		- case media[:type]
+		- when :photo
+			= image_tag media[:main].image_url(:big), size:"1008x456", class: "main-photo main-media"
+		- when :video 
+			.main-media style="width:853px; height:480px; margin: 0 auto"
+				#main-video
+			javascript:
+				$(document).ready(function(){
+					swfobject.embedSWF("http://www.youtube.com/v/#{media[:main].youtube_code}", "main-video", 854, 480, "9")
+				})
+
+.row
+	.grid_4 class="#{media[:type]}-list media-gallery" style="position: relative"
+		- if params[:page] > 1
+			= link_to polymorphic_path([@event, eval(media[:type].to_s.classify)], page: params[:page]-1), style: "position: absolute; left: 0" do
+				= image_tag("gallery_prev.png", size: "24x96")
+		
+		- media[:collection].each_with_index do |media_item, x|
+			= link_to polymorphic_path([@event, media_item], page: params[:page]), class: ("active" if media_item == media[:main]) do
+				- @initial_margin = ("margin-left: 52px" if x==0)
+				- case media[:type]
+				- when :photo
+					= image_tag media_item.image_url(:thumb), size:"108x96", style:"margin: 0 6px; #{@initial_margin}" , class: media[:type]
+				- when :video
+					= image_tag media_item.thumbnail(:small), size:"108x96", style:"margin: 0 6px; #{@initial_margin}", class: media[:type]		
+		
+		- if params[:page] < media[:collection].num_pages
+			= link_to polymorphic_path([@event, eval(media[:type].to_s.classify)], page: params[:page]+1), style: "position: absolute; right: 0" do
+				= image_tag("gallery_next.png", style: "margin-left: 6px", size: "24x96")

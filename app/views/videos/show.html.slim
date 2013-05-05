@@ -1,0 +1,8 @@
+.row
+	.grid_4
+		h2 style="text-align: center"
+			| Galeria de Vídeos
+			small style="font-size: 16px" = link_to @evento.title, @evento
+
+section
+	= render partial: "shared/media_gallery", locals: @gallery

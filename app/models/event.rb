@@ -1,10 +1,14 @@
 class Event < ActiveRecord::Base
-	attr_accessible :address, :banner, :banner_cache, :remove_banner, :contact_info, :description, :lead, :place, :target, :title, :date, :after, :before, :slug
+	attr_accessible :address, :banner, :banner_cache, 
+	:remove_banner, :contact_info, :description, :lead, 
+	:place, :target, :title, :date, :after, :before, :slug, :disabled
 	has_many :panels
 	has_many :enrollments
 	has_many :videos
 	has_many :photos
 	has_many :interviews
+
+	attr_accessible :panel_ids
 
 	default_scope order("date ASC")
 
@@ -16,8 +20,8 @@ class Event < ActiveRecord::Base
 
 
 	def has_passed
-		# self.date > Time.now
-		self.date < Time.new(2013, 6)
+		self.date > Time.now
+		# self.date < Time.new(2013, 6)
 	end
 
 	def create_slug

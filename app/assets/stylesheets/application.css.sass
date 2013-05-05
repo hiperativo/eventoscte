@@ -452,9 +452,22 @@ header
 		:border-top 1px solid $amarelo
 		:border-bottom 1px solid $amarelo
 
-.photos
-	img.active 
-		:border 6px solid $amarelo
+.media-gallery
+	a 
+		img.photo, img.video
+			:border 6px solid transparent
+			:-webkit-transition all 150ms ease-out
+			:-webkit-transform scale(1)
+
+		&.active 
+			img.photo, img.video
+				:border-color $amarelo !important
+				:-webkit-transform scale(1.1)
+	
+		&:hover 
+			img.photo, img.video
+				:-webkit-transform scale(1.1)
+				// :border-color $roxo
 
 nav
 	ul.nav, ul.nav-pills

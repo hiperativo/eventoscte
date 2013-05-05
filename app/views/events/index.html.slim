@@ -32,3 +32,8 @@
 								h3= evento.title
 								p
 									strong= evento.date.strftime "%d/%m"
+				- if admin?
+					.belongs_to_association_type.event_field.control-group#photo_event_id_field
+						li.chamada-evento
+							= simple_form_for "/admincte/panel/new", html:{id:"new_panel"} do
+								= link_to "Criar um novo Evento", "#", data: {link: "/admincte/event/new?modal=true"}, class: "btn btn-info create"
