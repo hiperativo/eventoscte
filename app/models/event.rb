@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
 
 
 	def has_passed
-		self.date > Time.now
+		Time.now > self.date
 		# self.date < Time.new(2013, 6)
 	end
 
