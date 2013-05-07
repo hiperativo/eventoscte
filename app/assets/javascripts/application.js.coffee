@@ -3,79 +3,30 @@
 #= require holder
 #= require bootstrap
 #= require turbolinks
-# require head
+#= require gallery
+#= require speaker_tooltip
+
 ready = ->
 	$(".carousel").carousel interval: 7000
 	$(".logo-carousel").carousel interval: 1000
 
-	# navegação básica
-	gallery_navigation = -> 
-		$(".media-gallery a").click ->
-			link = $(this).attr("href")
-			$.get link, (data) -> 
-				change_content(data, link)
-				window.history.pushState {"html": data, "pageTitle": "Galeria de fotos"}, "", link
-			false
+	if $(".media-gallery").length
+		new Gallery
+			gallery_links: ".media-gallery a"
+			main_media: ".main-media"
+			media_wrapper: ".conteudo"
 
-	# troca de conteúdo
-	change_content = (data, link) ->
-		$(".main-media").animate {opacity: 0}, 100, "swing", ->
-			$(".conteudo").html(data)
-			if $(".main-media").is("img")
-				$(".main-media").css(opacity: 0).load -> $(this).animate({opacity: 1}, 100)
-			gallery_navigation()
-		
-	# interações no teclado
-	$("html").keyup (e) ->
-		photo_to_go = switch e.which
-			when 37 then $(".media-gallery .active").prev()
-			when 39 then $(".media-gallery .active").next()
-			else null 
-		unless photo_to_go is null
-			photo_to_go.click() 
-		false
+	if $(".talk a").length
+		new SpeakerTooltip
+			hot_element: ".talk a"
 
-	# funções de back e next do navegador
-	$(window).on "popstate", (e) ->
-		e = e.originalEvent
-		change_content(e.state.html) unless e.state is null
-	gallery_navigation() if $(".media-gallery").size() > 0
+	# change_state = (state) ->
+	# 	remove_all_states = -> $("html").removeAttr "data-state"
+	# 	set_state = -> $("html").attr "data-state", state 
 
-	change_state = (state) ->
-		remove_all_states = -> $("html").removeAttr "data-state"
-		set_state = -> $("html").attr "data-state", state 
-
-		switch state
-			when "normal" then do remove_all_states
-			else do set_state
-
-	mostrar_palestrante = (target) ->
-		target.click -> false
-
-		request = null
-		busy_countdown = null
-		target.hover ->
-			target = $(this)
-			busy_countdown = setTimeout -> 
-				change_state "busy"
-			, 400
-
-			request = $.get "/palestrante/#{target.attr "href"}", (data) ->
-				clearTimeout busy_countdown
-				change_state "normal"
-				$("body").append(data)
-				left_pos = $(".programacao").offset()["left"] + $(".programacao").outerWidth()
-				$(".speaker-info").css 
-					left: left_pos + "px"
-					top: $(window).scrollTop()+20+"px"
-
-		, ->
-			clearTimeout busy_countdown
-			change_state "normal"
-			if request? then request.abort()
-			$(".speaker-info").remove()
-
-	mostrar_palestrante $(".talk a")
+	# 	switch state
+	# 		when "normal" then do remove_all_states
+	# 		else do set_state
 
 	mostrar_campos_condicionais = ->
 		$(".enrollment_category").change ->
