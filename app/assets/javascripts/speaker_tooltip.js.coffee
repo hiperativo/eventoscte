@@ -11,7 +11,7 @@ class SpeakerTooltip
 		, @destroy
 
 	fetch: (url, callback) =>
-		$.get url, callback
+		@request = $.get url, callback
 
 	show: (data) =>
 		@adjust_styling_of $(data).appendTo("body")
@@ -23,6 +23,7 @@ class SpeakerTooltip
 			top: $(window).scrollTop()+20+"px"
 
 	destroy: =>
+		@request?.abort()
 		$(".speaker-info").remove()
 
 @SpeakerTooltip = SpeakerTooltip
