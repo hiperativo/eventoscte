@@ -1,7 +1,9 @@
 class Event < ActiveRecord::Base
 	attr_accessible :address, :banner, :banner_cache, 
 	:remove_banner, :contact_info, :description, :lead, 
-	:place, :target, :title, :date, :after, :before, :slug, :disabled
+	:place, :target, :title, :date, :after, :before, :slug, 
+	:disabled, :release, :release_cache, :remove_release
+	mount_uploader :release, ReleaseUploader
 	has_many :panels
 	has_many :enrollments
 	has_many :videos

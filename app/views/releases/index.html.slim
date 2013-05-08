@@ -16,13 +16,29 @@
 					requisitar credencial com a assessoria de imprensa até o dia **10/05/2013**
 
 					Estará aberta agenda, no dia e local do encontro, para entrevistas com os palestrantes.
-		/ .row
-		/ 	.grid_3
-		/ 		h2 Deu na mídia
-		/ 		p.lead Lorem ipsum, dolor sit amet.
+		
+		- if @clippings.any?
+			.row
+				.grid_3
+					h2 Deu na mídia
+					p.lead Lorem ipsum, dolor sit amet.
 
-	/ aside.grid_1
-	/ 	.row
-	/ 		.grid_1.modulo
-	/ 	.row
-	/ 		.grid_1.modulo
+	aside.grid_1
+		- if @releases.any?
+			.row
+				.grid_1.modulo style="height: auto"
+					h3 Download do release
+					- @events.each_with_index do |event, n|
+						- unless event.release_url.blank?
+							h4 Evento #{n+1}
+							= link_to(event.title, event.release_url)
+				
+		- if @interviews.any?
+			.row
+				.grid_1.modulo style="height: auto"
+					h3 Entrevistas
+					- for interview in @interviews
+						= link_to interview.title, interview
+						.row
+							.grid_1.texto
+								= markdown interview.synopsis
