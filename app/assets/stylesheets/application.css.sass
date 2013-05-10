@@ -1,35 +1,6 @@
 //= require "bootstrap"
 //= require "grid"
 
-// @font-face
-// 	:font-family $tipo_titulo
-// 	:src url("FuturaStd-Light.otf")
-// 	:font-weight 100
-
-// @font-face
-// 	:font-family $tipo_titulo
-// 	:src url("FuturaStd-Book.otf")
-// 	:font-weight 300
-
-// @font-face
-// 	:font-family $tipo_titulo
-// 	:src url("FuturaStd-Medium.otf")
-// 	:font-weight 500
-
-// @font-face
-// 	:font-family $tipo_titulo
-// 	:src url("FuturaStd-Bold.otf")
-// 	:font-weight 700
-
-// @font-face
-// 	:font-family $tipo_titulo
-// 	:src url("FuturaStd-Heavy.otf")
-// 	:font-weight 900
-
-// @font-face
-// 	:font-family $tipo_corpo
-// 	:src url("Gudea-Regular.ttf")
-
 @import "bourbon"
 
 $amarelo: #f7cc52
@@ -241,6 +212,13 @@ form.modulo
 .modulo, .caption
 	p
 		:margin-bottom 0
+
+aside.modulo
+	ul
+		:list-style-type none 
+		:margin 0
+	li 
+		:margin-bottom 12px
 
 .carousel
 	:margin-bottom 0px
@@ -509,3 +487,10 @@ header
 .logo
 	:z-index 1
 	:position relative
+
+.clipping
+	:padding 24px 0
+	:margin-top 0 !important
+	:margin-bottom 0 !important
+	+ .clipping
+		:border-top 1px solid $amarelo

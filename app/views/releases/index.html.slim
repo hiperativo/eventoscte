@@ -22,6 +22,14 @@
 				.grid_3
 					h2 Deu na mídia
 					p.lead Lorem ipsum, dolor sit amet.
+					- for clipping in @clippings do
+						.row.clipping
+							= image_tag clipping.image_url(:thumb), class: "grid_1"
+							.grid_2 
+								h3= clipping.titulo
+								p.lead= clipping.lead
+								= markdown clipping.desc
+								= link_to "Leia a matéria na íntegra", clipping.materia_url
 
 	aside.grid_1
 		- if @releases.any?
