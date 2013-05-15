@@ -12,6 +12,13 @@ $branco: #fff
 
 $vermelho: #a00
 
+$verde: #94BF02
+$azul: #007398
+
+$cor_principal: $azul // logo, titulos
+$cor_secundaria: $verde // detalhes, contornos
+$cor_secundaria_clara: $verde // hover caixinhas
+
 $tipo_titulo: "futura-pt"
 $tipo_corpo: "freight-sans-pro"
 
@@ -30,7 +37,7 @@ body
 	// :background-image url("http://griddle.it/1008-4-24")
 
 a
-	:color $roxo
+	:color $cor_principal
 	:font-weight 600
 
 h1, h2
@@ -48,19 +55,19 @@ h2
 			:margin-top 12px
 			:font-weight 300
 			:font-size 24px
-			:color $roxo
+			:color $cor_principal
 
 strong
 	:font-weight 600
 
 .inscreva-se:hover
-	:background-color $amarelo_claro
+	:background-color $cor_secundaria_clara
 
 .saiba-mais
 	:position absolute
 	:bottom 6px
 	:right 6px
-	:color $roxo
+	:color $cor_principal
 	:font-weight 600
 
 a.modulo
@@ -166,7 +173,7 @@ form.modulo
 
 .price-table
 	th
-		:color $roxo
+		:color $cor_principal
 
 	td
 		// :font-style italic
@@ -178,7 +185,7 @@ form.modulo
 
 
 .modulo, .chamada-evento, .carousel, table, iframe, .alert, .imagem-do-evento
-	:border solid 1px $amarelo
+	:border solid 1px $cor_secundaria
 
 .alert
 	:border-radius 0
@@ -191,7 +198,7 @@ form.modulo
 
 	a:hover 
 		.caption, h2, h3, h4
-			:background-color $roxo
+			:background-color $cor_principal
 			:color $branco !important
 
 .calendario
@@ -233,8 +240,8 @@ aside.modulo
 		:font-family $tipo_titulo
 		:font-weight 300
 		:line-height 25px
-		:border-color $amarelo
-		:color $amarelo
+		:border-color $cor_secundaria
+		:color $cor_secundaria
 		:background-color transparent
 		:margin-top 0
 
@@ -242,7 +249,7 @@ aside.modulo
 	:border none
 
 .carousel-caption, .chamada-evento .caption
-	:background-color transparentize($amarelo, 0.15)
+	:background-color transparentize($cor_secundaria, 0.15)
 	:width 70%
 	:bottom 0px
 	:left 0px
@@ -263,7 +270,7 @@ aside.modulo
 	// :height 360px
 
 .inscreva-se
-	:border solid 1px $amarelo
+	:border solid 1px $cor_secundaria
 	:float right
 
 article
@@ -298,7 +305,7 @@ article
 		:text-transform none
 
 	h4
-		:background-color $roxo
+		:background-color $cor_principal
 		:color $branco
 		:font-size 16px
 
@@ -336,14 +343,14 @@ ol, li
 
 nav, h1, h2, h3, h4, h5, h6
 	:font-family $tipo_titulo
-	:color $roxo
+	:color $cor_principal
 	:font-weight 300
 	:margin 0
 	:line-height 1.1
 
 	a
 		:font-family $tipo_titulo
-		:color $roxo
+		:color $cor_principal
 		:font-weight 300
 		:margin 0
 		:line-height 1.1
@@ -363,7 +370,7 @@ h2
 h3, h3 a, h3 a:hover
 	:font-size 16px
 	:font-weight 500
-	:color $roxo
+	:color $cor_principal
 	:margin-bottom 12px
 
 h3, h4
@@ -375,7 +382,7 @@ h4
 
 footer
 	:padding-top 12px
-	:border-top 1px solid $amarelo
+	:border-top 1px solid $cor_secundaria
 
 	nav ul li a.mail-link
 		:color #000
@@ -385,7 +392,7 @@ footer
 		:font-size 14px !important
 
 	nav
-		:background-color $amarelo
+		:background-color $cor_secundaria
 
 		ul.nav, ul.nav-pills
 			li a
@@ -417,18 +424,18 @@ article.local
 		:margin-bottom 12px
 		:padding-bottom 12px
 		:padding-top 12px
-		:border-bottom solid 1px $roxo
+		:border-bottom solid 1px $cor_principal
 
 	li+li+li+li
 		:border none
 
 		em
-			color: $amarelo
+			color: $cor_secundaria
 
 header
 	nav
-		:border-top 1px solid $amarelo
-		:border-bottom 1px solid $amarelo
+		:border-top 1px solid $cor_secundaria
+		:border-bottom 1px solid $cor_secundaria
 
 .media-gallery
 	a 
@@ -439,13 +446,13 @@ header
 
 		&.active 
 			img.photo, img.video
-				:border-color $amarelo !important
+				:border-color $cor_secundaria !important
 				:-webkit-transform scale(1.1)
 	
 		&:hover 
 			img.photo, img.video
 				:-webkit-transform scale(1.1)
-				// :border-color $roxo
+				// :border-color $cor_principal
 
 nav
 	ul.nav, ul.nav-pills
@@ -493,4 +500,4 @@ header
 	:margin-top 0 !important
 	:margin-bottom 0 !important
 	+ .clipping
-		:border-top 1px solid $amarelo
+		:border-top 1px solid $cor_secundaria
