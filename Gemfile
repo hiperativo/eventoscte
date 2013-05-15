@@ -7,6 +7,8 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'thin'
 
+# qualquer coisa
+
 gem 'rmagick'
 gem 'fog'
 gem 'carrierwave'
