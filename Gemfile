@@ -8,6 +8,7 @@ gem 'pg'
 gem 'thin'
 
 # qualquer coisa
+# asdasd
 
 gem 'rmagick'
 gem 'fog'
