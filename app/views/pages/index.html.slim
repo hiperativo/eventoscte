@@ -35,20 +35,23 @@
 
 		.row
 			.modulo.grid_1
-				- unless Event.all.empty?
-					h3= link_to "Confira a programação do evento", "/evento/caminhos-para-o-planejamento-gestao-e-qualificacao-profissional"
-					markdown:
-						Saiba dos temas e palestrantes do evento do dia 14/05, Caminhos para o Planejamento, Gestão e Capacitação Profissional.
+				h3= link_to "Fotos do evento", "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/"
+				= link_to "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/" do
+					= image_tag Event.first.photos.sample.image_url(:medium) , height: 128
+				
+				
 
-					= link_to "Veja aqui", "/evento/caminhos-para-o-planejamento-gestao-e-qualificacao-profissional", class: "saiba-mais"
+				
+						
+
 
 			article.modulo.grid_2.interview
 				- unless Interview.all.empty?
-					- @interview = Interview.first
-					h3= link_to @interview.title, @interview
+					- @interview = Interview.where(title: "Conversa com Roberto de Souza").first
 					.row
-						= link_to image_tag(@interview.image_url(:banner), size:"204x130", class: "grid_1"), @interview
+						= link_to image_tag(@interview.image_url(:banner), size:"204x156", class: "grid_1"), @interview
 						.grid_1.texto
+							h3= link_to @interview.title, @interview
 							= markdown @interview.synopsis
 					
 				= link_to "Leia mais", @interview, class: "saiba-mais"

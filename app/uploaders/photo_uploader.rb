@@ -15,11 +15,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-     resize_to_fill 208, 132
+     resize_to_fill 208, 128
   end
 
   version :big do
-     resize_to_fill 1008, 456
+     resize_to_fill 684, 456
   end
 
 end

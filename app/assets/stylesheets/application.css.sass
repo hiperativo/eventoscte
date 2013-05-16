@@ -10,15 +10,15 @@ $roxo: #007398
 $preto: #666
 $branco: #fff
 $preto_total: #000
-
 $vermelho: #a00
 
 $verde: #94BF02
+$verde_claro: #ecf3d6
 $azul: #007398
 
 $cor_principal: $azul // logo, titulos
 $cor_secundaria: $verde // detalhes, contornos
-$cor_secundaria_clara: $verde // hover caixinhas
+$cor_secundaria_clara: lighten($verde,30%) // hover caixinhas
 
 $tipo_titulo: "futura-pt"
 $tipo_corpo: "freight-sans-pro"
@@ -40,6 +40,9 @@ body
 a
 	:color $cor_principal
 	:font-weight 600
+
+	&:hover
+		:color $cor_secundaria
 
 h1, h2
 	small
@@ -201,7 +204,7 @@ form.modulo
 		color: $preto_total
 
 	a:hover 
-		.caption, h2, h3, h4
+		.caption, h2, h3, h4, p
 			:background-color $cor_principal
 			:color $branco !important
 
@@ -371,11 +374,14 @@ h2
 	:margin 0
 	:font-size 34px
 
-h3, h3 a, h3 a:hover
+h3, h3 a
 	:font-size 16px
 	:font-weight 500
 	:color $cor_principal
 	:margin-bottom 12px
+
+h3 a:hover
+	:color $cor_secundaria
 
 h3, h4
 	:text-transform uppercase
@@ -440,6 +446,11 @@ header
 	nav
 		:border-top 1px solid $cor_secundaria
 		:border-bottom 1px solid $cor_secundaria
+
+
+.main-photo
+	:display block
+	:margin 0 auto
 
 .media-gallery
 	a 

@@ -2,7 +2,7 @@
 	.grid_4
 		- case media[:type]
 		- when :photo
-			= image_tag media[:main].image_url(:big), size:"1008x456", class: "main-photo main-media"
+			= image_tag media[:main].image_url(:big), size:"684x456", class: "main-photo main-media"
 		- when :video 
 			.main-media style="width:853px; height:480px; margin: 0 auto"
 				#main-video

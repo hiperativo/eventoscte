@@ -4,12 +4,13 @@ doctype html
 html
 	head
 		title Eventos CTE
-		= javascript_include_tag "rails_admin/rails_admin" if admin?
 		= javascript_include_tag "swfobject"
 		= javascript_include_tag "application"
+
 		erb:
 			<script type="text/javascript" src="//use.typekit.net/hfh1dot.js"></script>
 		 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		
 		= stylesheet_link_tag "application", media: "all"
 		= csrf_meta_tags
 
