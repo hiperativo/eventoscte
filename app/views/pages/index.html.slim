@@ -37,14 +37,9 @@
 			.modulo.grid_1
 				h3= link_to "Fotos do evento", "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/"
 				= link_to "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/" do
-					= image_tag Event.first.photos.sample.image_url(:medium) , height: 128
+					- if Event.first.photos.any?
+						= image_tag Event.first.photos.sample.image_url(:medium), height: 128
 				
-				
-
-				
-						
-
-
 			article.modulo.grid_2.interview
 				- unless Interview.all.empty?
 					- @interview = Interview.where(title: "Conversa com Roberto de Souza").first
