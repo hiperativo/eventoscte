@@ -7,26 +7,19 @@
 #= require speaker_tooltip
 
 ready = ->
-	$(".carousel").carousel interval: 7000
-	$(".logo-carousel").carousel interval: 1000
+	$(".carousel").carousel 		interval: 7000
+	$(".logo-carousel").carousel 	interval: 1000
 
 	if $(".media-gallery").length
 		new Gallery
-			gallery_links: ".media-gallery a"
-			main_media: ".main-media"
-			media_wrapper: ".conteudo"
+			gallery_links: 	".media-gallery a"
+			main_media: 	".main-media"
+			media_wrapper: 	".conteudo"
 
 	if $(".talk a").length
 		new SpeakerTooltip
-			hot_element: ".talk a"
-
-	# change_state = (state) ->
-	# 	remove_all_states = -> $("html").removeAttr "data-state"
-	# 	set_state = -> $("html").attr "data-state", state 
-
-	# 	switch state
-	# 		when "normal" then do remove_all_states
-	# 		else do set_state
+			hot_element: 	".programacao a"
+			skip: 			".slides-download"
 
 	mostrar_campos_condicionais = ->
 		$(".enrollment_category").change ->
@@ -61,8 +54,6 @@ ready = ->
 
 	$(window).load -> 
 		do mostrar_campos_condicionais
-		# for item in $("nav.menu-principal li")
-		# 	$(item).width $(item).width()
 
 	do $(window).load
 

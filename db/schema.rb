@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509231328) do
+ActiveRecord::Schema.define(:version => 20130516230307) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20130509231328) do
     t.text     "additional_info"
     t.time     "starts_at"
     t.text     "after"
+    t.string   "slides"
   end
 
   create_table "videos", :force => true do |t|

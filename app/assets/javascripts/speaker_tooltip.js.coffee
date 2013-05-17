@@ -1,6 +1,6 @@
 class SpeakerTooltip
 	constructor: (@options) ->
-		@hot_element = $(@options.hot_element)
+		@hot_element = $(@options.hot_element).not(@options.skip)
 		do @user_interaction
 
 	user_interaction: =>

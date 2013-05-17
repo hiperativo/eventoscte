@@ -1,8 +1,11 @@
 class Talk < ActiveRecord::Base
-	attr_accessible :order, :speaker_id, :title, :panel_id, :additional_info, :starts_at, :after
+	attr_accessible :order, :speaker_id, :title, :panel_id,
+	:additional_info, :starts_at, :after, :slides, :slides_cache, :remove_slides
+
 	belongs_to :speaker
 	belongs_to :panel
-	
+	mount_uploader :slides, SlidesUploader
+
 	def short_time
 		unless self.starts_at.nil?
 			"#{self.starts_at.strftime("%k")}h#{self.starts_at.strftime("%M") if self.starts_at.strftime("%M").to_i > 0}"
