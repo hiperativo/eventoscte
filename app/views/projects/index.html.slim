@@ -16,7 +16,7 @@ article
 
 			- if !@projects.empty? and @projects.collect(&:description).collect(&:blank?).include?(false)
 				article.modulo.agenda-produtiva
-					h2 style="margin-bottom: 12px" Propostas e projetos de atuação da cadeia produtiva
+					h2 style="margin-bottom: 12px" Caminhos para a cadeia produtiva
 					
 					- for project in @projects do
 						- unless project.description.blank?
