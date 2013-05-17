@@ -9,7 +9,7 @@ article.evento
 			= image_tag @event.banner_url(:big), size: "744x192", style: "margin-bottom: 24px", class: "imagem-do-evento"
 			= markdown @event.description
 
-			h3 Faça o download das palestras disponíveis através do ícone: #{image_tag("download-icon.png")}
+			h3 Faça o download das palestras clicando no ícone: #{image_tag("download-icon.png")}
 			| O download iniciará automaticamente.
 
 		aside.grid_1
@@ -72,7 +72,7 @@ article.evento
 										li.talk
 											h5 
 												= markdown "#{talk.short_time} Palestra #{n+1} - **#{talk.title}**"
-												= link_to(image_tag("download-icon.png"), talk.slides_url, class:"slides-download", download: "#{talk.title.parameterize}.pdf") unless talk.slides.blank?
+												= link_to(image_tag("download-icon.png"), talk.slides_url, class:"slides-download" unless talk.slides.blank?
 											= markdown "[**#{talk.speaker.name}** - *#{talk.speaker.ocupation}*](#{talk.speaker.id})" unless talk.speaker.nil?
 											= markdown talk.additional_info
 											= render partial: "stuff_that_happens", locals: { what: talk.stuff_after } unless talk.after.nil?
