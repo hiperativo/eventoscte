@@ -19,8 +19,14 @@ class EnrollmentsController < ApplicationController
 		if @enrollment.valid? 
 			@i = ItauShopline.new
 
-			@precos = {"Profissional" => 700.0, "Cliente CTE (ativo)" => 630.0, "Associado de entidade apoiadora" => 630.0}
-			@preco = @precos[@enrollment.category]	
+			@precos = {
+					"Profissional" => 700.0,
+					"Cliente CTE (ativo)" => 630.0,
+					"Associado de entidade apoiadora" => 630.0
+				}
+
+
+			@preco = @precos[@enrollment.category]
 
 			if @enrollment.receipt_or_nf == "nota_fiscal"
 				if @enrollment.receipt_person == "cnpj" and @preco > 666.0
@@ -45,8 +51,8 @@ class EnrollmentsController < ApplicationController
 			@enrollment.price = number_to_currency @preco, unit: "R$", separator: ",", delimiter: "."
 			@enrollment.save
 			@values = {price: @preco, full_price: @enrollment.full_price}
-			
-			@itau_crypto = ItauShopline.new.gera_dados({ pedido: @enrollment.id + 800,  
+
+			@itau_crypto = ItauShopline.new.gera_dados { pedido: @enrollment.id + 800,  
 														valor: @preco,
 														nome_do_sacado: (@enrollment.receipt_person == "cpf" ? @enrollment.full_name : @enrollment.enterprise),
 														codigo_da_inscricao: @enrollment.receipt_person,
@@ -56,8 +62,8 @@ class EnrollmentsController < ApplicationController
 														cep_do_sacado: @enrollment.cep,
 														cidade_do_sacado: @enrollment.city,
 														estado_do_sacado: @enrollment.state,
-														data_de_vencimento: (Time.new(2013, 5, 10, 8)) })
-														# data_de_vencimento: (Time.now + 5.days) })
+														# data_de_vencimento: (Time.new 2013, 5, 10, 8) }
+														data_de_vencimento: Time.now + 5.days }
 
 			@enrollment.update_attribute(:itau_crypto, @itau_crypto)
 
