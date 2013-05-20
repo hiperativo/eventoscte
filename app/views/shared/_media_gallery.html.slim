@@ -1,15 +1,22 @@
 .row
-	.grid_4
-		- case media[:type]
-		- when :photo
+	- case media[:type]
+	- when :photo
+		.grid_4
 			= image_tag media[:main].image_url(:big), size:"684x456", class: "main-photo main-media"
-		- when :video 
-			.main-media style="width:853px; height:480px; margin: 0 auto"
+	- when :video 
+		.grid_3
+			.main-media style="width:750px; height:421px"
 				#main-video
+
 			javascript:
 				$(document).ready(function(){
-					swfobject.embedSWF("http://www.youtube.com/v/#{media[:main].youtube_code}", "main-video", 854, 480, "9")
+					swfobject.embedSWF("http://www.youtube.com/v/#{media[:main].youtube_code}", "main-video", 750, 421, "9")
 				})
+
+		.grid_1.modulo
+			h3 Parceiro de Mídia
+			p Vídeos produzidos por:
+			= image_tag "r30tv.gif"
 
 .row
 	.grid_4 class="#{media[:type]}-list media-gallery" style="position: relative"

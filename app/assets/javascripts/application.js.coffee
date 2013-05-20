@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery_ujs
+#= require jquery-ui
 #= require holder
 #= require bootstrap
 #= require turbolinks
@@ -20,6 +21,8 @@ ready = ->
 		new SpeakerTooltip
 			hot_element: 	".programacao a"
 			skip: 			".slides-download"
+
+	$(".photos.sortable").sortable()
 
 	mostrar_campos_condicionais = ->
 		$(".enrollment_category").change ->

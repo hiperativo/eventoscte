@@ -3,7 +3,13 @@ class PhotosController < ApplicationController
 		@event = Event.find(params[:event_id])
 		params[:page] ||= 1
 		@photo = @event.photos.page(params[:page]).first
-		redirect_to event_photo_path(@event, @photo, page: params[:page])
+
+		if current_admin_user
+			@photos = @event.photos
+			render
+		else 
+			redirect_to event_photo_path(@event, @photo, page: params[:page])
+		end
 	end
 
 	def show
@@ -11,7 +17,6 @@ class PhotosController < ApplicationController
 		params[:page] = params[:page].to_i
 		@photos = Photo.page(params[:page])
 		@event = Event.find(params[:event_id])
-
 		@photo = Photo.find(params[:id])
 
 		@gallery = {

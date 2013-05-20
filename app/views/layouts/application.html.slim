@@ -7,9 +7,10 @@ html
 		= javascript_include_tag "swfobject"
 		= javascript_include_tag "application"
 
-		erb:
-			<script type="text/javascript" src="//use.typekit.net/hfh1dot.js"></script>
-		 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		- unless request.local?
+			erb:
+				<script type="text/javascript" src="//use.typekit.net/hfh1dot.js"></script>
+			 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 		
 		= stylesheet_link_tag "application", media: "all"
 		= csrf_meta_tags
@@ -19,11 +20,11 @@ html
 		- if admin?
 			.alert.alert-info style="position: absolute; top: 0; z-index: 5" Você está logado como admin.
 
-		= javascript_include_tag "analytics.js"
+		= javascript_include_tag "analytics.js" unless request.local?
 		header
 			.container_4 style="overflow: hidden"
 				= link_to "/" do
-					= image_tag "logo-cte.png", style:"float: left; margin-right: 12px", size: "180x180", class: "logo"
+					= image_tag "logo-cte-azul.png", style:"float: left; margin-right: 12px", size: "180x180", class: "logo"
 
 				- unless Event.all.empty?
 					div style="margin-top: 24px; width: 792px; overflow: hidden"
@@ -36,7 +37,7 @@ html
 									Dia __14/05__ | Em __São Paulo__ | Das __8h__ às __18h__
 
 						= link_to "/inscreva-se" do
-							= image_tag "inscreva-se-aqui.png", size: "120x84", class:"inscreva-se"
+							= image_tag "inscreva-se-aqui-azul.png", size: "120x84", class:"inscreva-se"
 
 			nav.menu-principal style="position: absolute; width: 100%; top: 132px"
 				.container_4
@@ -87,5 +88,3 @@ html
 									| (11) 2149-0394
 								li style="color: #000; margin: 9px"
 									= link_to "eventos@cte.com.br", "mailto://eventos@cte.com.br", class: "mail-link"
-									
-
