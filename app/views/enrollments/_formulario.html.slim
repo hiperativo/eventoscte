@@ -54,8 +54,8 @@
 
 		.control-group= f.input :phone									,label: "Telefone"
 
-	.control-group= f.input :payment_type								,label: "Forma de pagamento", 
-		collection: ["Boleto bancário", "Crédito em conta (somente para clientes itaú"], as: :radio_buttons
+	control-group= f.input :payment_type								,label: "Forma de pagamento", 
+		collection: ["Boleto bancário", "Crédito em conta (somente para clientes itaú)"], as: :radio_buttons
 
 	.control-group= f.input :how_did_you_knew_us						,label: "Como tomou conhecimento do evento?",  
 		collection: ["Boletim CTE", "Site CTE", "Jornal/Revista", "Outros"], as: :radio_buttons
@@ -67,4 +67,7 @@
 
 
 	= f.input :event_id, as: :hidden
+
+	.legenda O participante autoriza que seus dados pessoais sejam divulgados para os patrocinadores do evento mencionado neste formulário.
+
 	= f.button :submit, value: "Fazer Inscrição", input_html: { class: "btn" }

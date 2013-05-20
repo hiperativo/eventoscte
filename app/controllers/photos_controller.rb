@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
 		@photo = Photo.find(params[:id])
 
 		@gallery = {
-			media: { 
+			media: {
 				collection: @photos,
 				type: :photo,
 				main: @photo,
@@ -30,4 +30,12 @@ class PhotosController < ApplicationController
 
 		render layout: !request.xhr?
 	end
+
+	def sort
+		params[:photo].each_with_index do |photo, index|
+			Photo.find(photo).update_attributes position: index
+		end
+		render text: "done"
+	end
+
 end

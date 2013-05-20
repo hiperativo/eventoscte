@@ -94,8 +94,16 @@ p.lead
 	:font-size 18px
 	:line-height 1.15
 
+
+.alert
+	:background-color $cor_secundaria_clara
+
+
 iframe.grid_4
 	:width 1006px !important
+
+.pergunta > .controls > .control-label
+	:font-weight 800 !important
 
 .form-horizontal
 	span.error
@@ -166,9 +174,16 @@ form.modulo
 		// :font-style italic
 
 	.column-1
-		:width 200px
-		:font-weight bold
+		:vertical-align middle
+		:width auto
 		:font-style normal
+		:border-bottom 1px solid $cor_secundaria
+
+	.column-2, .column-3, .column-4
+		:vertical-align middle
+		:width 95px
+		:font-style normal
+		:border-bottom 1px solid $cor_secundaria
 
 
 .modulo, .chamada-evento, .carousel, table, iframe, .alert, .imagem-do-evento
@@ -201,7 +216,12 @@ form.modulo
 		:list-style-type decimal
 
 	h3
-		:margin-top 12px
+		:margin-top 24px
+		:margin-bottom 0px
+
+
+
+
 
 .modulo
 	:height 156px
@@ -369,6 +389,7 @@ h3 a:hover
 h3, h4
 	:text-transform uppercase
 
+
 h4
 	:font-size 10px
 	:font-weight 300
@@ -394,6 +415,11 @@ footer
 
 nav
 	:text-transform uppercase
+
+.legenda
+	:font-size 11px
+	:font-style italic
+	:margin-bottom 12px
 
 .container_4
 	:overflow hidden

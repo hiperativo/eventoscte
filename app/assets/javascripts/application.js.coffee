@@ -22,7 +22,12 @@ ready = ->
 			hot_element: 	".programacao a"
 			skip: 			".slides-download"
 
-	$(".photos.sortable").sortable()
+	$(".photos.sortable").sortable
+		update: (e, ui) -> 
+			obj = $(this)
+			console.log obj.sortable("serialize")
+			$.post window.location.pathname + "/sort", obj.sortable("serialize"), -> 
+				obj.effect "highlight"
 
 	mostrar_campos_condicionais = ->
 		$(".enrollment_category").change ->

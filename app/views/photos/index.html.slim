@@ -4,8 +4,9 @@
 		à visualização de todas as imagens. Para prosseguir como
 		se fosse um usuário normal, [clique aqui](#{event_photo_path(@event, @photo, page: params[:page])}).
 
-ul.thumbnails.photos.sortable
-	- for photo in @photos do
-		li.thumbnail id=photo.id
-			= link_to event_photo_path @event, photo do
-				= image_tag photo.image_url :thumb
+.photos-wrapper style="position: relative"
+	ul.thumbnails.photos.sortable
+		- for photo in @photos do
+			li id="photo_#{photo.id}"
+				= link_to event_photo_path @event, photo do
+					= image_tag photo.image_url :thumb

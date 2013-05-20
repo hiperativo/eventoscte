@@ -4,6 +4,7 @@ class EnrollmentsController < ApplicationController
 	include ActionView::Helpers::NumberHelper
 	
 	def new
+		@inscricoes_abertas = false		# abrir ou fechar inscricoes, false=fechadas true=abertas
 		@event = Event.where("date > ?", Time.now).order("date ASC").first
 		@enrollment = Enrollment.new
 		unless @event.nil? then @enrollment.event_id = @event.id end
@@ -52,7 +53,7 @@ class EnrollmentsController < ApplicationController
 			@enrollment.save
 			@values = {price: @preco, full_price: @enrollment.full_price}
 
-			@itau_crypto = ItauShopline.new.gera_dados { pedido: @enrollment.id + 800,  
+			@itau_crypto = ItauShopline.new.gera_dados({ pedido: @enrollment.id + 800,  
 														valor: @preco,
 														nome_do_sacado: (@enrollment.receipt_person == "cpf" ? @enrollment.full_name : @enrollment.enterprise),
 														codigo_da_inscricao: @enrollment.receipt_person,
@@ -62,8 +63,8 @@ class EnrollmentsController < ApplicationController
 														cep_do_sacado: @enrollment.cep,
 														cidade_do_sacado: @enrollment.city,
 														estado_do_sacado: @enrollment.state,
-														# data_de_vencimento: (Time.new 2013, 5, 10, 8) }
-														data_de_vencimento: Time.now + 5.days }
+														# data_de_vencimento: (Time.new 2013, 6, 6, 8) }
+														data_de_vencimento: Time.now + 5.days })
 
 			@enrollment.update_attribute(:itau_crypto, @itau_crypto)
 
