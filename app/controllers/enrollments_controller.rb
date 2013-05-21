@@ -4,7 +4,7 @@ class EnrollmentsController < ApplicationController
 	include ActionView::Helpers::NumberHelper
 	
 	def new
-		@inscricoes_abertas = false		# abrir ou fechar inscricoes, false=fechadas true=abertas
+		@inscricoes_abertas = true		# abrir ou fechar inscricoes, false=fechadas true=abertas
 		@event = Event.where("date > ?", Time.now).order("date ASC").first
 		@enrollment = Enrollment.new
 		unless @event.nil? then @enrollment.event_id = @event.id end
