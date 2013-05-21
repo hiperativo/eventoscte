@@ -9,8 +9,9 @@ article.evento
 			= image_tag @event.banner_url(:big), size: "744x192", style: "margin-bottom: 24px", class: "imagem-do-evento"
 			= markdown @event.description
 
-			h3 Faça o download das palestras clicando no ícone #{image_tag("download-icon.png")} na programação abaixo
-			| O download iniciará automaticamente.
+			- if @event.has_passed
+				h3 Faça o download das palestras clicando no ícone #{image_tag("download-icon.png")} na programação abaixo
+				p O download iniciará automaticamente.
 
 
 		aside.grid_1
