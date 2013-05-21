@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(:version => 20130520181948) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month"
+    t.integer  "month",      :limit => 2
     t.integer  "year",       :limit => 8
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
