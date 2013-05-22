@@ -71,7 +71,7 @@
 	.legenda O participante autoriza que seus dados pessoais sejam divulgados para os patrocinadores do evento mencionado neste formulário.
 
 	p
-		= f.button :submit, value: "Fazer inscrição", class: "btn btn-primary"
+		= f.button :submit, value: "Finalizar inscrição", class: "btn btn-primary"
 		
 		- unless @enrollment.group_enrollment
 			= f.button :submit, value: "Adicionar outra inscrição", name:"add_another", class: "btn", style: "margin-left: 12px"
