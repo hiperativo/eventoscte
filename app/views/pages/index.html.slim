@@ -35,7 +35,7 @@
 
 		.row
 			.modulo.grid_1
-				h3= link_to "Fotos do evento", "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/"
+				h3= link_to "Fotos do evento - 14/05", "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/"
 				= link_to "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/" do
 					- if Event.first.photos.any?
 						= image_tag Event.first.photos.sample.image_url(:medium), height: 128
