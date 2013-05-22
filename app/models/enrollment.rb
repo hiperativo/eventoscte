@@ -5,7 +5,7 @@ class Enrollment < ActiveRecord::Base
 	:cnpj, :complement, :display_name, :email, :enterprise, :entity, :full_name, 
 	:how_did_you_knew_us, :neighbourhood, :number, :occupation, :phone, :profession, 
 	:receipt_person, :state, :want_to_receive_newsletter, :event_id, :state_register, 
-	:cpf, :receipt_or_nf, :how_exactly_did_you_knew_us, :itau_crypto, :payment_type, :price, :full_price
+	:cpf, :receipt_or_nf, :how_exactly_did_you_knew_us, :itau_crypto, :payment_type, :price, :full_price, :group_enrollment
 
 	attr_accessor :how_exactly_did_you_knew_us, :has_discount
 

@@ -10,13 +10,15 @@ markdown:
 
 	Dados enviados em sua inscrição:
 
-- for name, value in @info do
-	b= name+": "
-	- unless value.blank?
-		= value
-	- else
-		| Não informado
-	br
+- @info.each_with_index do |i, n|
+	p Inscrição #{n+1}
+	- for name, value in i do
+		b= name+": "
+		- unless value.blank?
+			= value
+		- else
+			| Não informado
+		br
+end
 
 = render partial: "enrollments/valores"
-= link_to "Link para efetuar pagamento online", "https://shopline.itau.com.br/shopline/shopline.aspx?DC=#{@enrollment.itau_crypto}", target: "BLANK"

@@ -1,4 +1,5 @@
 export $(heroku config --shell)
+export EMAIL_RECEIVER=pedrozath@gmail.com
 unset DATABASE_URL
 rake db:migrate
 foreman start -p 3000

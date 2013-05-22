@@ -1,4 +1,4 @@
-= simple_form_for @enrollment, html:{class: "modulo"} do |f|
+= simple_form_for (if @second_enrollment then @second_enrollment else @enrollment end), html:{class: "modulo"} do |f|
 	.form-horizontal
 		h3
 			small Formulário de inscrição para o evento
@@ -65,9 +65,13 @@
 	.control-group= f.input :want_to_receive_newsletter					,label: "Deseja receber os informativos do CTE?",  
 		collection: ["Sim", "Não"], as: :radio_buttons
 
-
 	= f.input :event_id, as: :hidden
+	= f.input :group_enrollment, as: :hidden
 
 	.legenda O participante autoriza que seus dados pessoais sejam divulgados para os patrocinadores do evento mencionado neste formulário.
 
-	= f.button :submit, value: "Fazer Inscrição", input_html: { class: "btn" }
+	p
+		= f.button :submit, value: "Fazer inscrição", class: "btn btn-primary"
+		
+		- unless @enrollment.group_enrollment
+			= f.button :submit, value: "Adicionar outra inscrição", name:"add_another", class: "btn", style: "margin-left: 12px"
