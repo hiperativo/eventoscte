@@ -74,7 +74,7 @@ article.evento
 								h4 Painel #{RomanNumerals.to_roman(n+1)} - #{panel.title}
 
 								ol.talks
-									- panel.talks.order("starts_at ASC").each_with_index do |talk, n|
+									- panel.talks.each_with_index do |talk, n|
 									
 										li.talk
 											h5 
