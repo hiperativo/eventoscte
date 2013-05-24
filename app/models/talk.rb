@@ -1,6 +1,8 @@
 class Talk < ActiveRecord::Base
 	attr_accessible :order, :speaker_id, :title, :panel_id,
-	:additional_info, :starts_at, :after, :slides, :slides_cache, :remove_slides
+	:additional_info, :starts_at, :after, :slides, :slides_cache, :remove_slides, :order
+
+	default_scope lambda { order :order }
 
 	belongs_to :speaker
 	belongs_to :panel
