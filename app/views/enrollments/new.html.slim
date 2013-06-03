@@ -1,4 +1,4 @@
-- unless true
+- if inscricoes_abertas?
 -# unless @enrollment.event.nil?
 	.row
 		.grid_2
@@ -6,8 +6,8 @@
 				= render "tabela_de_precos"
 			.row
 				.grid_2.instrucoes-de-inscricao.modulo style="height: auto"
-					markdown:
-						## Como se inscrever
+					
+					h2 Como se inscrever
 						
 					p.lead Leia atentamente as instruções abaixo, preencha o formulário ao lado e efetue o pagamento.
 
@@ -21,6 +21,7 @@
 					Neste caso, sua empresa terá 10% de desconto no valor total.
 
 			= render "formulario"
+			
 - else
 	.row
 		.instrucoes-de-inscricao.grid_3

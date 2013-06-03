@@ -2,26 +2,12 @@
 //= require "grid"
 
 @import "bourbon"
+@import "colors"
 
-$amarelo: #f7cc52
-$amarelo_claro: #ffffd9
-$bege: #ffffd9
-$roxo: #532196
-$preto: #666
-$branco: #fff
-$preto_total: #000
-$vermelho: #a00
 
-$verde: #94BF02
-$verde_claro: #ecf3d6
-$azul: #007398
+$tipo_titulo: futura-pt, sans-serif
+$tipo_corpo: freight-sans-pro, sans-serif
 
-$cor_principal: $roxo // logo, titulos
-$cor_secundaria: $amarelo // detalhes, contornos
-$cor_secundaria_clara: $amarelo_claro // hover caixinhas
-
-$tipo_titulo: "futura-pt"
-$tipo_corpo: "freight-sans-pro"
 
 html
 	:opacity 1.0
@@ -111,8 +97,16 @@ p.lead
 	:font-size 18px
 	:line-height 1.15
 
+
+.alert
+	:background-color $cor_secundaria_clara
+
+
 iframe.grid_4
 	:width 1006px !important
+
+.pergunta > .controls > .control-label
+	:font-weight 800 !important
 
 .form-horizontal
 	span.error
@@ -183,9 +177,16 @@ form.modulo
 		// :font-style italic
 
 	.column-1
-		:width 200px
-		:font-weight bold
+		:vertical-align middle
+		:width auto
 		:font-style normal
+		:border-bottom 1px solid $cor_secundaria
+
+	.column-2, .column-3, .column-4
+		:vertical-align middle
+		:width 95px
+		:font-style normal
+		:border-bottom 1px solid $cor_secundaria
 
 
 .modulo, .chamada-evento, .carousel, table, iframe, .alert, .imagem-do-evento
@@ -218,7 +219,12 @@ form.modulo
 		:list-style-type decimal
 
 	h3
-		:margin-top 12px
+		:margin-top 24px
+		:margin-bottom 0px
+
+
+
+
 
 .modulo
 	:height 156px
@@ -372,7 +378,7 @@ h1
 h2
 	:font-weight 500
 	:margin 0
-	:font-size 34px
+	:font-size 35px
 
 h3, h3 a
 	:font-size 16px
@@ -385,6 +391,7 @@ h3 a:hover
 
 h3, h4
 	:text-transform uppercase
+
 
 h4
 	:font-size 10px
@@ -411,6 +418,11 @@ footer
 
 nav
 	:text-transform uppercase
+
+.legenda
+	:font-size 11px
+	:font-style italic
+	:margin-bottom 12px
 
 .container_4
 	:overflow hidden

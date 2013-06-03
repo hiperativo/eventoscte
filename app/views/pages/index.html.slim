@@ -35,14 +35,14 @@
 
 		.row
 			.modulo.grid_1
-				h3= link_to "Fotos do evento", "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/"
+				h3= link_to "Fotos do evento - 14/05", "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/"
 				= link_to "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/" do
 					- if Event.first.photos.any?
 						= image_tag Event.first.photos.sample.image_url(:medium), height: 128
 				
 			article.modulo.grid_2.interview
 				- unless Interview.all.empty?
-					- @interview = Interview.where(title: "Conversa com Roberto de Souza").first
+					- @interview = Interview.where(title: "Conversa com Emílio Fugazza").first
 					.row
 						= link_to image_tag(@interview.image_url(:banner), size:"204x156", class: "grid_1"), @interview
 						.grid_1.texto
@@ -54,7 +54,8 @@
 	aside.modulo.grid_1.omega.calendario style="height: 362px"
 		h3= link_to "Agenda Produtiva – Desafios e caminhos para:", "/agenda-produtiva"
 		markdown:
-			* __14/05__ - __Planejamento, Gestão e Capacitação Profissional__ 
-			* __26/06__ - __Sustentabilidade e Desenvolvimento Imobiliário__
-			* __11/09__ - __Inovação e implantação do BIM__
-			* __13/11__ - __Normalização, Desempenho, Qualidade e Industrialização__
+			* __14/05__ - [Planejamento, Gestão e Qualificação Profissional](/eventos/4)
+			* __26/06__ - [Sustentabilidade e Desenvolvimento Imobiliário](/eventos/5)
+			* __11/09__ - [Inovação e    
+			implantação do BIM](/eventos/6)
+			* __13/11__ - [Normalização, Desempenho, Qualidade e Industrialização](/eventos/7)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516230307) do
+ActiveRecord::Schema.define(:version => 20130524210004) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130516230307) do
     t.string   "payment_type"
     t.string   "price"
     t.string   "full_price"
+    t.boolean  "group_enrollment"
   end
 
   create_table "events", :force => true do |t|
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20130516230307) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "event_id"
+    t.integer  "position"
   end
 
   create_table "projects", :force => true do |t|
@@ -140,6 +142,16 @@ ActiveRecord::Schema.define(:version => 20130516230307) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "sliders", :force => true do |t|
     t.string   "title"
@@ -176,6 +188,7 @@ ActiveRecord::Schema.define(:version => 20130516230307) do
     t.time     "starts_at"
     t.text     "after"
     t.string   "slides"
+    t.integer  "ordem"
   end
 
   create_table "videos", :force => true do |t|

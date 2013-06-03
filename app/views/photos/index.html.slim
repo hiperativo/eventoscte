@@ -1,0 +1,12 @@
+.alert
+	markdown:
+		Você está logado como admin e por isso foi direcionado
+		à visualização de todas as imagens. Para prosseguir como
+		se fosse um usuário normal, [clique aqui](#{event_photo_path(@event, @photo, page: params[:page])}).
+
+.photos-wrapper style="position: relative"
+	ul.thumbnails.photos.sortable
+		- for photo in @photos do
+			li id="photo_#{photo.id}"
+				= link_to event_photo_path @event, photo do
+					= image_tag photo.image_url :thumb

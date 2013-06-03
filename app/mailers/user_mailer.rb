@@ -35,23 +35,40 @@ class UserMailer < ActionMailer::Base
 		{full_price: enrollment.full_price, price: enrollment.price}
 	end
 
-	def enrollment_notification(enrollment)
+	def enrollment_notification(enrollment, second_enrollment=nil)
 		@enrollment = enrollment
-		@values = values enrollment
-		@info = info enrollment
+
+		unless second_enrollment.nil?
+			@enrollment = second_enrollment
+		else
+			@enrollment = enrollment
+		end
+		@values = values(@enrollment)
+
+		@info = []
+		@info << info(enrollment)
+		@info << info(second_enrollment) unless second_enrollment.nil?
 		mail :to => ENV['EMAIL_RECEIVER'],  
 		:bcc => 'julia@nomedarosa.com.br',	
 		:subject => "Inscrição — #{@enrollment.event.title}", 
 		:reply_to => @enrollment.email
 	end
 
-	def user_enrollment_notification(enrollment)
-		@enrollment = enrollment
-		@values = values enrollment
-		@info = info enrollment
+	def user_enrollment_notification(enrollment, second_enrollment=nil)
+
+		unless second_enrollment.nil?
+			@enrollment = second_enrollment
+		else
+			@enrollment = enrollment
+		end
+
+		@values = values(@enrollment)
+		@info = []
+		@info << info(enrollment)
+		@info << info(second_enrollment) unless second_enrollment.nil?
 		mail :to => @enrollment.email,  
 		:bcc => 'julia@nomedarosa.com.br',	
-		:subject => "Pré-inscrição no evento #{@enrollment.event.title}", 
+		:subject => "Inscrição no evento #{@enrollment.event.title}", 
 		:reply_to => "inscricao_eventos@cte.com.br"
 
 	end
