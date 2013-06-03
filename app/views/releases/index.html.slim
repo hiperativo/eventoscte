@@ -13,7 +13,7 @@
 				markdown:
 					### Para imprensa
 					Profissionais da imprensa que queiram participar do evento deverão  
-					requisitar credencial com a assessoria de imprensa até o dia **10/05/2013**
+					requisitar credencial com a assessoria de imprensa até o dia **21/06/2013**.
 
 					Estará aberta agenda, no dia e local do encontro, para entrevistas com os palestrantes.
 		
@@ -21,7 +21,7 @@
 			.row
 				.grid_3
 					h2 Deu na mídia
-					p.lead Lorem ipsum, dolor sit amet.
+					p.lead Veja quem falou sobre os eventos CTE 2013.
 					- for clipping in @clippings do
 						.row.clipping
 							= image_tag clipping.image_url(:thumb), class: "grid_1"
@@ -29,7 +29,7 @@
 								h3= clipping.titulo
 								p.lead= clipping.lead
 								= markdown clipping.desc
-								= link_to "Leia a matéria na íntegra", clipping.materia_url
+								= link_to "Leia na íntegra", clipping.materia_url
 
 	aside.grid_1
 		- if @releases.any?
