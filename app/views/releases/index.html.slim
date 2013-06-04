@@ -29,7 +29,7 @@
 								h3= clipping.titulo
 								p.lead= clipping.lead
 								= markdown clipping.desc
-								= link_to "Leia na íntegra", clipping.materia_url
+								= link_to("Leia na íntegra", clipping.materia.blank? ? clipping.materia_link : clipping.materia_url, target: "BLANK")
 
 	aside.grid_1
 		- if @releases.any?
