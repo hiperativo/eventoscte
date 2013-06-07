@@ -77,7 +77,9 @@ class EnrollmentsController < ApplicationController
 				@enrollment.save
 				@values = {price: @preco, full_price: @enrollment.full_price}
 
-				@itau_crypto = ItauShopline.new.gera_dados({ pedido: @enrollment.id + 1200,  
+				@id_offset = ENV["RAILS_ENV"] == "development" ? 900000 : 1200
+
+				@itau_crypto = ItauShopline.new.gera_dados({ pedido: @enrollment.id + @id_offset,  
 															valor: @preco,
 															nome_do_sacado: (@enrollment.receipt_person == "cpf" ? @enrollment.full_name : @enrollment.enterprise),
 															codigo_da_inscricao: @enrollment.receipt_person,

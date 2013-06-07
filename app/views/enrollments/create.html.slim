@@ -1,6 +1,12 @@
 - # encoding: UTF-8
 h2 Inscrição enviada
 = render partial: "valores"
+
+= @id_offset
+= @enrollment.id
+
+=debug @id_offset +  @enrollment.id
+
 p 
 	| Seus dados foram enviados.
 p 
