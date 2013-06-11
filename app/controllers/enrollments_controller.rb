@@ -77,7 +77,7 @@ class EnrollmentsController < ApplicationController
 				@enrollment.save
 				@values = {price: @preco, full_price: @enrollment.full_price}
 
-				@id_offset = ENV["RAILS_ENV"] == "development" ? 900000 : 1400
+				@id_offset = ENV["RAILS_ENV"] == "development" ? 900000 : 2000
 
 				@itau_crypto = ItauShopline.new.gera_dados({ pedido: @enrollment.id + @id_offset,  
 															valor: @preco,
