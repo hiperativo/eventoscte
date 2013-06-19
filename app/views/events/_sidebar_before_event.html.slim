@@ -1,0 +1,17 @@
+.row
+	.modulo.grid_1
+		h3 Quando
+		markdown:
+			**#{l @event.date, format: "%d/%m/%Y (%A)"}**  
+			Local: #{@event.place}  
+			Endereço: #{@event.address}
+
+.row
+	.modulo.grid_1
+		h3 Para quem
+		= markdown @event.target
+
+.row
+	.modulo.grid_1
+		h3 Contato
+		= markdown @event.contact_info

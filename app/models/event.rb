@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
 	:place, :target, :title, :date, :after, :before, :slug, 
 	:disabled, :release, :release_cache, :remove_release
 	mount_uploader :release, ReleaseUploader
+	has_and_belongs_to_many :speakers
 	has_many :panels
 	has_many :enrollments
 	has_many :videos
@@ -11,6 +12,7 @@ class Event < ActiveRecord::Base
 	has_many :interviews
 
 	attr_accessible :panel_ids
+	attr_accessible :speaker_ids
 
 	default_scope order("date ASC")
 
@@ -24,6 +26,10 @@ class Event < ActiveRecord::Base
 	def has_passed
 		Time.now > self.date + 1.day
 		# self.date < Time.new(2013, 6)
+	end
+
+	def before_or_after
+		self.has_passed ? :after : :before
 	end
 
 	def create_slug

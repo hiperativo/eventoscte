@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 	def index
-		@eventos = Event.where(disabled: false).order("date ASC")
+		@events = Event.where(disabled: false).order("date ASC")
 	end
 	def show
 		if params[:slug]
@@ -9,5 +9,6 @@ class EventsController < ApplicationController
 			@event = Event.find params[:id]
 		end
 		@interviews = @event.interviews
+		@speakers = @event.speakers
 	end
 end

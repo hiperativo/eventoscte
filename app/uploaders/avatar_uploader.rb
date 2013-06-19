@@ -11,7 +11,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-     resize_to_fill 216, 180
+     resize_to_fill 200, 180
   end
 
 end

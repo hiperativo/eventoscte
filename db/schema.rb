@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603205012) do
+ActiveRecord::Schema.define(:version => 20130618203502) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -94,6 +94,11 @@ ActiveRecord::Schema.define(:version => 20130603205012) do
     t.boolean  "disabled",     :default => false
     t.string   "slug"
     t.string   "release"
+  end
+
+  create_table "events_speakers", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "speaker_id"
   end
 
   create_table "interviews", :force => true do |t|

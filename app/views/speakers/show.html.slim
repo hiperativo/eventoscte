@@ -1,4 +1,4 @@
-aside.modulo.grid_1.speaker-info
+aside.modulo.grid_1.speaker-info style="position: absolute"
 	= image_tag @speaker.avatar_url(:thumb), size: "216x180" unless @speaker.avatar.blank?
 	h3= @speaker.name
 	= markdown @speaker.bio

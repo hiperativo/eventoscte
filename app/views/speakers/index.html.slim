@@ -1,0 +1,21 @@
+.row
+	.grid_4
+		h2
+			| Palestrantes
+			small style="font-size: 16px"= link_to @event.title, @event
+article.speakers
+	.row
+		ul.grid_3
+			- for speakers_row in @speakers.in_groups_of(3).compact
+				.row
+					- for speaker in speakers_row.compact do
+						aside.modulo.grid_1.speaker-info style="width: 200px"
+							- if speaker.avatar.blank?
+								.speaker-blank-avatar style="width:200px;height:180px;background-color:#eee"
+							- else
+								= image_tag speaker.avatar_url(:thumb), size: "200x180"
+							h3= speaker.name
+							= markdown speaker.bio
+
+		aside.grid_1
+			= render "events/sidebar_#{@event.before_or_after}_event"

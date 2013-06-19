@@ -9,6 +9,7 @@ Eventoscte::Application.routes.draw do
 	get "/palestrante/:speaker_name" => "speakers#show"
 
 	resources :events, path: "eventos" do
+		resources :speakers, path: "palestrantes"
 		resources :photos, path: "fotos" do
 			post "sort", on: :collection
 		end

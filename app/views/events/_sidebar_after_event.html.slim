@@ -1,0 +1,23 @@
+- if @event.photos.any?
+	.row
+		.modulo.grid_1
+			h3 Galeria de Fotos
+			= link_to event_photos_path(@event) do
+				= image_tag @event.photos.sample.image_url(:medium), size: "208x132"
+
+- if @event.videos.any?
+	.row
+		.modulo.grid_1
+			h3 Galeria de Vídeos
+			= link_to event_videos_path(@event) do
+				= image_tag @event.videos.sample.thumbnail(:small), size: "208x132"
+
+- if @interviews.any?
+	.row
+		.grid_1.modulo style="height: auto"
+			h3 Entrevistas
+			- for interview in @interviews
+				= link_to interview.title, interview
+				.row
+					.grid_1.texto
+						= markdown interview.synopsis
