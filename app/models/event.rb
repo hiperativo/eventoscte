@@ -4,8 +4,10 @@ class Event < ActiveRecord::Base
 	:place, :target, :title, :date, :after, :before, :slug, 
 	:disabled, :release, :release_cache, :remove_release
 	mount_uploader :release, ReleaseUploader
-	has_and_belongs_to_many :speakers
+	# has_and_belongs_to_many :speakers
 	has_many :panels
+	has_many :talks, through: :panels
+	has_many :speakers, through: :talks
 	has_many :enrollments
 	has_many :videos
 	has_many :photos

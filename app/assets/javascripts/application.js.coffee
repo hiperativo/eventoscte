@@ -5,7 +5,7 @@
 #= require bootstrap
 #= require turbolinks
 #= require gallery
-#= require speaker_tooltip
+#= # require speaker_tooltip
 
 ready = ->
 	$(".carousel").carousel 		interval: 7000
@@ -17,10 +17,10 @@ ready = ->
 			main_media: 	".main-media"
 			media_wrapper: 	".conteudo"
 
-	if $(".talk a").length
-		new SpeakerTooltip
-			hot_element: 	".programacao a"
-			skip: 			".slides-download"
+	# if $(".talk a").length
+	# 	new SpeakerTooltip
+	# 		hot_element: 	".programacao a"
+	# 		skip: 			".slides-download"
 
 	$(".photos.sortable").sortable
 		update: (e, ui) -> 

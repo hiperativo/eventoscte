@@ -12,11 +12,11 @@
 			= link_to event_videos_path(@event) do
 				= image_tag @event.videos.sample.thumbnail(:small), size: "208x132"
 
-- if @interviews.any?
+- if @event.interviews.any?
 	.row
 		.grid_1.modulo style="height: auto"
 			h3 Entrevistas
-			- for interview in @interviews
+			- for interview in @event.interviews
 				= link_to interview.title, interview
 				.row
 					.grid_1.texto
