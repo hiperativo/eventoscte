@@ -19,11 +19,11 @@
 
 			A cada Evento, serão debatidas propostas e formulados projetos para atuação conjunta da cadeia produtiva, para que o setor possa avançar tanto em nível estratégico como técnico e produtivo.
 
-- unless @eventos.empty?
+- unless @events.empty?
 	.row
 		.grid_4
 			ul.thumbnails
-				- @eventos.each_with_index do |evento, n|
+				- @events.each_with_index do |evento, n|
 					li.chamada-evento 
 						= link_to evento do
 							= image_tag evento.banner_url(:thumb), size: "490x180"

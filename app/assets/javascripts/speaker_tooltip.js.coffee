@@ -4,7 +4,7 @@ class SpeakerTooltip
 		do @user_interaction
 
 	user_interaction: =>
-		@hot_element.click -> false
+		# @hot_element.click -> false
 		@hot_element.hover (e) =>
 			link = $(e.currentTarget).attr "href"
 			@fetch "/palestrante/#{link}", @show
