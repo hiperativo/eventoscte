@@ -13,5 +13,4 @@ module ApplicationHelper
 		current_admin_user
 		false
 	end
-
 end
