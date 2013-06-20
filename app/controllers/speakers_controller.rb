@@ -2,7 +2,7 @@ class SpeakersController < ApplicationController
 	def index
 		@event = Event.find params[:event_id]
 		@roberto = Speaker.where(name: "Roberto de Souza").first
-		@speakers = @event.speakers
+		@speakers = @event.speakers.with_bio
 		@speakers.unshift @roberto unless @roberto.nil?
 	end
 
