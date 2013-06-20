@@ -1,4 +1,4 @@
-.row
+.row	
 	.grid_4
 		h2
 			| Palestrantes
@@ -6,6 +6,8 @@
 article.speakers
 	.row
 		ul.grid_3
+			.row style="margin-bottom:0"
+
 			- for speakers_row in @speakers.in_groups_of(3).compact
 				.row style="margin-bottom:0"
 					- for speaker in speakers_row.compact do
