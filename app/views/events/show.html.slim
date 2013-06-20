@@ -36,11 +36,11 @@ article.evento
 								h4 Painel #{RomanNumerals.to_roman(n+1)} - #{panel.title}
 
 								ol.talks
-									- panel.talks.each_with_index do |talk, n|
+									- panel.talks.order("ordem").each_with_index do |talk, n|
 									
 										li.talk
 											h5 
-												= markdown "#{talk.short_time} Palestra #{n+1} - **#{talk.title}**"
+												= markdown "#{talk.short_time} Palestra #{talk.ordem} - **#{talk.title}**"
 												- unless talk.slides.blank?
 													= link_to talk.slides_url, class:"slides-download" do
 														= image_tag("download-icon.png")
