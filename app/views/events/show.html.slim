@@ -19,7 +19,7 @@ article.evento
 			- if @speakers.any?
 				.row
 					.grid_1.modulo
-						h3= link_to "Clique aqui para ver todos os palestrantes", polymorphic_path([@event, Speaker])
+						h3= link_to "Clique aqui para ver o currículo dos palestrantes deste evento", polymorphic_path([@event, Speaker])
 	.row
 
 		- unless @event.panels.empty?
