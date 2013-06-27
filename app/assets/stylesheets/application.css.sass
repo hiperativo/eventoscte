@@ -47,6 +47,9 @@ h2
 			:font-size 24px
 			:color $cor_principal
 
+.vitrine .modulo:hover
+	:background-color $cor_secundaria_clara
+
 strong
 	:font-weight 600
 
@@ -336,10 +339,12 @@ article
 			:margin-top 6px
 			:margin-bottom 6px
 
-		a
+		a 
 			// :cursor help
 			:font-weight 200
 			:color #000
+			:padding-left 20px
+			:background url("/assets/download-icon.png") no-repeat 0px 4px
 
 	dd, dt, dl
 		:padding 3px
@@ -397,6 +402,9 @@ h4
 	:font-size 10px
 	:font-weight 300
 
+figure figcaption
+	:margin 10px 0
+
 footer
 	:padding-top 12px
 	:border-top 1px solid $cor_secundaria
@@ -406,13 +414,13 @@ footer
 		:padding 0
 		:margin 0
 		:margin-top 3px
-		:font-size 14px !important
+		:font-size 12px !important
 
 	nav
 		:background-color $cor_secundaria
 
 		ul.nav, ul.nav-pills
-			li a
+			li, li a
 				:border none
 				:font-size 12px
 

@@ -14,6 +14,8 @@
 /log/*.log
 /tmp
 
+.env
+
 /.zeus.sock
 logs
 public/mail/.DS_Store
