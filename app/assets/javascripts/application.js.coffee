@@ -5,6 +5,7 @@
 #= require bootstrap
 #= require turbolinks
 #= require gallery
+#= require swfobject
 #= # require speaker_tooltip
 
 ready = ->

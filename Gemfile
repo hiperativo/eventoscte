@@ -19,7 +19,6 @@ gem "activerecord-session_store"
 gem "protected_attributes"
 gem 'rails_admin', "~> 0.5.0"
 gem 'itau_shopline', github: "pedrozath/Itau-Shopline"
-# gem 'itau_shopline', path: "~/sites/gems"
 
 gem 'slim-rails'
 gem 'sass-rails',   '~> 4.0.0'
@@ -34,6 +33,7 @@ group :development, :test do
 	gem 'rb-fsevent'
 end
 
+
 group :test do
 	gem 'capybara'
 	gem 'guard-rspec'
@@ -45,3 +45,5 @@ gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
+gem 'rails_12factor', group: :production
