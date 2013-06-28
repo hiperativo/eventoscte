@@ -16,8 +16,9 @@ html
 
 
 	body class="#{params[:controller]} #{params[:action]}"
-		- if admin?
-			.alert.alert-info style="position: absolute; top: 0; z-index: 5" Você está logado como admin.
+		- if admin_user_signed_in?
+			.alert.alert-info style="position: absolute; top: 0; z-index: 5; margin: 10px"
+				= link_to "Você está logado como admin", "/admin", data:{"no-turbolink" => true}
 
 		= javascript_include_tag "analytics.js" unless request.local?
 		header

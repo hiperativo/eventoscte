@@ -1,7 +1,6 @@
 Eventoscte::Application.routes.draw do
-
-	mount RailsAdmin::Engine => '/admincte'
 	devise_for :admin_users
+	mount RailsAdmin::Engine => '/admin', as: "rails_admin"
 	get "inscreva-se" => redirect("/inscricoes/nova")
 	get "/evento/:slug" => "events#show"
 	get "/patrocinadores" => "pages#sponsors"

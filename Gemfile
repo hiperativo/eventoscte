@@ -2,13 +2,10 @@ source 'https://rubygems.org'
 
 ruby "2.0.0"
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 gem 'pg'
 gem 'thin'
-
-# qualquer coisa
-# asdasd
 
 gem 'rmagick'
 gem 'fog'
@@ -18,15 +15,18 @@ gem 'simple_form'
 gem 'turbolinks'
 gem 'kaminari'
 
-gem 'rails_admin' #, git: "git://github.com/sferik/rails_admin.git"
-gem 'itau_shopline', git: "git://github.com/pedrozath/Itau-Shopline.git"
+gem "activerecord-session_store"
+gem "protected_attributes"
+gem 'rails_admin', "~> 0.5.0"
+gem 'itau_shopline', github: "pedrozath/Itau-Shopline"
 # gem 'itau_shopline', path: "~/sites/gems"
 
 gem 'slim-rails'
-gem 'sass-rails',   '~> 3.2.3'
-gem 'coffee-rails', '~> 3.2.1'
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
 gem 'maruku'
 gem 'bourbon'	
+gem 'devise', "~>3.0.0.rc"
 
 group :development, :test do
 	gem 'rspec-rails'
@@ -45,5 +45,3 @@ gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-
-gem "devise"
