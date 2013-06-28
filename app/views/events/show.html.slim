@@ -43,7 +43,7 @@ article.evento
 												= markdown "#{talk.short_time} Palestra #{talk.ordem} - **#{talk.title}**"
 												- unless talk.slides.blank?
 													= link_to talk.slides_url, class:"slides-download" do
-														= image_tag("download-icon.png")
+														/ = image_tag("download-icon.png")
 														|  clique aqui para fazer o download das apresentações deste bloco. 
 
 											= markdown "[**#{talk.speaker.name}** - *#{talk.speaker.ocupation}*]" unless talk.speaker.nil?

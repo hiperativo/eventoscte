@@ -1,8 +1,10 @@
 .row
 	- case media[:type]
 	- when :photo
-		.grid_4
-			= image_tag media[:main].image_url(:big), size:"684x456", class: "main-photo main-media"
+		section.grid_4
+			figure style="width: 684px; margin: 0 auto"
+				= image_tag media[:main].image_url(:big), size:"684x456", class: "main-photo main-media"
+				figcaption= markdown media[:main].caption unless media[:main].caption.blank?
 	- when :video 
 		.grid_3
 			.main-media style="width:750px; height:421px"
