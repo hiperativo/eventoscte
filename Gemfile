@@ -14,6 +14,7 @@ gem 'roman-numerals'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'kaminari'
+gem "rails_12factor"
 
 gem "activerecord-session_store"
 gem "protected_attributes"
