@@ -1,4 +1,4 @@
-cd `dirname $0`
+cd ../../..
 export $(heroku config --shell)
 export EMAIL_RECEIVER=pedrozath@gmail.com
 unset DATABASE_URL
