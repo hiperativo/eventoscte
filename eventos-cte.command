@@ -1,8 +1,9 @@
+cd `dirname $0`
 export $(heroku config --shell)
 export EMAIL_RECEIVER=pedrozath@gmail.com
 unset DATABASE_URL
 unset INSCRICOES_ABERTAS
 export INSCRICOES_ABERTAS=ON
 bundle install
-rake db:migrate
+bundle exec rake db:migrate
 foreman start -p 3000
