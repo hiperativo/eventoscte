@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130624235533) do
+ActiveRecord::Schema.define(version: 20130701162346) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -187,8 +187,8 @@ ActiveRecord::Schema.define(version: 20130624235533) do
 
   create_table "talks", force: true do |t|
     t.string   "title"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "panel_id"
     t.integer  "speaker_id"
     t.text     "additional_info"
@@ -196,6 +196,7 @@ ActiveRecord::Schema.define(version: 20130624235533) do
     t.text     "after"
     t.string   "slides"
     t.integer  "ordem"
+    t.string   "slides_local_file"
   end
 
   create_table "videos", force: true do |t|
