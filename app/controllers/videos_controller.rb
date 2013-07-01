@@ -9,10 +9,9 @@ class VideosController < ApplicationController
 	def show
 		params[:page] = params[:page].to_i
 		@evento = Event.find(params[:event_id])
-		@videos = Video.page(params[:page])
 		@event = Event.find(params[:event_id])
-
-		@video = Video.find(params[:id])
+		@videos = @evento.videos.page(params[:page])
+		@video = @videos.find(params[:id])
 		@has_pagination = @videos.size > 7
 
 		@gallery = {

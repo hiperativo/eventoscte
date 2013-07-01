@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130618203502) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20130701162346) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -129,6 +126,7 @@ ActiveRecord::Schema.define(version: 20130618203502) do
     t.datetime "updated_at", null: false
     t.integer  "event_id"
     t.integer  "position"
+    t.text     "caption"
   end
 
   create_table "projects", force: true do |t|
@@ -189,8 +187,8 @@ ActiveRecord::Schema.define(version: 20130618203502) do
 
   create_table "talks", force: true do |t|
     t.string   "title"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "panel_id"
     t.integer  "speaker_id"
     t.text     "additional_info"
@@ -198,6 +196,7 @@ ActiveRecord::Schema.define(version: 20130618203502) do
     t.text     "after"
     t.string   "slides"
     t.integer  "ordem"
+    t.string   "slides_local_file"
   end
 
   create_table "videos", force: true do |t|

@@ -41,8 +41,9 @@ article.evento
 										li.talk
 											h5 
 												= markdown "#{talk.short_time} Palestra #{talk.ordem} - **#{talk.title}**"
-												- unless talk.slides.blank?
-													= link_to talk.slides_url, class:"slides-download" do
+												
+												- unless talk.get_slides.blank?
+													= link_to talk.get_slides, class:"slides-download" do
 														= image_tag("download-icon.png")
 														|  clique aqui para fazer o download da apresentação. 
 
