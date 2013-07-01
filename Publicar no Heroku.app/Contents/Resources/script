@@ -8,7 +8,7 @@ echo "fazendo um commit disso"
 git add .
 git commit -m "novos assets precompilados"
 echo "subindo no heroku, pode levar algum tempo, depende da internet"
-git push heroku master
+git push heroku master -v
 echo "pronto"
 echo "subindo as alterações de banco de dados agora"
 heroku run rake db:migrate
