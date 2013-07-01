@@ -16,8 +16,8 @@ class PhotosController < ApplicationController
 		@evento = Event.find(params[:event_id])
 		@event = Event.find(params[:event_id])
 		params[:page] = params[:page].to_i
-		@photos = Photo.page(params[:page])
-		@photo = @event.find(params[:id])
+		@photos = Photo.page(params[:page]).where(event_id: params[:event_id])
+		@photo = @photos.find(params[:id])
 
 		@gallery = {
 			media: {
