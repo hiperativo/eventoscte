@@ -7,7 +7,7 @@ echo "ok, foram compilados"
 echo "fazendo um commit disso"
 git add .
 git commit -m "novos assets precompilados"
-echo "agora subindo no heroku, pode levar algum tempo, depende da internet"
+echo "subindo no heroku, pode levar algum tempo, depende da internet"
 git push heroku master
 echo "pronto"
 echo "subindo as alterações de banco de dados agora"
