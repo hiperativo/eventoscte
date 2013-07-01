@@ -14,4 +14,3 @@ echo "subindo as alterações de banco de dados agora"
 heroku run rake db:migrate
 echo "pronto! o site está no ar!"
 echo "o servidor foi resetado então pode levar alguns segundos pra ele abrir"
-echo "mas foi tudo concluído."
