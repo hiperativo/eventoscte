@@ -1,8 +1,7 @@
 #!/bin/sh
 
 cd ../../..
-echo "precompilando assets(imagens e afins…)"
-echo "vai levar uns minutinhos"
+echo "precompilando assets(imagens e afins…). Vai levar uns minutinhos"
 bundle exec rake assets:precompile:all RAILS_ENV=production
 echo "ok, foram compilados"
 echo "fazendo um commit disso"
