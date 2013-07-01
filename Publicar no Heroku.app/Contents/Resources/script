@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd ../../../
+echo "precompilando assets(imagens e afins…). Vai levar uns minutinhos"
+bundle exec rake assets:precompile RAILS_ENV=production
+echo "ok, foram compilados"
+echo "fazendo um commit disso"
+git add .
+git commit -m "novos assets precompilados"
+echo "subindo no heroku e no github, pode levar algum tempo, depende da internet"
+git push
+git push heroku master -v
+echo "pronto"
+echo "subindo as alterações de banco de dados agora"
+heroku run rake db:migrate
+echo "pronto! o site está no ar!"
+echo "o servidor foi resetado então pode levar alguns segundos pra ele abrir"
