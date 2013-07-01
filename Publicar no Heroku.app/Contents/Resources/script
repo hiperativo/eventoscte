@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cd ../../../
 echo "precompilando assets(imagens e afins…). Vai levar uns minutinhos"
