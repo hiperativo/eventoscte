@@ -16,7 +16,7 @@ class Talk < ActiveRecord::Base
 				self.slides.url
 			end
 		else
-			asset_path self.slides_local_file
+			"/assets/"+self.slides_local_file
 		end
 	end
 
