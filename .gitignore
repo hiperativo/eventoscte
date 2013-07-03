@@ -17,6 +17,4 @@
 /.zeus.sock
 logs
 public/mail/.DS_Store
-*.DS_Store
-
-app/views/.DS_Store
+.DS_Store
