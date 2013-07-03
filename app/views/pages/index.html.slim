@@ -35,14 +35,14 @@
 
 		.row
 			.modulo.grid_1
-				h3= link_to "Fotos do evento - 14/05", "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/"
-				= link_to "/eventos/4-caminhos-para-o-planejamento-gestao-e-qualificacao-profissional/fotos/" do
+				h3= link_to "Fotos do evento - 26/06", "/eventos/5-caminhos-para-a-sustentabilidade-e-o-desenvolvimento-imobiliario/fotos/"
+				= link_to "/eventos/5-caminhos-para-a-sustentabilidade-e-o-desenvolvimento-imobiliario/fotos/" do
 					- if Event.first.photos.any?
 						= image_tag Event.first.photos.sample.image_url(:medium), height: 128
 				
 			article.modulo.grid_2.interview
 				- unless Interview.all.empty?
-					- @interview = Interview.where(title: "Conversa com Emílio Fugazza").first
+					- @interview = Interview.where(title: "Conversa com José Roberto Bernasconi").first
 					.row
 						= link_to image_tag(@interview.image_url(:banner), size:"204x156", class: "grid_1"), @interview
 						.grid_1.texto

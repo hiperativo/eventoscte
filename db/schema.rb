@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(:version => 20130624235533) do
     t.datetime "updated_at", :null => false
     t.integer  "event_id"
     t.integer  "position"
-    t.text     "caption"
   end
 
   create_table "projects", :force => true do |t|
