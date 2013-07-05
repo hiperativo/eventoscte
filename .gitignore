@@ -14,7 +14,16 @@
 /log/*.log
 /tmp
 
+.env
+
 /.zeus.sock
 logs
-public/mail/.DS_Store
+
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db

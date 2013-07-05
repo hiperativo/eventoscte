@@ -17,7 +17,7 @@ article.evento
 		aside.grid_1
 			= render "sidebar_#{@event.before_or_after}_event"
 			- if @speakers.any?
-				.row
+				.row 
 					.grid_1.modulo
 						h3= link_to "Clique aqui para ver o currículo dos palestrantes deste evento", polymorphic_path([@event, Speaker])
 	.row
@@ -43,8 +43,7 @@ article.evento
 												= markdown "#{talk.short_time} Palestra #{talk.ordem} - **#{talk.title}**"
 												
 												- unless get_slides(talk).blank?
-													= link_to get_slides(talk), class:"slides-download" do
-														= image_tag("download-icon.png")
+													= link_to get_slides(talk), class: "slides-download" do
 														|  clique aqui para fazer o download da apresentação. 
 
 											= markdown "[**#{talk.speaker.name}** - *#{talk.speaker.ocupation}*]" unless talk.speaker.nil?

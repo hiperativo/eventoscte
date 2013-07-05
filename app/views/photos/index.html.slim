@@ -10,3 +10,6 @@
 			li id="photo_#{photo.id}"
 				= link_to event_photo_path @event, photo do
 					= image_tag photo.image_url :thumb
+
+				= simple_form_for [@event, photo], action: polymorphic_path([@event, photo]) , html:{class: "live-update", data:{id: photo.id}} do |f|
+					= f.input :caption, label: false, placeholder: "legenda", input_html:{class: "span2", style:"margin-top: 10px; width:96px "}
