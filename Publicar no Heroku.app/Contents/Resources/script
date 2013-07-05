@@ -6,7 +6,8 @@ bundle exec rake assets:precompile RAILS_ENV=production
 echo "ok, foram compilados"
 echo "fazendo um commit disso"
 git add .
-git commit -m "novos assets precompilados"
+git commit -m "publicando no heroku"
+git pull
 echo "subindo no heroku e no github, pode levar algum tempo, depende da internet"
 git push -v
 git push heroku master -v
