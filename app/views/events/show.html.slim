@@ -27,7 +27,7 @@ article.evento
 				.programacao.modulo.grid_3
 					h3 Programação #{@event.date.strftime "%d/%m"}
 
-					= render partial: "stuff_that_happens", locals: { what: @event.stuff_before }
+					= render partial: "stuff_that_happens", locals: { what: @event.stuff_before, roberto: true }
 
 					ol.panels
 						- @event.panels.order("ordem").each_with_index do |panel, n|
