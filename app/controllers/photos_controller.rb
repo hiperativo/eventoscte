@@ -38,4 +38,9 @@ class PhotosController < ApplicationController
 		render text: "done"
 	end
 
+	def update
+		Photo.find(params[:id]).update_attributes params[:photo]
+		render status: :created, nothing: true
+	end
+
 end

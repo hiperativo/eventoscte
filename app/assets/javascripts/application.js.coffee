@@ -9,6 +9,17 @@
 #= # require speaker_tooltip
 
 ready = ->
+
+	window["counting"] = []
+	$("form.live-update").keyup ->
+		form = $(this).closest("form")
+		clearTimeout window["counting"][form.data().id]
+
+		window["counting"][form.data().id] = setTimeout =>
+			$.post form.attr("action"), form.serialize()
+			$(this).effect "pulsate"
+		, 1000
+
 	$(".carousel").carousel 		interval: 7000
 	$(".logo-carousel").carousel 	interval: 1000
 
@@ -17,11 +28,6 @@ ready = ->
 			gallery_links: 	".media-gallery a"
 			main_media: 	".main-media"
 			media_wrapper: 	".conteudo"
-
-	# if $(".talk a").length
-	# 	new SpeakerTooltip
-	# 		hot_element: 	".programacao a"
-	# 		skip: 			".slides-download"
 
 	$(".photos.sortable").sortable
 		update: (e, ui) -> 
