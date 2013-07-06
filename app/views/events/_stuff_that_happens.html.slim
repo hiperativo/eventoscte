@@ -5,4 +5,4 @@
 			dd= item[:what]
 
 - if defined? roberto and @event.has_passed
-	.talk= link_to "clique aqui para fazer o download da apresentação do Roberto.", asset_path("slides/palestra-roberto-#{@event.date.strftime("%d-%m")}.pdf")
+	.talk= link_to "clique aqui para fazer o download da apresentação do Roberto.", asset_path("palestra-roberto-#{@event.date.strftime("%d-%m")}.pdf")
