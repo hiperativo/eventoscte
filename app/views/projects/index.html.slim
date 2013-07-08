@@ -23,10 +23,10 @@ article
 							h3= project.title
 							= markdown project.description
 							
-		- unless @projects.empty?	
+		- unless @projects.empty?
 			aside.modulo.grid_1
 				h3 Temas da Agenda
-				ul.sortable
+				ul class=("sortable" if admin_user_signed_in?)
 					- for project in @projects do
 						li id="project_#{project.id}"
 							markdown:
