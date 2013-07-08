@@ -32,7 +32,7 @@ article.evento
 						- @event.panels.order("ordem").each_with_index do |panel, n|
 
 							li.panel
-								h4 Painel #{RomanNumerals.to_roman(n+1)} - #{panel.title}
+								h4 #{panel.short_time} Painel #{RomanNumerals.to_roman(n+1)} - #{panel.title}
 
 								ol.talks
 									- panel.talks.order("ordem").each_with_index do |talk, n|
