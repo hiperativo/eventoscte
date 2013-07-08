@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130701162346) do
+ActiveRecord::Schema.define(version: 20130708185536) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 20130701162346) do
     t.string   "synopsis"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "position"
   end
 
   create_table "rails_admin_histories", force: true do |t|

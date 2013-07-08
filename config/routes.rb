@@ -18,7 +18,11 @@ Eventoscte::Application.routes.draw do
 	
 	resources :enrollments, path: "inscricoes", path_names:{new: "nova"}
 	resources :releases, 	path: "imprensa"
-	resources :projects, 	path: "agenda-produtiva"
+	
+	resources :projects, 	path: "agenda-produtiva" do
+		post "sort", on: :collection
+	end
+
 	resources :interviews, 	path: "entrevistas"
 
 	get "/:action" => "pages"

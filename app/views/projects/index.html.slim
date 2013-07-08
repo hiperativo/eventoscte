@@ -26,9 +26,9 @@ article
 		- unless @projects.empty?	
 			aside.modulo.grid_1
 				h3 Temas da Agenda
-				ul
+				ul.sortable
 					- for project in @projects do
-						li
+						li id="project_#{project.id}"
 							markdown:
 								**#{project.title}**  
 								#{project.synopsis}

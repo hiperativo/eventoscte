@@ -10,6 +10,8 @@
 
 ready = ->
 
+	$(".sort-projects").css("background-color: red")
+
 	window["counting"] = []
 	$("form.live-update").keyup ->
 		form = $(this).closest("form")
@@ -29,12 +31,13 @@ ready = ->
 			main_media: 	".main-media"
 			media_wrapper: 	".conteudo"
 
-	$(".photos.sortable").sortable
+	$(".sortable").sortable
 		update: (e, ui) -> 
 			obj = $(this)
-			console.log obj.sortable("serialize")
 			$.post window.location.pathname + "/sort", obj.sortable("serialize"), -> 
 				obj.effect "highlight"
+
+
 
 	mostrar_campos_condicionais = ->
 		$(".enrollment_category").change ->
