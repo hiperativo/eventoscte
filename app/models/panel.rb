@@ -1,5 +1,5 @@
 class Panel < ActiveRecord::Base
-	attr_accessible :starts_at, :title, :after, :ordem, :starts_at
+	attr_accessible :starts_at, :title, :after, :ordem, :starts_at, :event_id
 	belongs_to :event
 	has_many :talks
 
