@@ -1,0 +1,21 @@
+-# encoding: UTF-8
+
+doctype html
+html
+	head
+		title Eventos CTE
+		= javascript_include_tag "application"
+
+		erb:
+			<script type="text/javascript" src="//use.typekit.net/hfh1dot.js"></script>
+			<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		
+		= stylesheet_link_tag "errors", media: "all"
+		= csrf_meta_tags
+
+
+	body class="#{params[:controller]} #{params[:action]}"
+
+		= javascript_include_tag "analytics.js" unless request.local?
+		section.conteudo.container_4
+			= yield

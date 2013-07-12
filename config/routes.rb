@@ -1,4 +1,7 @@
 Eventoscte::Application.routes.draw do
+	get "errors/not_found"
+	get "errors/internal_error"
+	
 	devise_for :admin_users
 	mount RailsAdmin::Engine => '/admin', as: "rails_admin"
 	get "inscreva-se" => redirect("/inscricoes/nova")
