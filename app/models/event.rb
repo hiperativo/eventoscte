@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
 
 	attr_accessible :panel_ids
 	attr_accessible :speaker_ids
+	accepts_nested_attributes_for :speakers
 
 	default_scope order("date ASC")
 
@@ -54,5 +55,22 @@ class Event < ActiveRecord::Base
 
 	def to_param
 		"#{self.id}-#{self.title}".parameterize()
+	end
+
+	rails_admin do
+		field :title
+		field :lead
+		field :banner
+		field :description
+		field :date
+		field :place
+		field :address
+		field :target
+		field :contact_info
+		field :after
+		field :disabled
+		field :slug
+		field :release
+		field :panels
 	end
 end
