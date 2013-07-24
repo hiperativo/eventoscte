@@ -67,6 +67,7 @@ class Event < ActiveRecord::Base
 		field :address
 		field :target
 		field :contact_info
+		field :before
 		field :after
 		field :disabled
 		field :slug
