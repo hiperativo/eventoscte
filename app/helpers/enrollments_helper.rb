@@ -1,6 +1,6 @@
 module EnrollmentsHelper
 	def inscricoes_abertas?
-		false
+		true
 		# ENV['INSCRICOES_ABERTAS'] == "ON"
 	end
 end
