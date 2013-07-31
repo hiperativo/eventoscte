@@ -35,17 +35,17 @@ class EnrollmentsController < ApplicationController
 				if @enrollment.group_enrollment
 
 					@precos = {
-						"Profissional" => 1600.0,
-						"Cliente CTE (ativo)" => 1440.0,
-						"Associado de entidade apoiadora" => 1440.0
+						"Profissional" => 1400.0,
+						"Cliente CTE (ativo)" => 1260.0,
+						"Associado de entidade apoiadora" => 1260.0
 					}
 
 				else
 
 					@precos = {
-						"Profissional" => 800.0,
-						"Cliente CTE (ativo)" => 720.0,
-						"Associado de entidade apoiadora" => 720.0
+						"Profissional" => 700.0,
+						"Cliente CTE (ativo)" => 630.0,
+						"Associado de entidade apoiadora" => 630.0
 					}
 
 				end
