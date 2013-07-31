@@ -2,7 +2,6 @@
 
 class EnrollmentsController < ApplicationController
 	include ActionView::Helpers::NumberHelper
-
 	def new
 		@event = Event.where("date > ?", Time.now).order("date ASC").first
 		@enrollment = Enrollment.new

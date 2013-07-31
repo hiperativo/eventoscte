@@ -15,7 +15,7 @@ gem 'simple_form', "~>3.0.0.rc"
 gem 'turbolinks'
 gem 'kaminari'
 
-gem "activerecord-session_store"
+gem "activerecord-session_store", github: "pedrozath/activerecord-session_store"
 gem "protected_attributes"
 gem 'rails_admin', "~> 0.5.0"
 gem 'itau_shopline', github: "pedrozath/Itau-Shopline"
