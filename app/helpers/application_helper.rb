@@ -1,11 +1,11 @@
 # encoding: UTF-8
 
 module ApplicationHelper
-	def markdown string
+	def markdown(string)
 		Maruku.new(string).to_html.html_safe
 	end
 
-	def sim_ou_nao boolean
+	def sim_ou_nao(boolean)
 		boolean ? "Sim" : "Não"
 	end
 
@@ -14,7 +14,7 @@ module ApplicationHelper
 		false
 	end
 
-	def get_slides talk
+	def get_slides(talk)
 
 		if talk.slides_local_file.blank?
 			if talk.slides.url.blank?
