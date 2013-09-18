@@ -35,7 +35,7 @@
 
 		.row
 			.modulo.grid_1
-				h3= link_to "Fotos do evento - 11/09", "/eventos/6-caminhos-para-a-inovacao-na-construcao-e-implantacao-do-bim/fotos/" do
+				h3= link_to "Fotos do evento - 11/09", "/eventos/6-caminhos-para-a-inovacao-na-construcao-e-implantacao-do-bim/fotos/"
 					- if Event.first.photos.any?
 						= image_tag Event.first.photos.sample.image_url(:medium), height: 128
 				
