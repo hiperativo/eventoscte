@@ -41,7 +41,7 @@
 				
 			article.modulo.grid_2.interview
 				- unless Interview.all.empty?
-					- @interview = Interview.where(title: "Conversa com Luiz Henrique Ceotto").first
+					- @interview = Interview.where(title: "Conversa com José Roberto Bernasconi").first
 					.row
 						= link_to image_tag(@interview.image_url(:banner), size:"204x156", class: "grid_1"), @interview
 						.grid_1.texto
