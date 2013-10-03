@@ -27,6 +27,7 @@ class UserMailer < ActionMailer::Base
 		"CPF" => 								enrollment.cpf, 
 		"Categoria" => 							enrollment.category,  
 		"Entidade" => 							enrollment.entity,  
+		"Forma de Pagamento" => 				enrollment.payment_type, 
 		"Deseja receber os informativos" => 	enrollment.want_to_receive_newsletter == true ? "Sim" : "Não",  
 		"Como tomou conhecimento do evento?" => enrollment.how_did_you_knew_us} 
 	end
