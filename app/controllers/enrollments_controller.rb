@@ -85,6 +85,7 @@ class EnrollmentsController < ApplicationController
 															endereco_do_sacado: @enrollment.address,
 															bairro_do_sacado: @enrollment.neighbourhood,
 															cep_do_sacado: @enrollment.cep,
+															observacao: 3,
 															cidade_do_sacado: @enrollment.city,
 															estado_do_sacado: @enrollment.state,
 															# data_de_vencimento: Time.new(2013, 10, 20, 8) })
