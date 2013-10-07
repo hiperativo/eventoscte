@@ -88,6 +88,7 @@ class EnrollmentsController < ApplicationController
 															cep_do_sacado: @enrollment.cep,
 															cidade_do_sacado: @enrollment.city,
 															estado_do_sacado: @enrollment.state,
+															obs_adicional1: "Sr. Caixa, não receber após o vencimento",
 															# data_de_vencimento: Time.new(2013, 10, 20, 8) })
 															data_de_vencimento: Time.now + 5.days })
 
