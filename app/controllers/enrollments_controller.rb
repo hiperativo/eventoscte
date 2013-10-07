@@ -79,13 +79,13 @@ class EnrollmentsController < ApplicationController
 
 				@itau_crypto = ItauShopline.new.gera_dados({ pedido: @enrollment.id + @id_offset,  
 															valor: @preco,
+															observacao: 3,
 															nome_do_sacado: (@enrollment.receipt_person == "cpf" ? @enrollment.full_name : @enrollment.enterprise),
 															codigo_da_inscricao: @enrollment.receipt_person,
 															numero_da_inscricao: @enrollment[@enrollment.receipt_person],
 															endereco_do_sacado: @enrollment.address,
 															bairro_do_sacado: @enrollment.neighbourhood,
 															cep_do_sacado: @enrollment.cep,
-															observacao: 3,
 															cidade_do_sacado: @enrollment.city,
 															estado_do_sacado: @enrollment.state,
 															# data_de_vencimento: Time.new(2013, 10, 20, 8) })
