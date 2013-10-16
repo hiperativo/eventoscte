@@ -52,7 +52,6 @@ class EnrollmentsController < ApplicationController
 				@preco = @precos[@enrollment.category]
 
 				if @enrollment.receipt_or_nf == "nota_fiscal"
-
 					if @enrollment.receipt_person == "cnpj" and @preco > 666.0
 						@IR = 1.5/100
 						@ISS = 5.0/100
