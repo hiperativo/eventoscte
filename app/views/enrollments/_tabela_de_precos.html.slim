@@ -1,7 +1,7 @@
-- @price_table = 	[["Categoria", 														"Até 21/10/13",	"Até 06/11/13",	"No local*"],  
-					["**Profissionais**", 												"R$ 700,00",	"R$ 800,00", 	"R$ 900,00"],
-					["**Clientes CTE**  \n (ativo, com projetos em andamento)", 	 	"R$ 630,00", 	"R$ 720,00", 	"R$ 810,00"],
-					["**Associado de entidades apoiadoras**", 		 					"R$ 630,00",	"R$ 720,00", 	"R$ 810,00"]]
+- @price_table = 	[["Categoria", 														"Até 06/11/13",	"No local*"],  
+					["**Profissionais**", 												"R$ 800,00", 	"R$ 900,00"],
+					["**Clientes CTE**  \n (ativo, com projetos em andamento)", 	 	"R$ 720,00", 	"R$ 810,00"],
+					["**Associado de entidades apoiadoras**", 		 					"R$ 720,00", 	"R$ 810,00"]]
 table.price-table.grid_2
 	- @price_table.each_with_index do |row, x|
 		tr
@@ -12,7 +12,6 @@ table.price-table.grid_2
 					td class="column-#{y+1}"= markdown cell
 					
 	td * se houver vaga
-	td
 	td
 	td
 

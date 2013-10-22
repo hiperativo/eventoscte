@@ -34,17 +34,17 @@ class EnrollmentsController < ApplicationController
 				if @enrollment.group_enrollment
 
 					@precos = {
-						"Profissional" => 1400.0,
-						"Cliente CTE (ativo)" => 1260.0,
-						"Associado de entidade apoiadora" => 1260.0
+						"Profissional" => 1600.0,
+						"Cliente CTE (ativo)" => 1440.0,
+						"Associado de entidade apoiadora" => 1440.0
 					}
 
 				else
 
 					@precos = {
-						"Profissional" => 700.0,
-						"Cliente CTE (ativo)" => 630.0,
-						"Associado de entidade apoiadora" => 630.0
+						"Profissional" => 800.0,
+						"Cliente CTE (ativo)" => 720.0,
+						"Associado de entidade apoiadora" => 720.0
 					}
 
 				end
@@ -89,8 +89,8 @@ class EnrollmentsController < ApplicationController
 															cidade_do_sacado: @enrollment.city,
 															estado_do_sacado: @enrollment.state,
 															obs_adicional1: "Sr. Caixa, não receber após o vencimento",
-															data_de_vencimento: Time.new(2013, 10, 21, 8) })
-															# data_de_vencimento: Time.now + 5.days })
+															# data_de_vencimento: Time.new(2013, 10, 21, 8) })
+															data_de_vencimento: Time.now + 5.days })
 
 				@enrollment.update_attribute(:itau_crypto, @itau_crypto)
 
